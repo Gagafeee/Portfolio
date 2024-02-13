@@ -1,9 +1,10 @@
 import type {Metadata} from "next";
-import {Inter} from "next/font/google";
 import "./globals.css";
+import {Rubik} from "next/font/google";
 import {initializeApp} from "firebase/app";
+import {ReactNode} from "react";
 
-const inter = Inter({subsets: ["latin"]});
+const defaultFont = Rubik({subsets: ["latin"]});
 
 const firebaseConfig = {
     apiKey: "AIzaSyAD5o14KnycfD-P6li-Dreq4pmCHuUXAg4",
@@ -17,14 +18,14 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const metadata: Metadata = {
-    title: "Gagafeee",
+    title: "Gagafeee portfolio",
     description: "Official Gagafeee web developer portfolio",
 };
 
-export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
+export default function RootLayout({children,}: Readonly<{ children: ReactNode; }>) {
     return (
         <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={defaultFont.className}>{children}</body>
         </html>
     );
 }
