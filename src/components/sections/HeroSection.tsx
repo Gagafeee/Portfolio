@@ -16,7 +16,7 @@ export default function HeroSection(props: HeroSectionProps) {
             <Image src={logoImage} alt={"Main Gagafeee logo"} width={400} height={400}/>
             <div className={[styles.Float, GlassyClass.Glassy].join(" ")}>
                 <div className={styles.TitleContainer}>
-                    <h1>I don't work</h1>
+                    <h1>I don&apos;t work</h1>
                     <h1 className={styles.Subtitle}>I create.</h1>
                 </div>
                 <h2>Passionate front-end developer since 2020</h2>

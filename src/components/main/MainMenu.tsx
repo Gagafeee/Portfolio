@@ -15,17 +15,18 @@ const letterWidth = 15.3;
 const gap = 19.6;
 export default function MainMenu(props: MainMenuProps) {
     const [selected, Selected] = useState(0);
-    const [margin, setMargin] = useState(calculateMargin());
+    const [margin, setMargin] = useState(padding + (letterWidth * props.list[selected].length) / 2);
 
-    function calculateMargin() {
-        const lengthMap = props.list.map(t => t.length);
-        let prev = 0;
-        lengthMap.slice(0, selected).map(l => prev += letterWidth * l + gap)
-        return padding + prev + (letterWidth * lengthMap[selected]) / 2;
-        //Margin = padding + (every previous length + gap) + (current length / 2)
-    }
 
     useEffect(() => {
+        function calculateMargin() {
+            const lengthMap = props.list.map(t => t.length);
+            let prev = 0;
+            lengthMap.slice(0, selected).map(l => prev += letterWidth * l + gap)
+            return padding + prev + (letterWidth * lengthMap[selected]) / 2;
+            //Margin = padding + (every previous length + gap) + (current length / 2)
+        }
+
         setMargin(calculateMargin())
     }, [selected]);
 
@@ -34,7 +35,7 @@ export default function MainMenu(props: MainMenuProps) {
         <div className={[styles.MainMenu, GlassyClass.Glassy, props.className].join(" ")} style={props.style}>
             {props.list.map((text, i) => {
                 return (
-                    <Button onClick={() => Selected(i)} display={"text"}
+                    <Button key={i} onClick={() => Selected(i)} display={"text"}
                             className={[styles.Button, selected === i ? styles.Selected : ""].join(" ")}>
                         {text}
                     </Button>
