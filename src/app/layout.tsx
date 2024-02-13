@@ -1,10 +1,10 @@
 import type {Metadata} from "next";
 import "./globals.css";
-import {Rubik} from "next/font/google";
 import {initializeApp} from "firebase/app";
 import {ReactNode} from "react";
+import {defaultFont} from "@/global/global";
+import MainMenu from "@/components/main/MainMenu";
 
-const defaultFont = Rubik({subsets: ["latin"]});
 
 const firebaseConfig = {
     apiKey: "AIzaSyAD5o14KnycfD-P6li-Dreq4pmCHuUXAg4",
@@ -25,7 +25,10 @@ export const metadata: Metadata = {
 export default function RootLayout({children,}: Readonly<{ children: ReactNode; }>) {
     return (
         <html lang="en">
-        <body className={defaultFont.className}>{children}</body>
+        <body className={defaultFont.className}>
+        <MainMenu list={["Presentation", "Projects", "Expertise", "Contact"]}/>
+        {children}
+        </body>
         </html>
     );
 }

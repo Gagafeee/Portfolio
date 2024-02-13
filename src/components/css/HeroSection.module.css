@@ -1,0 +1,81 @@
+.HeroSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5svw;
+    width: 100%;
+    height: 100svh;
+}
+
+.HeroSection .Float {
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5vh;
+    min-width: 40svw;
+    min-height: 30svh;
+    padding: 60px 34px;
+    border-radius: 35px;
+}
+
+.HeroSection .Float .TitleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1vh;
+}
+
+.HeroSection .Float .TitleContainer .Subtitle {
+    background: var(--primary-gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3.4vw;
+}
+
+.HeroSection .Background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.HeroSection .Background .Sphere {
+    position: absolute;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 3%);
+    border: 2px solid rgba(255, 255, 255, 20%);
+    box-shadow: 0 0 52px 0 rgba(255, 255, 255, 20%);
+    backdrop-filter: blur(50%);
+}
+
+.HeroSection .Background .Sphere_big {
+    bottom: -50%;
+    left: -25%;
+    width: 1300px;
+    height: 1300px;
+}
+
+.HeroSection .Background .Sphere_small {
+    top: 2%;
+    right: 5%;
+    width: 350px;
+    height: 350px;
+}
+
+.HeroSection .Background .Light {
+    position: absolute;
+    border-radius: 100%;
+    bottom: calc(1300px / -1.4);
+    left: calc(50% - (1300px / 2));
+    width: 1300px;
+    height: 1300px;
+    background: var(--primary-gradient);
+    filter: blur(200px);
+    opacity: 20%;
+}
