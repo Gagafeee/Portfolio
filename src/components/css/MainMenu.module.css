@@ -10,11 +10,11 @@
     border-radius: 16px;
 }
 
-.MainMenu .Button > p {
+.MainMenu .Button .Text {
     font-weight: 400;
 }
 
-.MainMenu .Button.Selected > p {
+.MainMenu .Button.Selected .Text {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 

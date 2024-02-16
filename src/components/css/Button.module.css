@@ -1,18 +1,19 @@
 .Button {
     cursor: pointer;
     border: none;
+    background-color: var(--background-primary);
 }
 
 .Button.DefaultType {
     padding: 9px 18px;
-    border-radius: 16px;
+    border-radius: var(--border-radius);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.2vw;
-    position: relative;
     /*Gradient border*/
     --thickness: 3px;
+    position: relative;
     background-clip: padding-box;
     border: solid var(--thickness) transparent;
     /**/

@@ -5,7 +5,6 @@ export default function Home() {
     return (
         <main className={styles.main}>
             <HeroSection/>
-            <h1>Coucou</h1>
         </main>
     );
 }

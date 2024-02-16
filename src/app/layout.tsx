@@ -4,6 +4,7 @@ import {initializeApp} from "firebase/app";
 import {ReactNode} from "react";
 import {defaultFont} from "@/global/global";
 import MainMenu from "@/components/main/MainMenu";
+import LanguageEnvironment from "@/components/public/LanguageEnvironment";
 
 
 const firebaseConfig = {
@@ -26,8 +27,15 @@ export default function RootLayout({children,}: Readonly<{ children: ReactNode; 
     return (
         <html lang="en">
         <body className={defaultFont.className}>
-        <MainMenu list={["Presentation", "Projects", "Expertise", "Contact"]}/>
-        {children}
+        <LanguageEnvironment>
+            <MainMenu list={[
+                {English: "Presentation", French: "Présentation"},
+                {English: "Projects", French: "Projets"},
+                {English: "Expertise", French: "Expertise"},
+                {English: "Contact", French: "Contact"}
+            ]}/>
+            {children}
+        </LanguageEnvironment>
         </body>
         </html>
     );
