@@ -4,7 +4,7 @@
     background-color: var(--background-primary);
 }
 
-.Button.DefaultType {
+.Button:not(.text) {
     padding: 9px 18px;
     border-radius: var(--border-radius);
     display: flex;
@@ -20,7 +20,7 @@
     transition: background-color ease 0.1s;
 }
 
-.Button.DefaultType::before {
+.Button.default::before {
     content: "";
     position: absolute;
     top: 0;
@@ -33,9 +33,14 @@
     background: var(--primary-gradient);
 }
 
-.Button.TextType {
+.Button.text {
     background: transparent;
 }
+
+.Button.secondary {
+    border: solid var(--thickness) #444444;
+}
+
 
 .Button:hover {
     background: transparent;

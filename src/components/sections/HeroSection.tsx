@@ -4,7 +4,7 @@ import GlassyClass from "../../global/Glassy.module.css";
 import {DefaultProps, Language, Languages} from "@/global/global";
 import Button from "@/components/public/Button";
 import Image from "next/image";
-import logoImage from "../../../public/main_logo.png";
+import logoImage from "/public/static/main_logo.png";
 import Dropdown from "@/components/public/Dropdown";
 import {useContext} from "react";
 import {LanguageContext} from "@/components/public/LanguageEnvironment";
@@ -37,15 +37,13 @@ export default function HeroSection(props: HeroSectionProps) {
                     }}</TranslatableText>
                 </h2>
                 <Button>
-                    <>
-                        <p>
-                            <TranslatableText>{{
-                                English: "Discover",
-                                French: "Découvrir"
-                            }}</TranslatableText>
-                        </p>
-                        <i className="fi fi-rr-caret-right"/>
-                    </>
+                    <p>
+                        <TranslatableText>{{
+                            English: "Discover",
+                            French: "Découvrir"
+                        }}</TranslatableText>
+                    </p>
+                    <i className="fi fi-rr-caret-right"/>
                 </Button>
                 <Dropdown className={styles.LanguageDropdown} defaultValue={currentLanguage}
                           onChange={(e) => setLanguage(e.target.value as Language)}>
@@ -55,8 +53,8 @@ export default function HeroSection(props: HeroSectionProps) {
                 </Dropdown>
             </div>
             <div className={styles.Background}>
-                <div className={[styles.Sphere, styles.Sphere_big].join(" ")}></div>
-                <div className={[styles.Sphere, styles.Sphere_small].join(" ")}></div>
+                <div className={["Sphere", styles.Sphere_big].join(" ")}></div>
+                <div className={["Sphere", styles.Sphere_small].join(" ")}></div>
                 <div className={styles.Light}></div>
             </div>
         </div>

@@ -1,0 +1,222 @@
+.ProjectSection {
+    height: 100svh;
+    overflow: hidden;
+    position: relative;
+    gap: 0;
+}
+
+.ProjectSection .Carousel {
+    display: flex;
+    align-items: center;
+    /*background-color: darkcyan;*/
+    width: 100%;
+    height: calc(100% - 9vh);
+    justify-content: space-between;
+    gap: 2vw;
+}
+
+.ProjectSection .Carousel .LeftContainer {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    min-width: 50%
+}
+
+/** Navigator **/
+
+.ProjectSection .Carousel .Navigator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background: red;*/
+    gap: 0.7vh;
+    --default-color: rgba(255, 255, 255, 0.3);
+    --primary-color: #fff;
+}
+
+.ProjectSection .Carousel .Navigator .Arrow {
+    color: var(--default-color);
+    /*background: orange;*/
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color 0.1s ease-in-out;
+}
+
+.ProjectSection .Carousel .Navigator .Arrow:hover {
+    color: var(--primary-color);
+}
+
+.ProjectSection .Carousel .Navigator .Arrow.Previous {
+}
+
+.ProjectSection .Carousel .Navigator .Arrow.Next {
+}
+
+.ProjectSection .Carousel .Navigator .ButtonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1vh 0;
+    width: 100%;
+    /*background: orange;*/
+    border-radius: 10px;
+    gap: 1.1vh;
+}
+
+.ProjectSection .Carousel .Navigator .ButtonContainer .Button {
+    background: var(--default-color);
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.ProjectSection .Carousel .Navigator .ButtonContainer .Button:not(.Selected) {
+    cursor: pointer;
+}
+
+.ProjectSection .Carousel .Navigator .ButtonContainer .Button:not(.Selected):hover {
+    background-color: var(--primary-color);
+}
+
+.ProjectSection .Carousel .Navigator .ButtonContainer .Button.Selected {
+    background-color: var(--primary-color);
+}
+
+/** Current Content card **/
+.ProjectSection .Carousel .Card {
+    /*background-color: wheat;*/
+    min-width: 40vw;
+    min-height: 30vh;
+    max-width: 50vw;
+    border-radius: 28px;
+    padding: 1.5vw 1.5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.ProjectSection .Carousel .Card .Header {
+    /*background-color: blue;*/
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ProjectSection .Carousel .Card .Header .TitleContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.ProjectSection .Carousel .Card .Header .Button p {
+    font-size: 18px;
+}
+
+.ProjectSection .Carousel .Card .Description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /*background-color: blue;*/
+    width: 100%;
+    flex-grow: 1;
+    -webkit-line-clamp: 5;
+    overflow-y: scroll;
+}
+
+.ProjectSection .Carousel .Card .Footer {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    /*background-color: red;*/
+}
+
+.ProjectSection .Carousel .Card .Footer .Datas {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+.ProjectSection .Carousel .Card .Footer .Datas .Data {
+    display: flex;
+    align-items: center;
+    gap: 0.4vw;
+}
+
+.ProjectSection .Carousel .Card .Footer .Datas .Data p {
+    font-size: 20px;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.ProjectSection .Carousel .Card .Footer .Datas .Data i {
+    font-size: 25px;
+    color: var(--text-secondary);
+}
+
+.ProjectSection .Carousel .Card .Footer .TechnologiesContainer {
+    /*background-color: green;*/
+    display: flex;
+    gap: 0.5vw;
+}
+
+.ProjectSection .Carousel .ImageContainer {
+    /*background-color: orange;*/
+    width: 50%;
+    height: 100%;
+    transform: translate(5%, 0) rotateZ(-10deg);
+    position: relative;
+}
+
+.ProjectSection .Carousel .ImageContainer .Image,
+.ProjectSection .Carousel .ImageContainer .ImageFallback {
+    position: relative;
+    border-radius: var(--border-radius);
+    object-position: top;
+    object-fit: cover;
+    width: 100%;
+    height: fit-content;
+    max-height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ProjectSection .Carousel .ImageContainer .ImageFallback {
+    position: absolute;
+    left: 0;
+    filter: blur(150px) opacity(30%);
+    z-index: -1;
+}
+
+.ProjectSection .Carousel .ImageContainer .Sphere {
+    bottom: -10vw;
+    right: -7vw;
+    width: 50vw;
+    height: 50vw;
+    z-index: -1;
+}
+
+.ProjectSection .Carousel .ImageContainer .Light {
+    bottom: -10vw;
+    right: -7vw;
+    width: 40vw;
+    height: 40vw;
+    z-index: -1;
+    filter: blur(150px) opacity(30%);
+}
+
+.ProjectSection .Carousel .Background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.ProjectSection .Carousel .Background .Light {
+    width: 40vw;
+    height: 40vw;
+    bottom: -15vw;
+    left: -20vw;
+    filter: blur(350px) opacity(20%);
+}

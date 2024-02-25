@@ -5,7 +5,7 @@ import {ButtonHTMLAttributes, ReactElement} from "react";
 
 export interface ButtonProps extends DefaultProps, Omit<Partial<ButtonHTMLAttributes<HTMLButtonElement>>, "className" | "style" | "children"> {
     children: ReactElement | ReactElement[] | string,
-    display?: "default" | "text"
+    display?: "default" | "text" | "secondary",
 }
 
 export default function Button(props: ButtonProps) {
@@ -13,7 +13,7 @@ export default function Button(props: ButtonProps) {
     return (
         <button
             {...props}
-            className={[styles.Button, type === "text" ? styles.TextType : styles.DefaultType, interactiveFont.className, props.className].join(" ")}
+            className={[styles.Button, styles[type], interactiveFont.className, props.className].join(" ")}
             style={props.style}
         >
             {typeof props.children === "string" ? <p>{props.children}</p> : props.children}

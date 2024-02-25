@@ -1,0 +1,12 @@
+.Section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    padding: 0 3svw;
+}
+
+.Section .TitleContainer {
+    text-align: center;
+    z-index: 10;
+}

@@ -1,7 +1,7 @@
 "use client";
 import styles from "../css/MainMenu.module.css"
 import {DefaultProps} from "@/global/global";
-import GlassyClass from "../../global/Glassy.module.css";
+import GlassyClass from "@/global/Glassy.module.css";
 import Button from "@/components/public/Button";
 import {useContext, useEffect, useRef, useState} from "react";
 import TranslatableText, {TranslatableContent} from "@/components/public/TranslatableText";
@@ -15,6 +15,8 @@ export interface MainMenuProps extends DefaultProps {
 const padding = 18;
 const letterWidth = 14.5;
 const gap = 19.6;
+
+const scrollMargin = 50;
 export default function MainMenu(props: MainMenuProps) {
     const [currentLanguage] = useContext(LanguageContext);
     const [selected, setSelected] = useState(0);
@@ -26,7 +28,7 @@ export default function MainMenu(props: MainMenuProps) {
         const currentScroll = window.scrollY;
         let currentElementId: number = -1;
         scrollIndex.current?.forEach((elementTop, i) => {
-            if (currentScroll >= elementTop) currentElementId = i;
+            if (currentScroll >= (elementTop - scrollMargin) ) currentElementId = i;
         })
         if (currentElementId === -1) throw new Error("scroll out of scope, current: " + currentScroll);
         setSelected(currentElementId);
