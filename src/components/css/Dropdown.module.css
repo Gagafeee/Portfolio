@@ -8,12 +8,11 @@
 
 .Dropdown {
     font-size: 31px;
-    font-weight: 700;
-    font-family: inherit;
+    font-weight: 800;
 }
 
 .Dropdown option {
     font-size: 23px;
-    font-weight: 700;
+    font-weight: 800;
     font-family: inherit;
 }
