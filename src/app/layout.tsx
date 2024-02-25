@@ -1,4 +1,4 @@
-import type {Metadata} from "next";
+import type {Metadata, Viewport} from "next";
 import "./globals.css";
 import {initializeApp} from "firebase/app";
 import {ReactNode} from "react";
@@ -18,9 +18,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+export const viewport: Viewport = {
+    colorScheme: "dark",
+}
 export const metadata: Metadata = {
     title: "Gagafeee portfolio",
-    description: "Official Gagafeee web developer portfolio",
+    description: "Official Gagafeee web developer portfolio"
 };
 
 export default function RootLayout({children,}: Readonly<{ children: ReactNode; }>) {

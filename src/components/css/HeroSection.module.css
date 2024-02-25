@@ -27,6 +27,10 @@
     gap: 1vh;
 }
 
+.HeroSection .Float .TitleContainer h1 {
+    line-height: 3vw;
+}
+
 .HeroSection .Float .TitleContainer .Subtitle {
     background: var(--primary-gradient);
     background-clip: text;
@@ -83,15 +87,18 @@
 
 
 .HeroSection .LanguageDropdown {
-    --font-size: 20px;
+    --font-size: 25px;
     position: absolute;
     right: calc(var(--horizontal-padding) - 10px);
-    top: calc(var(--vertical-padding) - (var(--font-size) + 18px + 6px));
+    top: calc(var(--vertical-padding) - (var(--font-size) + 18px + 0px));
     /*padding - (fontsize + dropdown padding + margin)*/
 }
 
-.HeroSection .LanguageDropdown,
-.HeroSection .LanguageDropdown option {
+.HeroSection .LanguageDropdown {
     font-size: var(--font-size);
     border-radius: 15px;
+}
+
+.HeroSection .LanguageDropdown option {
+    font-size: calc(var(--font-size) - 5px);
 }

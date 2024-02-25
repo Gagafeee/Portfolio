@@ -27,6 +27,7 @@ body {
 }
 
 body {
+    min-height: calc(100vh + 30svh);
     color: var(--background-primary);
 }
 
@@ -37,28 +38,25 @@ a {
     text-decoration: none;
 }
 
-p, h1, h2, h3, h4, h5, h6, option {
+p, h1, h2, /*h3,*/ h4, h5, h6, option {
     color: var(--text-primary);
-    font-weight: 500;
 }
 
+/*Main Title*/
 h1 {
-    font-size: 4vw;
-    line-height: 3vw;
-    font-weight: 500;
-    letter-spacing: -3.3px;
+    font-size: 48px;
+    font-weight: bold;
 }
 
 h2 {
-    font-size: 1.5vw;
-    line-height: 1.5vw;
-    color: var(--text-primary);
-    opacity: 90%;
+    font-size: 35px;
+    font-weight: 500;
 }
 
+/*Section description*/
 h3 {
-    font-size: 1.5vw;
-    line-height: 1.5vw;
+    font-size: 30px;
+    font-weight: normal;
     color: var(--text-secondary);
 }
 

@@ -1,7 +1,8 @@
 import {CSSProperties} from "react";
-import {Rubik} from "next/font/google";
+import {Archivo, Rubik} from "next/font/google";
 
 export const defaultFont = Rubik({subsets: ["latin"]});
+export const interactiveFont = Archivo({subsets: ["latin"]});
 export const Languages = ["French", "English"] as const;
 export type Language = typeof Languages[number];
 
