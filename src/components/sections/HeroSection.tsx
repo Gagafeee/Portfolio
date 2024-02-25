@@ -17,7 +17,7 @@ export interface HeroSectionProps extends DefaultProps {
 export default function HeroSection(props: HeroSectionProps) {
     const [currentLanguage, setLanguage] = useContext(LanguageContext);
     return (
-        <div className={[styles.HeroSection, props.className].join(" ")} style={props.style}>
+        <div id={"home"} className={[styles.HeroSection, props.className].join(" ")} style={props.style}>
             <Image src={logoImage} alt={"Main Gagafeee logo"} width={400} height={400}/>
             <div className={[styles.Float, GlassyClass.Glassy].join(" ")}>
                 <div className={styles.TitleContainer}>

@@ -33,10 +33,10 @@ export default function RootLayout({children,}: Readonly<{ children: ReactNode; 
         <body className={defaultFont.className}>
         <LanguageEnvironment>
             <MainMenu list={[
-                {English: "Presentation", French: "Présentation"},
-                {English: "Projects", French: "Projets"},
-                {English: "Expertise", French: "Expertise"},
-                {English: "Contact", French: "Contact"}
+                {anchor: "home", content: {English: "Presentation", French: "Présentation"}},
+                {anchor: "projects", content: {English: "Projects", French: "Projets"}},
+                {anchor: "expertise", content: {English: "Expertise", French: "Expertise"}},
+                {anchor: "contact", content: {English: "Contact", French: "Contact"}}
             ]}/>
             {children}
         </LanguageEnvironment>
