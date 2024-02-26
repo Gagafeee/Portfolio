@@ -58,7 +58,10 @@ export const Projects: Project[] = [
     {
         key: "royalmedia",
         displayName: "Royal Media",
-        description: "A web project that combines elegance and efficiency, a website for a new media dedicated to cryptos and Web 3.",
+        description: {
+            English: "A web project that combines elegance and efficiency, a website for a new media dedicated to cryptos and Web 3.",
+            French: "Un projet web qui combine élegance et efficacité, c’est un site web pour un nouveau média dans le domaine des cryptos et du Web 3."
+        },
         icon: RoyalMediaIcon,
         dates: "2023/2024",
         timeCount: 240,
@@ -69,7 +72,10 @@ export const Projects: Project[] = [
     {
         key: "bushlauncher",
         displayName: "BushLauncher",
-        description: "BushLauncher is a flexible Minecraft Launcher designed to simplify installation of the Minecraft game and its prerequisites, but also of mods, texture packs, etc.",
+        description: {
+            English: "BushLauncher is a flexible Minecraft Launcher designed to simplify installation of the Minecraft game and its prerequisites, but also of mods, texture packs, etc.",
+            French: "BushLauncher est un lanceur Minecraft flexible conçu pour simplifier l’installation du jeu Minecraft et de ses prérequis, mais aussi des mods, des packs de textures, etc."
+        },
         icon: BushLauncherIcon,
         dates: "2022/2023",
         timeCount: 310,

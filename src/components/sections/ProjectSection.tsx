@@ -3,12 +3,14 @@ import styles from "../css/ProjectSection.module.css"
 import {DefaultProps, Project} from "@/global/global";
 import Section from "@/components/main/Section";
 import {Projects} from "@/global/content";
-import {useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import GlassyClass from "@/global/Glassy.module.css";
 import Image from "next/image";
 import Button from "@/components/public/Button";
 import {CSSTransition} from "react-transition-group";
 import "../css/CarouselTransition.css"
+import {LanguageContext} from "@/components/public/LanguageEnvironment";
+import TranslatableText from "@/components/public/TranslatableText";
 
 
 export interface ProjectSectionProps extends DefaultProps {
@@ -32,6 +34,7 @@ export default function ProjectSection(props: ProjectSectionProps) {
 function ProjectCarousel(props: { elements: Project[] }) {
     const transitionDuration = 1000;
 
+    const [currentLanguage] = useContext(LanguageContext);
     const [currentId, setCurrentId] = useState<number>(0)
     const [current, setCurrent] = useState<Project>(props.elements[currentId])
     useEffect(() => {
@@ -55,7 +58,7 @@ function ProjectCarousel(props: { elements: Project[] }) {
     //Constrain the description Height with max/min to animate it
     //Limit the amount of line to 5.
     const getMax = (lineCount: number) => lineCount > 5 ? 5 : lineCount;
-    const contentLineHeight = getMax(Math.ceil(current.description.length / 66)) * (24 + (2 * 2));
+    const contentLineHeight = getMax(Math.ceil(current.description[currentLanguage].length / 66)) * (24 + (2 * 2));
 
     return (
         <div className={styles.Carousel}>
@@ -83,7 +86,8 @@ function ProjectCarousel(props: { elements: Project[] }) {
                 <div className={[styles.Card, GlassyClass.Glassy].join(" ")}>
                     <div className={styles.Header}>
                         <div className={styles.TitleContainer}>
-                            <Image className={styles.Icon} src={current.icon} alt={current.displayName ?? current.key + "'s project icon"} width={80} height={80}/>
+                            <Image className={styles.Icon} src={current.icon}
+                                   alt={current.displayName ?? current.key + "'s project icon"} width={80} height={80}/>
                             <h1>{current.displayName ?? current.key}</h1>
                         </div>
                         {current.link && <Button display={"secondary"} className={styles.Button}
@@ -93,7 +97,7 @@ function ProjectCarousel(props: { elements: Project[] }) {
                         </Button>}
                     </div>
                     <p style={{maxHeight: contentLineHeight + "px", minHeight: contentLineHeight + "px"}}
-                       className={styles.Description}>{current.description}</p>
+                       className={styles.Description}><TranslatableText>{current.description}</TranslatableText></p>
                     <div className={styles.Footer}>
                         <div className={styles.Datas}>
                             <div className={[styles.Data].join(" ")}>
@@ -109,7 +113,8 @@ function ProjectCarousel(props: { elements: Project[] }) {
                             {current.technologies.map((tech, i) => {
                                 //Technologie
                                 return (
-                                    <Image key={i} src={tech.icon} alt={tech.displayName ?? tech.key} width={70} height={70}/>
+                                    <Image key={i} src={tech.icon} alt={tech.displayName ?? tech.key} width={70}
+                                           height={70}/>
                                 )
                             })}
                         </div>

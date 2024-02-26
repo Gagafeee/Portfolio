@@ -1,6 +1,7 @@
 import {CSSProperties} from "react";
 import {Archivo, Rubik} from "next/font/google";
 import {StaticImageData} from "next/image";
+import {TranslatableContent} from "@/components/public/TranslatableText";
 
 //* Props *//
 export interface DefaultProps {
@@ -30,7 +31,7 @@ export interface Project {
     key: string,
     displayName?: string,
     icon: StaticImageData,
-    description: string,
+    description: TranslatableContent,
     technologies: Technologie[],
     dates: string,
     timeCount: number,
