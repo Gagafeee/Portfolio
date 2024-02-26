@@ -3,10 +3,12 @@ import styles from "../css/ProjectSection.module.css"
 import {DefaultProps, Project} from "@/global/global";
 import Section from "@/components/main/Section";
 import {Projects} from "@/global/content";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import GlassyClass from "@/global/Glassy.module.css";
 import Image from "next/image";
 import Button from "@/components/public/Button";
+import {CSSTransition} from "react-transition-group";
+import "../css/CarouselTransition.css"
 
 
 export interface ProjectSectionProps extends DefaultProps {
@@ -28,13 +30,32 @@ export default function ProjectSection(props: ProjectSectionProps) {
 }
 
 function ProjectCarousel(props: { elements: Project[] }) {
+    const transitionDuration = 1000;
+
     const [currentId, setCurrentId] = useState<number>(0)
     const [current, setCurrent] = useState<Project>(props.elements[currentId])
-    useEffect(() => setCurrent(props.elements[currentId]), [currentId]);
-    useEffect(() => setCurrentId(props.elements.indexOf(current)), [current]);
+    useEffect(() => {
+        setTimeout(() => setCurrent(props.elements[currentId]), transitionDuration / 2)
+    }, [currentId, props.elements]);
+
+    useEffect(() => setCurrentId(props.elements.indexOf(current)), [current, props.elements]);
+
+    const [transitionDirection, setTransitionDirection] = useState<boolean>()
+    const imageNodeRef = useRef(null)
+    const imageFallbackNodeRef = useRef(null)
+
+    useEffect(() => {
+        setTransitionDirection(false);
+        setTimeout(() => setTransitionDirection(true), transitionDuration / 2);
+    }, [currentId]);
 
     const navigateNext = () => setCurrentId(currentId + 1 < props.elements.length ? currentId + 1 : 0)
     const navigatePrevious = () => setCurrentId(currentId - 1 >= 0 ? currentId - 1 : (props.elements.length - 1))
+
+    //Constrain the description Height with max/min to animate it
+    //Limit the amount of line to 5.
+    const getMax = (lineCount: number) => lineCount > 5 ? 5 : lineCount;
+    const contentLineHeight = getMax(Math.ceil(current.description.length / 66)) * (24 + (2 * 2));
 
     return (
         <div className={styles.Carousel}>
@@ -48,9 +69,9 @@ function ProjectCarousel(props: { elements: Project[] }) {
                         {props.elements.slice(0, 4).map((project, i) => {
                             //Buttons
                             return (
-                                <div
-                                    className={[styles.Button, i === currentId ? styles.Selected : undefined].join(" ")}
-                                    onClick={() => setCurrentId(i)}/>
+                                <div key={project.key}
+                                     className={[styles.Button, i === currentId ? styles.Selected : undefined].join(" ")}
+                                     onClick={() => setCurrentId(i)}/>
                             )
                         })}
                     </div>
@@ -62,7 +83,7 @@ function ProjectCarousel(props: { elements: Project[] }) {
                 <div className={[styles.Card, GlassyClass.Glassy].join(" ")}>
                     <div className={styles.Header}>
                         <div className={styles.TitleContainer}>
-                            <Image src={current.icon} alt={""} width={80} height={80}/>
+                            <Image className={styles.Icon} src={current.icon} alt={current.displayName ?? current.key + "'s project icon"} width={80} height={80}/>
                             <h1>{current.displayName ?? current.key}</h1>
                         </div>
                         {current.link && <Button display={"secondary"} className={styles.Button}
@@ -71,7 +92,8 @@ function ProjectCarousel(props: { elements: Project[] }) {
                             <i className="fi fi-rr-caret-right"/>
                         </Button>}
                     </div>
-                    <p className={styles.Description}>{current.description}</p>
+                    <p style={{maxHeight: contentLineHeight + "px", minHeight: contentLineHeight + "px"}}
+                       className={styles.Description}>{current.description}</p>
                     <div className={styles.Footer}>
                         <div className={styles.Datas}>
                             <div className={[styles.Data].join(" ")}>
@@ -87,7 +109,7 @@ function ProjectCarousel(props: { elements: Project[] }) {
                             {current.technologies.map((tech, i) => {
                                 //Technologie
                                 return (
-                                    <Image src={tech.icon} alt={tech.displayName} width={70} height={70}/>
+                                    <Image key={i} src={tech.icon} alt={tech.displayName ?? tech.key} width={70} height={70}/>
                                 )
                             })}
                         </div>
@@ -95,10 +117,20 @@ function ProjectCarousel(props: { elements: Project[] }) {
                 </div>
             </div>
             <div className={styles.ImageContainer}>
-                <Image className={styles.Image} src={current.illustration} width={1500} height={1500}
-                       alt={current.displayName ?? current.key + "'s illustration"}></Image>
-                <Image className={styles.ImageFallback} src={current.illustration} width={10} height={10}
-                       alt={current.displayName ?? current.key + "'s illustration"}></Image>
+                <CSSTransition key={"image"} nodeRef={imageNodeRef} in={transitionDirection}
+                               classNames={"ImageContainer-animation"}
+                               timeout={transitionDuration}>
+                    <Image className={styles.Image} ref={imageNodeRef} src={current.illustration} width={1500}
+                           height={1500}
+                           alt={current.displayName ?? current.key + "'s illustration"}></Image>
+                </CSSTransition>
+                <CSSTransition key={"image fallback"} nodeRef={imageFallbackNodeRef} in={transitionDirection}
+                               classNames={"ImageContainer-animation"}
+                               timeout={transitionDuration}>
+                    <Image className={styles.ImageFallback} ref={imageFallbackNodeRef} src={current.illustration}
+                           width={10} height={10}
+                           alt={current.displayName ?? current.key + "'s illustration"}></Image>
+                </CSSTransition>
                 <div className={["Sphere", styles.Sphere].join(" ")}/>
                 <div style={{backgroundColor: current.color}} className={["Sphere", styles.Light].join(" ")}/>
             </div>

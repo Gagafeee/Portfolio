@@ -17,10 +17,13 @@ export const Languages = ["French", "English"] as const;
 export type Language = typeof Languages[number];
 
 //* Contents Types *//
+export type TechnologieType = "Language" | "Framework" | "Lib"
+
 export interface Technologie {
     key: string,
-    displayName: string,
+    displayName?: string,
     icon: StaticImageData,
+    type: TechnologieType
 }
 
 export interface Project {

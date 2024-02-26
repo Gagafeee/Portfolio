@@ -44,7 +44,7 @@ export default function MainMenu(props: MainMenuProps) {
         })
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
-    }, []);
+    }, [props.list]);
 
 
     useEffect(() => {
@@ -57,7 +57,7 @@ export default function MainMenu(props: MainMenuProps) {
         }
 
         setMargin(calculateMargin())
-    }, [selected, currentLanguage]);
+    }, [selected, currentLanguage, props.list]);
 
     function Select(id: number) {
         setSelected(id);

@@ -4,7 +4,7 @@ import GlassyClass from "../../global/Glassy.module.css";
 import {DefaultProps, Language, Languages} from "@/global/global";
 import Button from "@/components/public/Button";
 import Image from "next/image";
-import logoImage from "/public/static/main_logo.png";
+import logoImage from "/public/static/main_logo-min.png";
 import Dropdown from "@/components/public/Dropdown";
 import {useContext} from "react";
 import {LanguageContext} from "@/components/public/LanguageEnvironment";

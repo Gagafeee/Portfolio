@@ -10,9 +10,10 @@
     align-items: center;
     /*background-color: darkcyan;*/
     width: 100%;
-    height: calc(100% - 9vh);
+    height: var(--height);
     justify-content: space-between;
     gap: 2vw;
+    --height: 80svh
 }
 
 .ProjectSection .Carousel .LeftContainer {
@@ -110,18 +111,21 @@
     gap: 0.5vw;
 }
 
+.ProjectSection .Carousel .Card .Header .TitleContainer .Icon {
+    border-radius: 20px;
+}
+
 .ProjectSection .Carousel .Card .Header .Button p {
     font-size: 18px;
 }
 
 .ProjectSection .Carousel .Card .Description {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
     /*background-color: blue;*/
     width: 100%;
     flex-grow: 1;
-    -webkit-line-clamp: 5;
+    /*-webkit-line-clamp: 5;*/
     overflow-y: scroll;
+    transition: max-height 400ms ease, min-height 400ms ease;
 }
 
 .ProjectSection .Carousel .Card .Footer {
@@ -165,7 +169,6 @@
     /*background-color: orange;*/
     width: 50%;
     height: 100%;
-    transform: translate(5%, 0) rotateZ(-10deg);
     position: relative;
 }
 
@@ -179,7 +182,7 @@
     height: fit-content;
     max-height: 100%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(5%, -50%) rotateZ(-10deg);
 }
 
 .ProjectSection .Carousel .ImageContainer .ImageFallback {
@@ -204,12 +207,13 @@
     height: 40vw;
     z-index: -1;
     filter: blur(150px) opacity(30%);
+    transition: background-color 1000ms ease;
 }
 
 .ProjectSection .Carousel .Background {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: var(--height);
     z-index: -1;
 }
 
@@ -219,4 +223,5 @@
     bottom: -15vw;
     left: -20vw;
     filter: blur(350px) opacity(20%);
+    transition: background-color 1000ms ease;
 }
