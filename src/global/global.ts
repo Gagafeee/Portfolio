@@ -24,7 +24,13 @@ export interface Technologie {
     key: string,
     displayName?: string,
     icon: StaticImageData,
-    type: TechnologieType
+    type: TechnologieType,
+    info: {
+        description: TranslatableContent,
+        timeCount: number | TranslatableContent,
+        projectCount: number
+    }
+
 }
 
 export interface Project {

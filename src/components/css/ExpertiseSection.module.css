@@ -1,0 +1,95 @@
+.ExpertiseSection {
+    display: flex;
+    flex-direction: column;
+    gap: 8vh;
+}
+
+/** **/
+.ExpertiseSection .Showcase {
+    /*background-color: blue;*/
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+}
+
+.ExpertiseSection .Showcase .Card {
+    border-radius: 50%;
+    padding: 20px;
+}
+
+/** **/
+.ExpertiseSection .Container {
+    /* background-color: orange;*/
+    display: flex;
+    flex-direction: column;
+    gap: 10vh;
+}
+
+.ExpertiseSection .Container .Section {
+
+}
+
+.ExpertiseSection .Container .Section .SectionContainer {
+    /*background-color: red;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+/** **/
+.ExpertiseCard {
+    /*background-color: wheat;*/
+    width: 29vw;
+    height: 30vh;
+    border-radius: var(--border-radius);
+    padding: 3vh 1.5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+}
+
+.ExpertiseCard .Header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.ExpertiseCard .Header .Tag {
+    padding: 0.5vh 0.7vw;
+    border-radius: calc(var(--border-radius) / 1.5);
+}
+
+.ExpertiseCard .Header .Tag p {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.ExpertiseCard .Description {
+    /*background-color: blue;*/
+    width: 100%;
+    flex-grow: 1;
+}
+
+.ExpertiseCard .Footer {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+.ExpertiseCard .Footer .Data {
+    display: flex;
+    align-items: center;
+    gap: 0.2vw;
+}
+
+.ExpertiseCard .Footer .Data i {
+    color: var(--text-secondary);
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.ExpertiseCard .Footer .Data p {
+    color: var(--text-secondary);
+    font-size: 20px;
+}

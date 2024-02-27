@@ -9,12 +9,13 @@ export interface SectionProps extends DefaultProps {
     title: TranslatableContent | ReactElement;
     subtitle?: TranslatableContent | ReactElement;
     anchor?: string;
+    alignment?: "left" | "center" | "right";
 }
 
 export default function Section(props: SectionProps) {
     return (
-        <div id={props.anchor} className={[styles.Section, props.className].join(" ")} style={props.style}>
-            <div className={styles.TitleContainer}>
+        <section id={props.anchor} className={[styles.Section, props.className].join(" ")} style={props.style}>
+            <div className={styles.TitleContainer} style={{textAlign: props.alignment}}>
                 {isTranslatableContent(props.title) ?
                     <h1><TranslatableText>{props.title}</TranslatableText></h1> :
                     <>{props.title}</>}
@@ -23,6 +24,6 @@ export default function Section(props: SectionProps) {
                     <>{props.subtitle}</>}
             </div>
             {props.children}
-        </div>
+        </section>
     )
 }

@@ -25,32 +25,96 @@ type Technologies = "HTML" | "CSS" | "JS" | "TS" | "react" | "nextjs" | "electro
 export const Technologies: { [key in Technologies]: Technologie } = {
     /*Languages*/
     HTML: {
-        key: "HTML", icon: HTMLIcon, type: "Language"
+        key: "HTML", icon: HTMLIcon, type: "Language",
+        info: {
+            description: {
+                English: "HTML is the fundamental language to create pages.",
+                French: ""
+            },
+            timeCount: {English: "5 years +", French: "5 ans +"},
+            projectCount: 20
+        }
     },
     CSS: {
-        key: "CSS", icon: CSSIcon, type: "Language"
+        key: "CSS", icon: CSSIcon, type: "Language",
+        info: {
+            description: {
+                English: "CSS is the most common way to add style to website.",
+                French: ""
+            },
+            timeCount: {English: "5 years +", French: "5 ans +"},
+            projectCount: 20
+        }
     },
     JS: {
-        key: "JS", icon: JSIcon, type: "Language"
+        key: "JS", icon: JSIcon, type: "Language",
+        info: {
+            description: {
+                English: "",
+                French: ""
+            },
+            timeCount: {English: "5 years +", French: "5 ans +"},
+            projectCount: 20
+        }
     },
     TS: {
-        key: "TS", icon: TSIcon, type: "Language"
+        key: "TS", icon: TSIcon, type: "Language",
+        info: {
+            description: {
+                English: "TS is the solution for bringing a website to life, this is an evolved version of JS.",
+                French: ""
+            },
+            timeCount: {English: "3 years +", French: "3 ans +"},
+            projectCount: 6
+        }
     },
 
     /*Frameworks*/
     react: {
-        key: "react", displayName: "React", icon: ReactIcon, type: "Framework"
+        key: "react", displayName: "React", icon: ReactIcon, type: "Framework",
+        info: {
+            description: {
+                English: "React is one of the basics of the next level web creation.",
+                French: ""
+            },
+            timeCount: 550,
+            projectCount: 3
+        }
     },
     nextjs: {
-        key: "nextjs", displayName: "Nextjs", icon: NextIcon, type: "Framework"
+        key: "nextjs", displayName: "Nextjs", icon: NextIcon, type: "Framework",
+        info: {
+            description: {
+                English: "Nextjs is a popular framework to create high-quality websites built on top of React.",
+                French: ""
+            },
+            timeCount: 240,
+            projectCount: 2
+        }
     },
     electronjs: {
-        key: "electronjs", displayName: "Electronjs", icon: ElectronIcon, type: "Framework"
+        key: "electronjs", displayName: "Electronjs", icon: ElectronIcon, type: "Framework",
+        info: {
+            description: {
+                English: "Electronjs is a popular framework to create application from web content.",
+                French: ""
+            },
+            timeCount: 330,
+            projectCount: 3
+        }
     },
 
     /*Libs*/
     antdesign: {
-        key: "antdesign", displayName: "Antdesign", icon: AntdesignIcon, type: "Lib"
+        key: "antdesign", displayName: "Antdesign", icon: AntdesignIcon, type: "Lib",
+        info: {
+            description: {
+                English: "Antdesign is a powerful React UI components library, highly flexible, and contain many components",
+                French: ""
+            },
+            timeCount: 550,
+            projectCount: 2
+        }
     },
 } as const;
 
