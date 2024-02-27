@@ -36,7 +36,11 @@ export default function HeroSection(props: HeroSectionProps) {
                         French: "Développeur front-end passionné depuis 2020"
                     }}</TranslatableText>
                 </h2>
-                <Button>
+                <Button onClick={()=> {
+                    const section = document.getElementById("projects");
+                    if(section === null) throw new Error("Cannot get 'projects' section on document");
+                    window.scrollTo({top: section.offsetTop, behavior: "smooth"})
+                }}>
                     <p>
                         <TranslatableText>{{
                             English: "Discover",

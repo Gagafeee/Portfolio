@@ -37,6 +37,7 @@ function ProjectCarousel(props: { elements: Project[] }) {
     const [currentLanguage] = useContext(LanguageContext);
     const [currentId, setCurrentId] = useState<number>(0)
     const [current, setCurrent] = useState<Project>(props.elements[currentId])
+    const [inTransition, setInTransition] = useState(false);
     useEffect(() => {
         setTimeout(() => setCurrent(props.elements[currentId]), transitionDuration / 2)
     }, [currentId, props.elements]);
@@ -44,16 +45,26 @@ function ProjectCarousel(props: { elements: Project[] }) {
     useEffect(() => setCurrentId(props.elements.indexOf(current)), [current, props.elements]);
 
     const [transitionDirection, setTransitionDirection] = useState<boolean>()
+
+
     const imageNodeRef = useRef(null)
     const imageFallbackNodeRef = useRef(null)
 
     useEffect(() => {
+        setInTransition(true);
         setTransitionDirection(false);
-        setTimeout(() => setTransitionDirection(true), transitionDuration / 2);
+        setTimeout(() => {
+            setTransitionDirection(true)
+            setTimeout(() => setInTransition(false), transitionDuration / 2)
+        }, transitionDuration / 2);
     }, [currentId]);
 
-    const navigateNext = () => setCurrentId(currentId + 1 < props.elements.length ? currentId + 1 : 0)
-    const navigatePrevious = () => setCurrentId(currentId - 1 >= 0 ? currentId - 1 : (props.elements.length - 1))
+    const navigateNext = () => {
+        if (!inTransition) setCurrentId(currentId + 1 < props.elements.length ? currentId + 1 : 0)
+    };
+    const navigatePrevious = () => {
+        if (!inTransition) setCurrentId(currentId - 1 >= 0 ? currentId - 1 : (props.elements.length - 1))
+    };
 
     //Constrain the description Height with max/min to animate it
     //Limit the amount of line to 5.
@@ -64,7 +75,8 @@ function ProjectCarousel(props: { elements: Project[] }) {
         <div className={styles.Carousel}>
             <div className={styles.LeftContainer}>
                 <div className={styles.Navigator}>
-                    <div className={[styles.Arrow, GlassyClass.Glassy, styles.PreviousArrow].join(" ")}
+                    <div aria-disabled={inTransition}
+                         className={[styles.Arrow, GlassyClass.Glassy, styles.PreviousArrow].join(" ")}
                          onClick={navigatePrevious}>
                         <i className="fi fi-rr-caret-up"/>
                     </div>
@@ -72,13 +84,16 @@ function ProjectCarousel(props: { elements: Project[] }) {
                         {props.elements.slice(0, 4).map((project, i) => {
                             //Buttons
                             return (
-                                <div key={project.key}
+                                <div key={project.key} aria-disabled={inTransition}
                                      className={[styles.Button, i === currentId ? styles.Selected : undefined].join(" ")}
-                                     onClick={() => setCurrentId(i)}/>
+                                     onClick={() => {
+                                         if (!inTransition) setCurrentId(i);
+                                     }}/>
                             )
                         })}
                     </div>
-                    <div className={[styles.Arrow, GlassyClass.Glassy, styles.NextArrow].join(" ")}
+                    <div aria-disabled={inTransition}
+                         className={[styles.Arrow, GlassyClass.Glassy, styles.NextArrow].join(" ")}
                          onClick={navigateNext}>
                         <i className="fi fi-rr-caret-down"/>
                     </div>

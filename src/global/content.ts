@@ -21,7 +21,8 @@ import RoyalMediaIllustration from "/public/static/projects_illustrations/RoyalM
 import BushLauncherIcon from "/public/static/projects_icon/bushlauncher.png";
 import BushLauncherIllustration from "/public/static/projects_illustrations/BushLauncher-min.png";
 
-export const Technologies: { [key: string]: Technologie } = {
+type Technologies = "HTML" | "CSS" | "JS" | "TS" | "react" | "nextjs" | "electronjs" | "antdesign";
+export const Technologies: { [key in Technologies]: Technologie } = {
     /*Languages*/
     HTML: {
         key: "HTML", icon: HTMLIcon, type: "Language"
