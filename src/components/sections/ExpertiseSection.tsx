@@ -63,7 +63,14 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                         </div>
                     </Section>
                 </div>
+                <div className={styles.Background}>
+                    <div className={["Sphere", styles.Light].join(" ")}
+                         style={{right: "-30vw", top: "-10vh", width: "40vw", height: "40vw"}}/>
+                    <div className={["Sphere", styles.Light].join(" ")}
+                         style={{left: "-30vw", top: "70vh", width: "40vw", height: "40vw"}}/>
+                </div>
             </div>
+
         </Section>
     )
 }

@@ -16,7 +16,7 @@ const padding = 18;
 const letterWidth = 14.5;
 const gap = 19.6;
 
-const scrollMargin = 50;
+const scrollMargin = 200;
 export default function MainMenu(props: MainMenuProps) {
     const [currentLanguage] = useContext(LanguageContext);
     const [selected, setSelected] = useState(0);

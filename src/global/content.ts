@@ -149,3 +149,13 @@ export const Projects: Project[] = [
         color: "#1f9950"
     }
 ] as const;
+
+export interface ContactData {
+    discordLink: string,
+    mail: string
+}
+
+export const ContactData: ContactData = {
+    discordLink: "https://discord.com/users/733592979499122688",
+    mail: "gagafeee@gmail.com"
+} as const;

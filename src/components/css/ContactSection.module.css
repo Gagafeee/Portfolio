@@ -1,0 +1,78 @@
+.ContactSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    /*background-color: orange;*/
+    min-height: 100svh;
+    padding: 0 5vw;
+    position: relative;
+}
+
+.ContactSection .Floating {
+    display: flex;
+    flex-direction: column;
+    min-width: 45vw;
+    border-radius: 30px;
+    padding: 6vh 2vw;
+    gap: 3vh;
+}
+
+.ContactSection .Floating .Info {
+    display: flex;
+    flex-direction: column;
+}
+
+.ContactSection .Floating .Info .Title {
+    font-size: 105px;
+    font-weight: 500;
+    line-height: 100%;
+}
+
+.ContactSection .Floating .Info .Location {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+
+}
+
+.ContactSection .Floating .Info .Location p,
+.ContactSection .Floating .Info .Location i {
+    color: var(--text-secondary);
+}
+
+.ContactSection .Floating .ButtonContainer {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+.ContactSection .Floating .ButtonContainer .ButtonContent {
+    display: flex;
+    gap: 0.3vw;
+}
+
+.ContactSection .Floating .ButtonContainer .ButtonContent p {
+    font-size: 25px;
+}
+
+.ContactSection .Floating .ButtonContainer .ButtonContent i {
+    font-size: 20px;
+}
+
+/**/
+.ContactSection .Background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.ContactSection .Background .Light {
+    background-color: var(--primary);
+    filter: blur(150px);
+    opacity: 40%;
+}

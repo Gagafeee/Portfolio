@@ -4,6 +4,7 @@
     flex-direction: column;
     gap: 3vh;
     padding: 0 3svw;
+    position: relative;
 }
 
 .Section .TitleContainer {
