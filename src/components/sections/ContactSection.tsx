@@ -39,11 +39,11 @@ export default function ContactSection(props: ContactSectionProps) {
             </div>
             <div className={styles.Background}>
                 <div className={["Sphere", styles.Light].join(" ")}
-                     style={{right: "-10vw", bottom: "-10vw", width: "40vw", height: "40vw"}}/>
+                     style={{right: "-10vw", bottom: "-20vw", width: "50vw", height: "50vw"}}/>
                 <div className={["Sphere", styles.Sphere].join(" ")}
                      style={{left: "-5vw", top: "20vh", width: "20vw", height: "20vw"}}/>
                 <div className={["Sphere", styles.Sphere].join(" ")}
-                     style={{right: "-10vw", bottom: "-10vw", width: "40vw", height: "40vw"}}/>
+                     style={{right: "-10vw", bottom: "-20vw", width: "55vw", height: "55vw"}}/>
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 "use client";
 import styles from "../css/MainMenu.module.css"
-import {DefaultProps} from "@/global/global";
+import {defaultFont, DefaultProps} from "@/global/global";
 import GlassyClass from "@/global/Glassy.module.css";
 import Button from "@/components/public/Button";
 import {useContext, useEffect, useRef, useState} from "react";
@@ -13,7 +13,7 @@ export interface MainMenuProps extends DefaultProps {
 }
 
 const padding = 18;
-const letterWidth = 14.5;
+const letterWidth = 12.9;
 const gap = 19.6;
 
 const scrollMargin = 200;
@@ -70,7 +70,7 @@ export default function MainMenu(props: MainMenuProps) {
                 return (
                     <Button key={i} onClick={() => Select(i)} display={"text"}
                             className={[styles.Button, selected === i ? styles.Selected : ""].join(" ")}>
-                        <p className={styles.Text}><TranslatableText>{button.content}</TranslatableText></p>
+                        <p className={[styles.Text, defaultFont.className].join(" ")}><TranslatableText>{button.content}</TranslatableText></p>
                     </Button>
                 )
             })}

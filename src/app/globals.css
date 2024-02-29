@@ -32,7 +32,7 @@ body {
     /*padding-bottom: 20vh;*/
     /**/
     min-height: 100svh;
-    color: var(--background-primary);
+    background-color: var(--background-primary);
 }
 
 /****/
@@ -54,7 +54,7 @@ p {
 /*Main Title*/
 h1 {
     font-size: 48px;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 h2 {
@@ -65,7 +65,7 @@ h2 {
 /*Section description*/
 h3 {
     font-size: 30px;
-    font-weight: normal;
+    font-weight: 400;
     color: var(--text-secondary);
 }
 

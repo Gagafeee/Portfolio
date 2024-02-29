@@ -36,14 +36,17 @@
 }
 
 .ProjectSection .Carousel .Navigator .Arrow {
-    color: var(--default-color);
     /*background: orange;*/
     border-radius: 50%;
     cursor: pointer;
+}
+
+.ProjectSection .Carousel .Navigator .Arrow i {
+    color: var(--default-color);
     transition: color 0.1s ease-in-out;
 }
 
-.ProjectSection .Carousel .Navigator .Arrow:hover {
+.ProjectSection .Carousel .Navigator .Arrow:hover i {
     color: var(--primary-color);
 }
 
@@ -76,11 +79,8 @@
     cursor: pointer;
 }
 
+.ProjectSection .Carousel .Navigator .ButtonContainer .Button.Selected,
 .ProjectSection .Carousel .Navigator .ButtonContainer .Button:not(.Selected):hover {
-    background-color: var(--primary-color);
-}
-
-.ProjectSection .Carousel .Navigator .ButtonContainer .Button.Selected {
     background-color: var(--primary-color);
 }
 
@@ -88,10 +88,11 @@
 .ProjectSection .Carousel .Card {
     /*background-color: wheat;*/
     min-width: 40vw;
-    min-height: 30vh;
+    min-height: 25vh;
     max-width: 50vw;
     border-radius: 28px;
-    padding: 1.5vw 1.5vw;
+    padding: 2vw 1.5vw;
+    box-sizing: content-box;
     display: flex;
     flex-direction: column;
     gap: 3vh;

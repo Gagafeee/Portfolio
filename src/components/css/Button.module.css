@@ -49,5 +49,5 @@
 .Button p {
     font-size: 31px;
     font-weight: 800;
-    font-family: inherit;
+    /*-font-family: inherit;*/
 }

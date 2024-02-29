@@ -128,8 +128,8 @@ function ProjectCarousel(props: { elements: Project[] }) {
                             {current.technologies.map((tech, i) => {
                                 //Technologie
                                 return (
-                                    <Image key={i} src={tech.icon} alt={tech.displayName ?? tech.key} width={70}
-                                           height={70}/>
+                                    <Image key={i} src={tech.icon} alt={tech.displayName ?? tech.key} width={50}
+                                           height={50}/>
                                 )
                             })}
                         </div>

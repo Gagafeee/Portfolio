@@ -18,6 +18,7 @@
     --vertical-padding: 60px;
     padding: var(--vertical-padding) var(--horizontal-padding);
     border-radius: 35px;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .HeroSection .Float h2 {

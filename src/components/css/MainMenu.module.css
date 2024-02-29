@@ -13,6 +13,7 @@
 
 .MainMenu .Button .Text {
     font-weight: 400;
+    font-size: 26px;
 }
 
 .MainMenu .Button.Selected .Text {

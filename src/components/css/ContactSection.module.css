@@ -5,7 +5,7 @@
     align-items: flex-start;
     justify-content: center;
     /*background-color: orange;*/
-    min-height: 100svh;
+    min-height: 90svh;
     padding: 0 5vw;
     position: relative;
 }
@@ -13,10 +13,11 @@
 .ContactSection .Floating {
     display: flex;
     flex-direction: column;
-    min-width: 45vw;
+    min-width: 50vw;
     border-radius: 30px;
     padding: 6vh 2vw;
     gap: 3vh;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .ContactSection .Floating .Info {
@@ -74,5 +75,5 @@
 .ContactSection .Background .Light {
     background-color: var(--primary);
     filter: blur(150px);
-    opacity: 40%;
+    opacity: 30%;
 }
