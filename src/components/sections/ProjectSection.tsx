@@ -22,8 +22,8 @@ export default function ProjectSection(props: ProjectSectionProps) {
         <Section
             className={[styles.ProjectSection, props.className].join(" ")}
             style={props.style}
-            title={{English: "Past Projects", French: ""}}
-            subtitle={{English: "Every achievement brings knowledge", French: ""}}
+            title={{English: "Past Projects", French: "Projets precedents"}}
+            subtitle={{English: "Every achievement brings knowledge", French: "Chaque réalisation apporte des connaissances"}}
             anchor={"projects"}
         >
             <ProjectCarousel elements={Projects}/>

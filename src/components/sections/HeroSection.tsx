@@ -21,7 +21,8 @@ export default function HeroSection(props: HeroSectionProps) {
             <Image src={logoImage} alt={"Main Gagafeee logo"} width={400} height={400}/>
             <div className={[styles.Float, GlassyClass.Glassy].join(" ")}>
                 <div className={styles.TitleContainer}>
-                    <h1><TranslatableText>{{English: "I don't work", French: "Je ne travaille pas"}}</TranslatableText>
+                    <h1>
+                        <TranslatableText>{{English: "I don't work", French: "Je ne travaille pas"}}</TranslatableText>
                     </h1>
                     <h1 className={styles.Subtitle}>
                         <TranslatableText>{{
@@ -36,9 +37,9 @@ export default function HeroSection(props: HeroSectionProps) {
                         French: "Développeur front-end passionné depuis 2020"
                     }}</TranslatableText>
                 </h2>
-                <Button onClick={()=> {
+                <Button onClick={() => {
                     const section = document.getElementById("projects");
-                    if(section === null) throw new Error("Cannot get 'projects' section on document");
+                    if (section === null) throw new Error("Cannot get 'projects' section on document");
                     window.scrollTo({top: section.offsetTop, behavior: "smooth"})
                 }}>
                     <p>

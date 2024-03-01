@@ -7,7 +7,7 @@ import MainMenu from "@/components/main/MainMenu";
 import LanguageEnvironment from "@/components/public/LanguageEnvironment";
 
 
-const firebaseConfig = {
+/*const firebaseConfig = {
     apiKey: "AIzaSyAD5o14KnycfD-P6li-Dreq4pmCHuUXAg4",
     authDomain: "gagafeee-fr.firebaseapp.com",
     projectId: "gagafeee-fr",
@@ -17,14 +17,14 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);*/
 
 export const viewport: Viewport = {
     colorScheme: "dark",
 }
 export const metadata: Metadata = {
     title: "Gagafeee portfolio",
-    description: "Official Gagafeee web developer portfolio"
+    description: "Official Gagafeee's web developer portfolio"
 };
 
 export default function RootLayout({children,}: Readonly<{ children: ReactNode; }>) {

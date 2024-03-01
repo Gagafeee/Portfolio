@@ -4,6 +4,7 @@ import {DefaultProps} from "@/global/global";
 import GlassyClass from "@/global/Glassy.module.css";
 import Button from "@/components/public/Button";
 import {ContactData} from "@/global/content";
+import TranslatableText from "@/components/public/TranslatableText";
 
 
 export interface ContactSectionProps extends DefaultProps {
@@ -15,7 +16,7 @@ export default function ContactSection(props: ContactSectionProps) {
         <div id={"contact"} className={[styles.ContactSection, props.className].join(" ")} style={props.style}>
             <div className={[styles.Floating, GlassyClass.Glassy].join(" ")}>
                 <div className={styles.Info}>
-                    <h1 className={styles.Title}>Contact me</h1>
+                    <h1 className={styles.Title}><TranslatableText>{{English: "Contact me", French: "Me contacter"}}</TranslatableText></h1>
                     <div className={styles.Location}>
                         <i className="fi fi-rr-earth-americas"/>
                         <p>Paris - France</p>
