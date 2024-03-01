@@ -1,10 +1,11 @@
 import type {Metadata, Viewport} from "next";
 import "./globals.css";
-import {initializeApp} from "firebase/app";
 import {ReactNode} from "react";
 import {defaultFont} from "@/global/global";
 import MainMenu from "@/components/main/MainMenu";
-import LanguageEnvironment from "@/components/public/LanguageEnvironment";
+const LanguageEnvironment = dynamic(()=> import("@/components/public/LanguageEnvironment"), {ssr: false});
+import MovableContainer from "@/components/main/MovableContainer";
+import dynamic from "next/dynamic";
 
 
 /*const firebaseConfig = {
@@ -32,13 +33,15 @@ export default function RootLayout({children,}: Readonly<{ children: ReactNode; 
         <html lang="en">
         <body className={defaultFont.className}>
         <LanguageEnvironment>
-            <MainMenu list={[
-                {anchor: "home", content: {English: "Presentation", French: "Présentation"}},
-                {anchor: "projects", content: {English: "Projects", French: "Projets"}},
-                {anchor: "expertise", content: {English: "Expertise", French: "Expertise"}},
-                {anchor: "contact", content: {English: "Contact", French: "Contact"}}
-            ]}/>
-            {children}
+            <MovableContainer anchorList={["home", "projects", "expertise", "contact"]}>
+                <MainMenu buttons={[
+                    {anchor: "home", content: {English: "Presentation", French: "Présentation"}},
+                    {anchor: "projects", content: {English: "Projects", French: "Projets"}},
+                    {anchor: "expertise", content: {English: "Expertise", French: "Expertise"}},
+                    {anchor: "contact", content: {English: "Contact", French: "Contact"}}
+                ]}/>
+                {children}
+            </MovableContainer>
         </LanguageEnvironment>
         </body>
         </html>

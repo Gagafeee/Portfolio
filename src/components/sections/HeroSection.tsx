@@ -9,6 +9,7 @@ import Dropdown from "@/components/public/Dropdown";
 import {useContext} from "react";
 import {LanguageContext} from "@/components/public/LanguageEnvironment";
 import TranslatableText from "@/components/public/TranslatableText";
+import {MovableContext} from "@/components/main/MovableContainer";
 
 export interface HeroSectionProps extends DefaultProps {
 
@@ -16,6 +17,7 @@ export interface HeroSectionProps extends DefaultProps {
 
 export default function HeroSection(props: HeroSectionProps) {
     const [currentLanguage, setLanguage] = useContext(LanguageContext);
+    const movableContext = useContext(MovableContext);
     return (
         <div id={"home"} className={[styles.HeroSection, props.className].join(" ")} style={props.style}>
             <Image src={logoImage} alt={"Main Gagafeee logo"} width={400} height={400}/>
@@ -37,11 +39,7 @@ export default function HeroSection(props: HeroSectionProps) {
                         French: "Développeur front-end passionné depuis 2020"
                     }}</TranslatableText>
                 </h2>
-                <Button onClick={() => {
-                    const section = document.getElementById("projects");
-                    if (section === null) throw new Error("Cannot get 'projects' section on document");
-                    window.scrollTo({top: section.offsetTop, behavior: "smooth"})
-                }}>
+                <Button onClick={() => movableContext.scrollTo("projects")}>
                     <p>
                         <TranslatableText>{{
                             English: "Discover",

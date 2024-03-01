@@ -2,8 +2,11 @@
 import {DefaultProps, Language} from "@/global/global";
 import {createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState} from "react";
 
-export const LanguageContext = createContext<[Language, Dispatch<SetStateAction<Language>>]>(["English", () => {
-}]);
+function error() {
+    throw new Error("setCurrentLanguage is not registered")
+}
+
+export const LanguageContext = createContext<[Language, Dispatch<SetStateAction<Language>>]>(["English", error]);
 
 export interface LanguageEnvironmentProps extends DefaultProps {
     children: ReactNode
