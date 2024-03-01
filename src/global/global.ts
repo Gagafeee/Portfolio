@@ -1,4 +1,4 @@
-import {CSSProperties} from "react";
+import {CSSProperties, useLayoutEffect, useState} from "react";
 import {Archivo, Rubik} from "next/font/google";
 import {StaticImageData} from "next/image";
 import {TranslatableContent} from "@/components/public/TranslatableText";
@@ -48,3 +48,4 @@ export interface Project {
      */
     color: string
 }
+

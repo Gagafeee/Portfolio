@@ -1,5 +1,5 @@
 .ProjectSection {
-    height: 100svh;
+    height: calc(100svh - var(--section-gap));
     overflow: hidden;
     position: relative;
     gap: 0;

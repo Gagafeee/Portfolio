@@ -6,5 +6,6 @@
   min-height: 100svh;
   max-width: 100svw;
   overflow: hidden;
-  gap: 8vh;
+  --section-gap: 8vh;
+  gap: var(--section-gap);
 }
