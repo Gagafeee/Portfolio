@@ -3,9 +3,8 @@ import "./globals.css";
 import {ReactNode} from "react";
 import {defaultFont} from "@/global/global";
 import MainMenu from "@/components/main/MainMenu";
-const LanguageEnvironment = dynamic(()=> import("@/components/public/LanguageEnvironment"), {ssr: false});
+import LanguageEnvironment from "@/components/public/LanguageEnvironment";
 import MovableContainer from "@/components/main/MovableContainer";
-import dynamic from "next/dynamic";
 
 
 /*const firebaseConfig = {

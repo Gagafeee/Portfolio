@@ -1,23 +1,29 @@
 "use client";
 import {DefaultProps, Language} from "@/global/global";
-import {createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState} from "react";
+import {createContext, ReactNode, useEffect, useState} from "react";
 
 function error() {
     throw new Error("setCurrentLanguage is not registered")
 }
 
-export const LanguageContext = createContext<[Language, Dispatch<SetStateAction<Language>>]>(["English", error]);
+export const LanguageContext = createContext<[Language, (language: Language) => void]>(["English", error]);
 
 export interface LanguageEnvironmentProps extends DefaultProps {
     children: ReactNode
 }
 
 export default function LanguageEnvironment(props: LanguageEnvironmentProps) {
-    const [currentLanguage, setCurrentLanguage] = useState<Language>(localStorage.getItem("language") as Language ?? "English")
+    const [currentLanguage, _setCurrentLanguage] = useState<Language>("English");
     useEffect(() => {
+        _setCurrentLanguage(localStorage.getItem('language') as Language ?? currentLanguage)
+    }, []);
+
+    function setCurrentLanguage(language: Language) {
         //Store selected language in localstorage
-        localStorage.setItem("language", currentLanguage);
-    }, [currentLanguage]);
+        localStorage.setItem("language", language);
+        _setCurrentLanguage(language)
+    }
+
     return (
         <div className={props.className} style={props.style}>
             <LanguageContext.Provider value={[currentLanguage, setCurrentLanguage]}>
