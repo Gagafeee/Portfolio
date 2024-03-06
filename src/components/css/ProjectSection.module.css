@@ -1,5 +1,8 @@
+/**
+    Under 1200px, switch to mobile mode
+ */
 .ProjectSection {
-    height: calc(100svh - var(--section-gap));
+    height: calc(100svh - var(--app-gap));
     overflow: hidden;
     position: relative;
     gap: 0;
@@ -16,12 +19,14 @@
     --height: 80svh
 }
 
+
 .ProjectSection .Carousel .LeftContainer {
     display: flex;
     align-items: center;
     gap: 2vw;
     min-width: 50%
 }
+
 
 /** Navigator **/
 
@@ -33,6 +38,7 @@
     gap: 0.7vh;
     --default-color: rgba(255, 255, 255, 0.3);
     --primary-color: #fff;
+    z-index: 1;
 }
 
 .ProjectSection .Carousel .Navigator .Arrow {
@@ -96,6 +102,7 @@
     display: flex;
     flex-direction: column;
     gap: 3vh;
+    z-index: 1;
 }
 
 .ProjectSection .Carousel .Card .Header {
@@ -122,7 +129,7 @@
 
 .ProjectSection .Carousel .Card .Description {
     /*background-color: blue;*/
-    width: 100%;
+    width: 95%;
     flex-grow: 1;
     /*-webkit-line-clamp: 5;*/
     overflow-y: scroll;
@@ -183,7 +190,13 @@
     height: fit-content;
     max-height: 100%;
     top: 50%;
-    transform: translate(5%, -50%) rotateZ(-10deg);
+}
+
+@media (min-width: 1000px) {
+    .ProjectSection .Carousel .ImageContainer .Image,
+    .ProjectSection .Carousel .ImageContainer .ImageFallback {
+        transform: translate(5%, -50%) rotateZ(-10deg);
+    }
 }
 
 .ProjectSection .Carousel .ImageContainer .ImageFallback {
@@ -225,4 +238,96 @@
     left: -20vw;
     filter: blur(350px) opacity(20%);
     transition: background-color 1000ms ease;
+}
+
+@media (max-width: 1000px) {
+    .ProjectSection {
+        gap: 2vh;
+        --height: 100svh;
+    }
+
+    .ProjectSection .Carousel,
+    .ProjectSection .Carousel .LeftContainer {
+        flex-direction: column;
+    }
+
+    .ProjectSection .Carousel .LeftContainer {
+        gap: 1vh;
+    }
+
+    .ProjectSection .Carousel .Navigator,
+    .ProjectSection .Carousel .Navigator .ButtonContainer {
+        flex-direction: row;
+        padding: 0.5vh 1vw;
+    }
+
+    .ProjectSection .Carousel .Navigator .Arrow.Previous {
+        transform: rotateZ(-90deg);
+    }
+
+    .ProjectSection .Carousel .Navigator .Arrow.Next {
+        transform: rotateZ(-90deg);
+    }
+
+    .ProjectSection .Carousel .Card {
+        min-width: 75vw;
+        max-width: 80vw;
+        min-height: 20vh;
+        border-radius: 15px;
+        padding: 2vw 2vw;
+        gap: 1.5vh;
+    }
+
+
+    .ProjectSection .Carousel .Card .Footer .Datas {
+        gap: 2vw;
+    }
+
+
+    .ProjectSection .Carousel .ImageContainer {
+        transform: translateY(-50%);
+        width: 70%;
+    }
+}
+
+@media (max-width: 700px) {
+    .ProjectSection .Carousel .Card {
+        max-width: 95vw;
+    }
+
+    .ProjectSection .Carousel .Card .Header .TitleContainer {
+        gap: 2vw;
+    }
+
+    .ProjectSection .Carousel .Card .Header .TitleContainer .Icon {
+        width: 11.4vw;
+        height: 11.4vw;
+        border-radius: 10px;
+    }
+
+    .ProjectSection .Carousel .Card .Description {
+        font-size: 4vw;
+    }
+
+    .ProjectSection .Carousel .Card .Footer .Datas .Data p {
+        font-size: 4vw;
+    }
+
+    .ProjectSection .Carousel .Card .Footer .Datas .Data i {
+        font-size: 4.5vw;
+    }
+
+    .ProjectSection .Carousel .Card .Footer .TechnologiesContainer {
+        gap: 1.5vw;
+    }
+
+    .ProjectSection .Carousel .Card .Footer .TechnologiesContainer .Image {
+        width: 7vw;
+        height: 7vw;
+    }
+
+    .ProjectSection .Carousel .ImageContainer {
+        width: 98%;
+    }
+
 }

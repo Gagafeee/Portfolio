@@ -1,21 +1,43 @@
-.ImageContainer-animation-enter {
-    left: 160%;
-    transform: translate(5%, -50%) rotateZ(0) !important;
+@media (min-width: 1000px ) {
+    .ImageContainer-animation-enter {
+        left: 160%;
+        transform: translate(5%, -50%) rotateZ(0) !important;
+    }
+
+    .ImageContainer-animation-enter-active {
+        left: 0;
+        transform: translate(5%, -50%) rotateZ(-10deg) !important;
+        transition: left 1000ms ease, transform 700ms ease;
+    }
+
+    .ImageContainer-animation-exit {
+        left: 0;
+        transform: translate(5%, -50%) rotateZ(-10deg) !important;
+    }
+
+    .ImageContainer-animation-exit-active {
+        left: 160%;
+        transform: translate(5%, -50%) rotateZ(0) !important;
+        transition: left 1000ms ease, transform 500ms ease;
+    }
 }
 
-.ImageContainer-animation-enter-active {
-    left: 0;
-    transform: translate(5%, -50%) rotateZ(-10deg) !important;
-    transition: left 1000ms ease, transform 700ms ease;
-}
+@media (max-width: 1000px ) {
+    .ImageContainer-animation-enter {
+        left: 160%;
+    }
 
-.ImageContainer-animation-exit {
-    left: 0;
-    transform: translate(5%, -50%) rotateZ(-10deg) !important;
-}
+    .ImageContainer-animation-enter-active {
+        left: 0;
+        transition: left 1000ms ease;
+    }
 
-.ImageContainer-animation-exit-active {
-    left: 160%;
-    transform: translate(5%, -50%) rotateZ(0) !important;
-    transition: left 1000ms ease, transform 500ms ease;
+    .ImageContainer-animation-exit {
+        left: 0;
+    }
+
+    .ImageContainer-animation-exit-active {
+        left: 160%;
+        transition: left 1000ms ease;
+    }
 }

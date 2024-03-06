@@ -76,7 +76,7 @@ function ProjectCarousel(props: { elements: Project[] }) {
             <div className={styles.LeftContainer}>
                 <div className={styles.Navigator}>
                     <div aria-disabled={inTransition}
-                         className={[styles.Arrow, GlassyClass.Glassy, styles.PreviousArrow].join(" ")}
+                         className={[styles.Arrow, GlassyClass.Glassy, styles.Previous].join(" ")}
                          onClick={navigatePrevious}>
                         <i className="fi fi-rr-caret-up"/>
                     </div>
@@ -93,7 +93,7 @@ function ProjectCarousel(props: { elements: Project[] }) {
                         })}
                     </div>
                     <div aria-disabled={inTransition}
-                         className={[styles.Arrow, GlassyClass.Glassy, styles.NextArrow].join(" ")}
+                         className={[styles.Arrow, GlassyClass.Glassy, styles.Next].join(" ")}
                          onClick={navigateNext}>
                         <i className="fi fi-rr-caret-down"/>
                     </div>
@@ -128,7 +128,7 @@ function ProjectCarousel(props: { elements: Project[] }) {
                             {current.technologies.map((tech, i) => {
                                 //Technologie
                                 return (
-                                    <Image key={i} src={tech.icon} alt={tech.displayName ?? tech.key} width={50}
+                                    <Image className={styles.Image} key={i} src={tech.icon} alt={tech.displayName ?? tech.key} width={50}
                                            height={50}/>
                                 )
                             })}

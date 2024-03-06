@@ -1,3 +1,6 @@
+/***/
+/* Under 1050px The hero banner switch to phone mode
+/***/
 .HeroSection {
     display: flex;
     align-items: center;
@@ -30,11 +33,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1vh;
+    gap: 1.5vh;
 }
 
 .HeroSection .Float .TitleContainer h1 {
-    line-height: 3vw;
+    line-height: 70%;
     font-size: 94px;
     letter-spacing: -3.5px;
     font-weight: 500;
@@ -96,10 +99,61 @@
 }
 
 .HeroSection .LanguageDropdown {
-    font-size: var(--font-size);
     border-radius: 15px;
 }
 
-.HeroSection .LanguageDropdown option {
-    font-size: calc(var(--font-size) - 5px);
+
+@media (min-width: 1300px) {
+    .HeroSection .LanguageDropdown {
+        font-size: var(--font-size);
+    }
+
+    .HeroSection .LanguageDropdown option {
+        font-size: calc(var(--font-size) - 5px);
+    }
+}
+
+@media (max-width: 1300px) {
+    .HeroSection {
+        flex-direction: column;
+        gap: 3vh;
+    }
+
+    .HeroSection .Image {
+        width: 40vw;
+        height: 40vw;
+    }
+
+    .HeroSection .Float {
+        width: 95%;
+        max-width: 800px;
+    }
+
+    .HeroSection .Float .TitleContainer h1,
+    .HeroSection .Float .TitleContainer .Subtitle {
+        font-size: 60px;
+    }
+
+
+    .HeroSection .Float h2 {
+        font-size: 19px;
+    }
+
+    .HeroSection .LanguageDropdown {
+        right: unset;
+        left: 10px;
+        top: 10px;
+    }
+
+    .HeroSection .Background .Sphere_big {
+        width: 70vw;
+        height: 70vw;
+        bottom: -10px;
+    }
+
+    .HeroSection .Background .Sphere_small {
+        width: 30vw;
+        height: 30vw;
+        right: -7%;
+    }
 }

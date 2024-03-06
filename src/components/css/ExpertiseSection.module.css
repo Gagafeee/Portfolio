@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 8vh;
-    min-height: calc(100svh - var(--section-gap));
+    min-height: calc(100svh - var(--app-gap));
 }
 
 /** **/
@@ -101,11 +101,58 @@
 
 .ExpertiseCard .Footer .Data i {
     color: var(--text-secondary);
-    font-size: 25px;
     font-weight: 400;
 }
 
 .ExpertiseCard .Footer .Data p {
     color: var(--text-secondary);
-    font-size: 20px;
+}
+
+@media (max-width: 1300px) {
+
+    .ExpertiseSection .Showcase .Card {
+        padding: 1.5vw;
+    }
+
+    .ExpertiseSection .Showcase .Card .Image {
+        width: 12.3vw;
+        height: 12.3vw;
+    }
+
+    /**/
+    .ExpertiseSection .Container .Section .SectionContainer {
+        flex-direction: column;
+        gap: 1vh;
+        width: 100%;
+    }
+
+    /**/
+    .ExpertiseCard {
+        width: 100%;
+        padding: 2vh 13px;
+        min-height: 20vh;
+        height: fit-content;
+
+    }
+
+    .ExpertiseCard .Header {
+        gap: 1vw;
+    }
+
+
+}
+
+@media (max-width: 600px) {
+    .ExpertiseCard .Header .Image {
+        width: 7vw;
+        height: 7vw;
+    }
+    .ExpertiseCard .Footer .Data {
+        gap: 1vw;
+    }
+
+    .ExpertiseSection .Showcase .Card .Image {
+        width: 20vw;
+        height: 20vw;
+    }
 }

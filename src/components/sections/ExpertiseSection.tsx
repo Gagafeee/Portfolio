@@ -22,7 +22,7 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                     {[Technologies.react, Technologies.nextjs, Technologies.electronjs].map(techno => {
                         return (
                             <div className={[styles.Card, GlassyClass.Glassy].join(" ")} key={techno.key}>
-                                <Image src={techno.icon}
+                                <Image src={techno.icon} className={styles.Image}
                                        alt={techno.displayName ?? techno.key + "icon"}
                                        width={160} height={160}
                                 />
@@ -84,7 +84,7 @@ function ExpertiseCard(props: ExpertiseCardProps) {
     return (
         <div className={[styles.ExpertiseCard, GlassyClass.Glassy].join(" ")}>
             <div className={styles.Header}>
-                <Image src={props.technologie.icon}
+                <Image src={props.technologie.icon} className={styles.Image}
                        alt={props.technologie.displayName ?? props.technologie.key + "'s icon"} width={50} height={50}/>
                 <h2>{props.technologie.displayName ?? props.technologie.key}</h2>
                 <div className={[styles.Tag, GlassyClass.Glassy].join(" ")}><p>{props.technologie.type}</p></div>

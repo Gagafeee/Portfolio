@@ -6,21 +6,27 @@ import Button from "@/components/public/Button";
 import Image from "next/image";
 import logoImage from "/public/static/main_logo-min.png";
 import Dropdown from "@/components/public/Dropdown";
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {LanguageContext} from "@/components/public/LanguageEnvironment";
 import TranslatableText from "@/components/public/TranslatableText";
 import {MovableContext} from "@/components/main/MovableContainer";
+import {useWindowSize} from "@/global/useWindowSize";
 
 export interface HeroSectionProps extends DefaultProps {
 
 }
 
 export default function HeroSection(props: HeroSectionProps) {
-    const [currentLanguage, setLanguage] = useContext(LanguageContext);
+    const [width, height] = useWindowSize()
     const movableContext = useContext(MovableContext);
+    const [isMobile, setIsMobile] = useState(width < 1300);
+    useEffect(() => {
+        setIsMobile(width < 1300);
+    }, [width]);
     return (
         <div id={"home"} className={[styles.HeroSection, props.className].join(" ")} style={props.style}>
-            <Image src={logoImage} alt={"Main Gagafeee logo"} width={400} height={400}/>
+            {isMobile && <LanguageDropdown/>}
+            <Image className={styles.Image} src={logoImage} alt={"Main Gagafeee logo"} width={400} height={400}/>
             <div className={[styles.Float, GlassyClass.Glassy].join(" ")}>
                 <div className={styles.TitleContainer}>
                     <h1>
@@ -48,12 +54,7 @@ export default function HeroSection(props: HeroSectionProps) {
                     </p>
                     <i className="fi fi-rr-caret-right"/>
                 </Button>
-                <Dropdown className={styles.LanguageDropdown} value={currentLanguage}
-                          onChange={(e) => setLanguage(e.target.value as Language)}>
-                    {Object.values(Languages).map(language => {
-                        return {key: language, val: language}
-                    })}
-                </Dropdown>
+                {!isMobile && <LanguageDropdown/>}
             </div>
             <div className={styles.Background}>
                 <div className={["Sphere", styles.Sphere_big].join(" ")}></div>
@@ -61,5 +62,17 @@ export default function HeroSection(props: HeroSectionProps) {
                 <div className={styles.Light}></div>
             </div>
         </div>
+    )
+}
+
+function LanguageDropdown() {
+    const [currentLanguage, setLanguage] = useContext(LanguageContext);
+    return (
+        <Dropdown className={styles.LanguageDropdown} value={currentLanguage}
+                  onChange={(e) => setLanguage(e.target.value as Language)}>
+            {Object.values(Languages).map(language => {
+                return {key: language, val: language}
+            })}
+        </Dropdown>
     )
 }

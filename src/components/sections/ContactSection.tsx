@@ -16,7 +16,10 @@ export default function ContactSection(props: ContactSectionProps) {
         <div id={"contact"} className={[styles.ContactSection, props.className].join(" ")} style={props.style}>
             <div className={[styles.Floating, GlassyClass.Glassy].join(" ")}>
                 <div className={styles.Info}>
-                    <h1 className={styles.Title}><TranslatableText>{{English: "Contact me", French: "Me contacter"}}</TranslatableText></h1>
+                    <h1 className={styles.Title}><TranslatableText>{{
+                        English: "Contact me",
+                        French: "Me contacter"
+                    }}</TranslatableText></h1>
                     <div className={styles.Location}>
                         <i className="fi fi-rr-earth-americas"/>
                         <p>Paris - France</p>
@@ -39,12 +42,9 @@ export default function ContactSection(props: ContactSectionProps) {
                 </div>
             </div>
             <div className={styles.Background}>
-                <div className={["Sphere", styles.Light].join(" ")}
-                     style={{right: "-10vw", bottom: "-20vw", width: "50vw", height: "50vw"}}/>
-                <div className={["Sphere", styles.Sphere].join(" ")}
-                     style={{left: "-5vw", top: "20vh", width: "20vw", height: "20vw"}}/>
-                <div className={["Sphere", styles.Sphere].join(" ")}
-                     style={{right: "-10vw", bottom: "-20vw", width: "55vw", height: "55vw"}}/>
+                <div className={["Sphere", styles.Light, styles.Sphere_Light].join(" ")}/>
+                <div className={["Sphere", styles.Sphere, styles.Sphere_Small].join(" ")}/>
+                <div className={["Sphere", styles.Sphere, styles.Sphere_Big].join(" ")}/>
             </div>
         </div>
     )

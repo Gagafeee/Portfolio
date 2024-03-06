@@ -5,7 +5,7 @@
     align-items: flex-start;
     justify-content: center;
     /*background-color: orange;*/
-    min-height: calc(100svh - var(--section-gap));
+    min-height: calc(100svh - var(--app-gap));
     padding: 0 5vw;
     position: relative;
 }
@@ -35,7 +35,6 @@
     display: flex;
     align-items: center;
     gap: 0.5vw;
-
 }
 
 .ContactSection .Floating .Info .Location p,
@@ -54,13 +53,6 @@
     gap: 0.3vw;
 }
 
-.ContactSection .Floating .ButtonContainer .ButtonContent p {
-    font-size: 25px;
-}
-
-.ContactSection .Floating .ButtonContainer .ButtonContent i {
-    font-size: 20px;
-}
 
 /**/
 .ContactSection .Background {
@@ -76,4 +68,68 @@
     background-color: var(--primary);
     filter: blur(150px);
     opacity: 30%;
+}
+
+.ContactSection .Background .Sphere_Small {
+    left: -5vw;
+    top: 20vh;
+    width: 20vw;
+    height: 20vw;
+}
+
+.ContactSection .Background .Sphere_Big {
+    right: -10vw;
+    bottom: -20vw;
+    width: 55vw;
+    height: 55vw;
+}
+
+.ContactSection .Background .Sphere_Light {
+    right: -10vw;
+    bottom: -20vw;
+    width: 50vw;
+    height: 50vw;
+}
+
+@media (max-width: 1500px) {
+    .ContactSection .Floating {
+        width: 80%;
+        padding: 3vh;
+    }
+
+    .ContactSection .Floating .Info .Title {
+        font-size: 7vw;
+    }
+}
+
+@media (max-width: 1000px) {
+    .ContactSection .Floating {
+        width: 100%;
+        padding: 3vh;
+    }
+
+    .ContactSection .Floating .Info .Title {
+        font-size: 11vw;
+    }
+
+    .ContactSection .Background .Sphere_Small {
+        left: -5vw;
+        top: 15vh;
+        width: 30vw;
+        height: 30vw;
+    }
+
+    .ContactSection .Background .Sphere_Big {
+        right: -20vw;
+        bottom: -20vw;
+        width: 100vw;
+        height: 100vw;
+    }
+
+    .ContactSection .Background .Sphere_Light {
+        right: -25vw;
+        bottom: -25vw;
+        width: 95vw;
+        height: 95vw;
+    }
 }
