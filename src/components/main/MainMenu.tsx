@@ -3,7 +3,7 @@ import styles from "../css/MainMenu.module.css"
 import {defaultFont, DefaultProps} from "@/global/global";
 import GlassyClass from "@/global/Glassy.module.css";
 import Button from "@/components/public/Button";
-import {useContext, useEffect, useLayoutEffect, useState} from "react";
+import {useCallback, useContext, useEffect, useLayoutEffect, useState} from "react";
 import TranslatableText, {TranslatableContent} from "@/components/public/TranslatableText";
 import {LanguageContext} from "@/components/public/LanguageEnvironment";
 import {useWindowSize} from "@/global/useWindowSize";
@@ -20,44 +20,44 @@ export default function MainMenu(props: MainMenuProps) {
     const [currentLanguage] = useContext(LanguageContext);
     const [width, height] = useWindowSize()
 
-    const isMobile = width <= mobileBreakpoint;
+    const isMobile = useCallback(() => width <= mobileBreakpoint, [width]);
 
-    const letterWidth = !isMobile ? 12.9 : 9.92;
+    const letterWidth = useCallback(() => !isMobile() ? 12.9 : 9.92, [isMobile]);
 
-    function calculateMobileGap() {
-        const letterWidthMap = props.buttons.map(b => (b.content[currentLanguage].length * letterWidth));
+    const calculateMobileGap = useCallback(() => {
+        const letterWidthMap = props.buttons.map(b => (b.content[currentLanguage].length * letterWidth()));
         let total = 0;
         letterWidthMap.forEach(w => total += w)
         return (width - total) / (letterWidthMap.length + 1);
         //gap = (width - elemTotWidth) / (nb(element) + 1)
-    }
+    }, [width, currentLanguage, letterWidth, props.buttons])
 
 
-    const [menuGap, setMenuGap] = useState(isMobile ? calculateMobileGap : Math.floor(width / 100));
-    const [padding, setPadding] = useState(isMobile ? calculateMobileGap : 18);
+    const [menuGap, setMenuGap] = useState(isMobile() ? calculateMobileGap : Math.floor(width / 100));
+    const [padding, setPadding] = useState(isMobile() ? calculateMobileGap : 18);
 
 
     const [selected, setSelected] = useState<number>(0);
 
-    const [margin, setMargin] = useState(padding + (letterWidth * props.buttons[selected].content[currentLanguage].length) / 2);
+    const [margin, setMargin] = useState(padding + (letterWidth() * props.buttons[selected].content[currentLanguage].length) / 2);
 
     const detectMargin = Math.floor((height * 18) / 100);
 
 
     useEffect(() => {
-        setMenuGap(isMobile ? calculateMobileGap : Math.floor(width / 100));
-        setPadding(isMobile ? calculateMobileGap : 18);
+        setMenuGap(isMobile() ? calculateMobileGap : Math.floor(width / 100));
+        setPadding(isMobile() ? calculateMobileGap : 18);
 
         function calculateMargin() {
             const lengthMap = props.buttons.map(t => t.content[currentLanguage].length);
             let prev = 0;
-            lengthMap.slice(0, selected).map(l => prev += letterWidth * l + menuGap)
-            return padding + prev + (letterWidth * lengthMap[selected]) / 2;
+            lengthMap.slice(0, selected).map(l => prev += letterWidth() * l + menuGap)
+            return padding + prev + (letterWidth() * lengthMap[selected]) / 2;
             //Margin = padding + (every previous length + gap) + (current length / 2)
         }
 
         setMargin(calculateMargin())
-    }, [selected, currentLanguage, props.buttons, width, menuGap, padding]);
+    }, [selected, currentLanguage, props.buttons, width, menuGap, padding, isMobile, letterWidth, calculateMobileGap]);
 
 
     useLayoutEffect(() => {
@@ -76,11 +76,11 @@ export default function MainMenu(props: MainMenuProps) {
 
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
-    }, [props.buttons, height, movableContext.anchorMap]);
+    }, [props.buttons, height, movableContext.anchorMap, detectMargin]);
 
     return (
         <div className={[styles.MainMenu, GlassyClass.Glassy, props.className].join(" ")}
-             style={{...props.style, gap: isMobile ? (menuGap + "px") : undefined}}>
+             style={{...props.style, gap: isMobile() ? (menuGap + "px") : undefined}}>
             {props.buttons.map((button, i) => {
                 return (
                     <Button key={i} onClick={() => movableContext.scrollTo(button.anchor)} display={"text"}

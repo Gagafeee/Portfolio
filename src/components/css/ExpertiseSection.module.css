@@ -129,10 +129,9 @@
     /**/
     .ExpertiseCard {
         width: 100%;
-        padding: 2vh 13px;
+        padding: 3vw 3vw;
         min-height: 20vh;
         height: fit-content;
-
     }
 
     .ExpertiseCard .Header {

@@ -15,7 +15,8 @@ export interface LanguageEnvironmentProps extends DefaultProps {
 export default function LanguageEnvironment(props: LanguageEnvironmentProps) {
     const [currentLanguage, _setCurrentLanguage] = useState<Language>("English");
     useEffect(() => {
-        _setCurrentLanguage(localStorage.getItem('language') as Language ?? currentLanguage)
+        const storage = localStorage.getItem('language');
+        if (storage !== null) _setCurrentLanguage(storage as Language)
     }, []);
 
     function setCurrentLanguage(language: Language) {

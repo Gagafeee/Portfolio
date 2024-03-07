@@ -112,6 +112,10 @@
         font-size: 11vw;
     }
 
+    .ContactSection .Floating .ButtonContainer .ButtonContent {
+        gap: 1vw;
+    }
+
     .ContactSection .Background .Sphere_Small {
         left: -5vw;
         top: 15vh;
