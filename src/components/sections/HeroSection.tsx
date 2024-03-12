@@ -19,9 +19,9 @@ export interface HeroSectionProps extends DefaultProps {
 export default function HeroSection(props: HeroSectionProps) {
     const [width, height] = useWindowSize()
     const movableContext = useContext(MovableContext);
-    const [isMobile, setIsMobile] = useState(width < 1300);
+    const [isMobile, setIsMobile] = useState(width < 1400);
     useEffect(() => {
-        setIsMobile(width < 1300);
+        setIsMobile(width < 1400);
     }, [width]);
     return (
         <div id={"home"} className={[styles.HeroSection, props.className].join(" ")} style={props.style}>
@@ -39,12 +39,12 @@ export default function HeroSection(props: HeroSectionProps) {
                         }}</TranslatableText>
                     </h1>
                 </div>
-                <h2>
+                <p className={styles.Text}>
                     <TranslatableText>{{
                         English: "Passionate front-end developer since 2020",
                         French: "Développeur front-end passionné depuis 2020"
                     }}</TranslatableText>
-                </h2>
+                </p>
                 <Button onClick={() => movableContext.scrollTo("projects")}>
                     <p>
                         <TranslatableText>{{

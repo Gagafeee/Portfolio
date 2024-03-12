@@ -10,17 +10,20 @@ export interface SectionProps extends DefaultProps {
     subtitle?: TranslatableContent | ReactElement;
     anchor?: string;
     alignment?: "left" | "center" | "right";
+    level?: 1 | 2;
 }
 
 export default function Section(props: SectionProps) {
+    const level = props.level ?? 1;
     return (
         <section id={props.anchor} className={[styles.Section, props.className].join(" ")} style={props.style}>
             <div className={styles.TitleContainer} style={{textAlign: props.alignment}}>
                 {isTranslatableContent(props.title) ?
-                    <h1><TranslatableText>{props.title}</TranslatableText></h1> :
+                    level === 1 ? <h1><TranslatableText>{props.title}</TranslatableText></h1> :
+                        <h2><TranslatableText>{props.title}</TranslatableText></h2> :
                     <>{props.title}</>}
                 {isTranslatableContent(props.subtitle) ?
-                    <h3><TranslatableText>{props.subtitle}</TranslatableText></h3> :
+                    <p className={styles.Description}><TranslatableText>{props.subtitle}</TranslatableText></p> :
                     <>{props.subtitle}</>}
             </div>
             {props.children}

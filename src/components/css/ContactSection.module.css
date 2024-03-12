@@ -4,7 +4,6 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    /*background-color: orange;*/
     min-height: calc(100svh - var(--app-gap));
     padding: 0 5vw;
     position: relative;
@@ -13,8 +12,8 @@
 .ContactSection .Floating {
     display: flex;
     flex-direction: column;
-    min-width: 50vw;
-    border-radius: 30px;
+    min-width: 45vw;
+    border-radius: var(--border-radius);
     padding: 6vh 2vw;
     gap: 3vh;
     background-color: rgba(0, 0, 0, 0.05);
@@ -23,18 +22,17 @@
 .ContactSection .Floating .Info {
     display: flex;
     flex-direction: column;
+    gap: 1.5vh;
 }
 
 .ContactSection .Floating .Info .Title {
-    font-size: 105px;
     font-weight: 500;
-    line-height: 100%;
 }
 
 .ContactSection .Floating .Info .Location {
     display: flex;
     align-items: center;
-    gap: 0.5vw;
+    gap: 0.5rem;
 }
 
 .ContactSection .Floating .Info .Location p,
@@ -45,14 +43,15 @@
 .ContactSection .Floating .ButtonContainer {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 1vw;
 }
 
 .ContactSection .Floating .ButtonContainer .ButtonContent {
     display: flex;
-    gap: 0.3vw;
+    align-items: center;
+    gap: 0.7rem;
 }
-
 
 /**/
 .ContactSection .Background {
@@ -91,29 +90,9 @@
     height: 50vw;
 }
 
-@media (max-width: 1500px) {
-    .ContactSection .Floating {
-        width: 80%;
-        padding: 3vh;
-    }
-
-    .ContactSection .Floating .Info .Title {
-        font-size: 7vw;
-    }
-}
-
-@media (max-width: 1000px) {
+@media (max-width: calc(1000px - 1px)) {
     .ContactSection .Floating {
         width: 100%;
-        padding: 3vh;
-    }
-
-    .ContactSection .Floating .Info .Title {
-        font-size: 11vw;
-    }
-
-    .ContactSection .Floating .ButtonContainer .ButtonContent {
-        gap: 1vw;
     }
 
     .ContactSection .Background .Sphere_Small {
@@ -126,14 +105,14 @@
     .ContactSection .Background .Sphere_Big {
         right: -20vw;
         bottom: -20vw;
-        width: 100vw;
-        height: 100vw;
+        width: 80vw;
+        height: 80vw;
     }
 
     .ContactSection .Background .Sphere_Light {
         right: -25vw;
         bottom: -25vw;
-        width: 95vw;
-        height: 95vw;
+        width: 90vw;
+        height: 90vw;
     }
 }

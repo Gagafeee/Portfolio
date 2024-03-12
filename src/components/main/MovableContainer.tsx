@@ -20,7 +20,7 @@ function error() {
 export const MovableContext = createContext<MovableContext>({scrollTo: error, anchorMap: new Map()})
 export default function MovableContainer(props: MovableContextProps) {
     const anchorMap = useRef<Map<string, number>>(new Map());
-    const [width, height] = useWindowSize()
+    const [, height] = useWindowSize()
 
     useEffect(() => {
         function constructList() {

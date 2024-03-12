@@ -3,7 +3,7 @@ import styles from "../css/MainMenu.module.css"
 import {defaultFont, DefaultProps} from "@/global/global";
 import GlassyClass from "@/global/Glassy.module.css";
 import Button from "@/components/public/Button";
-import {useCallback, useContext, useEffect, useLayoutEffect, useState} from "react";
+import {useContext, useLayoutEffect, useRef, useState} from "react";
 import TranslatableText, {TranslatableContent} from "@/components/public/TranslatableText";
 import {LanguageContext} from "@/components/public/LanguageEnvironment";
 import {useWindowSize} from "@/global/useWindowSize";
@@ -19,46 +19,43 @@ export default function MainMenu(props: MainMenuProps) {
     const movableContext = useContext(MovableContext);
     const [currentLanguage] = useContext(LanguageContext);
     const [width, height] = useWindowSize()
-
-    const isMobile = useCallback(() => width <= mobileBreakpoint, [width]);
-
-    const letterWidth = useCallback(() => !isMobile() ? 12.9 : 9.92, [isMobile]);
-
-    const calculateMobileGap = useCallback(() => {
-        const letterWidthMap = props.buttons.map(b => (b.content[currentLanguage].length * letterWidth()));
-        let total = 0;
-        letterWidthMap.forEach(w => total += w)
-        return (width - total) / (letterWidthMap.length + 1);
-        //gap = (width - elemTotWidth) / (nb(element) + 1)
-    }, [width, currentLanguage, letterWidth, props.buttons])
-
-
-    const [menuGap, setMenuGap] = useState(isMobile() ? calculateMobileGap : Math.floor(width / 100));
-    const [padding, setPadding] = useState(isMobile() ? calculateMobileGap : 18);
-
+    const menuRef = useRef<HTMLDivElement>(null)
 
     const [selected, setSelected] = useState<number>(0);
+    const [buttonWidthMap, setButtonWidthMap] = useState<number[]>([]);
 
-    const [margin, setMargin] = useState(padding + (letterWidth() * props.buttons[selected].content[currentLanguage].length) / 2);
+    const letterWidth = 26 * 0.5;
+    const gap = Math.floor((width) / 100)
+    const leftMargin = width > mobileBreakpoint ? 18 : 0;
+    const detectMargin = width > mobileBreakpoint ? Math.floor((height * 10) / 100) : Math.floor((height * 8) / 100);
 
-    const detectMargin = Math.floor((height * 18) / 100);
+    useLayoutEffect(() => {
+        //calculate Button margin
+        let newSizeMap: number[] = [];
+        props.buttons.forEach(btn => {
+            newSizeMap.push(btn.content[currentLanguage].length * letterWidth);
+        });
+        setButtonWidthMap(newSizeMap);
+    }, [props.buttons, currentLanguage, letterWidth]);
 
+    useLayoutEffect(() => {
+        //calculate Dot Position
+        let accumulatedPreviousMargin = 0;
+        buttonWidthMap.slice(0, selected).map(width => accumulatedPreviousMargin += width + gap);
+        setMargin(leftMargin + accumulatedPreviousMargin + (buttonWidthMap[selected] / 2));
+        //Margin = padding + (every previous length + gap) + (current length / 2)
 
-    useEffect(() => {
-        setMenuGap(isMobile() ? calculateMobileGap : Math.floor(width / 100));
-        setPadding(isMobile() ? calculateMobileGap : 18);
-
-        function calculateMargin() {
-            const lengthMap = props.buttons.map(t => t.content[currentLanguage].length);
-            let prev = 0;
-            lengthMap.slice(0, selected).map(l => prev += letterWidth() * l + menuGap)
-            return padding + prev + (letterWidth() * lengthMap[selected]) / 2;
-            //Margin = padding + (every previous length + gap) + (current length / 2)
+        //if on mobil scroll the horizontal bar
+        if (width <= mobileBreakpoint) {
+            menuRef.current?.scrollTo({
+                left: accumulatedPreviousMargin - buttonWidthMap[selected - 1],
+                behavior: "smooth"
+            })
         }
+    }, [width, selected, props.buttons, currentLanguage, buttonWidthMap, gap, leftMargin]);
 
-        setMargin(calculateMargin())
-    }, [selected, currentLanguage, props.buttons, width, menuGap, padding, isMobile, letterWidth, calculateMobileGap]);
 
+    const [margin, setMargin] = useState<number>();
 
     useLayoutEffect(() => {
         //scroll setup on component rendered
@@ -79,18 +76,20 @@ export default function MainMenu(props: MainMenuProps) {
     }, [props.buttons, height, movableContext.anchorMap, detectMargin]);
 
     return (
-        <div className={[styles.MainMenu, GlassyClass.Glassy, props.className].join(" ")}
-             style={{...props.style, gap: isMobile() ? (menuGap + "px") : undefined}}>
+        <div ref={menuRef} className={[styles.MainMenu, GlassyClass.Glassy, props.className].join(" ")}
+             style={{gap: gap + "px"}}>
             {props.buttons.map((button, i) => {
                 return (
                     <Button key={i} onClick={() => movableContext.scrollTo(button.anchor)} display={"text"}
                             className={[styles.Button, selected === i ? styles.Selected : ""].join(" ")}>
-                        <p className={[styles.Text, defaultFont.className].join(" ")}>
+                        <p style={{width: buttonWidthMap[i]}}
+                           className={[styles.Text, defaultFont.className].join(" ")}>
                             <TranslatableText>{button.content}</TranslatableText></p>
                     </Button>
                 )
             })}
-            <div style={{left: margin}} className={styles.Dot}></div>
+            <div style={{left: margin !== undefined && !isNaN(margin) ? margin : undefined}}
+                 className={styles.Dot}></div>
         </div>
     )
 }

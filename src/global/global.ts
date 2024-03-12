@@ -1,4 +1,4 @@
-import {CSSProperties, useLayoutEffect, useState} from "react";
+import {CSSProperties} from "react";
 import {Archivo, Rubik} from "next/font/google";
 import {StaticImageData} from "next/image";
 import {TranslatableContent} from "@/components/public/TranslatableText";
@@ -49,3 +49,6 @@ export interface Project {
     color: string
 }
 
+
+//* Utils *//
+export const clampNumber = (num: number, a: number, b: number) => Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));

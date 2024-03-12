@@ -1,22 +1,23 @@
-/***/
-/* Under 1050px The hero banner switch to phone mode
-/***/
 .HeroSection {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5svw;
+    gap: 7svw;
     width: 100%;
     height: 100svh;
+}
+
+.HeroSection .Image {
+    height: auto;
+    width: clamp(50px, 40vw, 500px);
 }
 
 .HeroSection .Float {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 2.5vh;
-    min-width: 40svw;
-    min-height: 30svh;
+    gap: 1.7ch;
+    min-width: 45svw;
     --horizontal-padding: 34px;
     --vertical-padding: 60px;
     padding: var(--vertical-padding) var(--horizontal-padding);
@@ -24,31 +25,21 @@
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.HeroSection .Float h2 {
-    font-size: 31px;
-    opacity: 90%;
-}
-
-.HeroSection .Float .TitleContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5vh;
-}
-
 .HeroSection .Float .TitleContainer h1 {
-    line-height: 70%;
-    font-size: 94px;
+    font-size: clamp(3.5rem, 12vw, 6rem);
     letter-spacing: -3.5px;
     font-weight: 500;
 }
 
 .HeroSection .Float .TitleContainer .Subtitle {
-    font-size: 70px;
     font-weight: 600;
     background: var(--primary-gradient);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.HeroSection .Float .Text {
+    opacity: 90%;
 }
 
 .HeroSection .Background {
@@ -91,7 +82,7 @@
 
 
 .HeroSection .LanguageDropdown {
-    --font-size: 25px;
+    --font-size: clamp(1.3rem, 3.5vw, 2rem);
     position: absolute;
     right: calc(var(--horizontal-padding) - 10px);
     top: calc(var(--vertical-padding) - (var(--font-size) + 18px + 0px));
@@ -102,41 +93,20 @@
     border-radius: 15px;
 }
 
-
-@media (min-width: 1300px) {
-    .HeroSection .LanguageDropdown {
-        font-size: var(--font-size);
-    }
-
-    .HeroSection .LanguageDropdown option {
-        font-size: calc(var(--font-size) - 5px);
-    }
-}
-
-@media (max-width: 1300px) {
+@media (max-width: 1400px) {
     .HeroSection {
         flex-direction: column;
-        gap: 3vh;
+        gap: 2svh;
     }
 
     .HeroSection .Image {
-        width: 40vw;
-        height: 40vw;
+        width: clamp(200px, 90vw, 25%);
     }
 
     .HeroSection .Float {
-        width: 95%;
-        max-width: 800px;
-    }
-
-    .HeroSection .Float .TitleContainer h1,
-    .HeroSection .Float .TitleContainer .Subtitle {
-        font-size: 60px;
-    }
-
-
-    .HeroSection .Float h2 {
-        font-size: 19px;
+        max-width: 900px;
+        --horizontal-padding: clamp(5px, 3vw, 2rem);
+        width: 100%;
     }
 
     .HeroSection .LanguageDropdown {

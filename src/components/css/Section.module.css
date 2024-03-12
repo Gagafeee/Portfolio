@@ -12,11 +12,8 @@
     z-index: 10;
 }
 
-@media (max-width: 600px) {
-    .Section .TitleContainer h1 {
-        font-size: 8vw;
-    }
-    .Section .TitleContainer h3 {
-        font-size: 5vw;
-    }
+.Section .TitleContainer .Description {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-weight: 400;
+    color: var(--text-secondary);
 }

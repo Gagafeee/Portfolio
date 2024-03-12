@@ -31,10 +31,12 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                     })}
                 </div>
                 <div className={styles.Container}>
-
                     <Section title={{English: "The roots of everything", French: "Les racines de tout"}}
-                             subtitle={{English: "The fundamentals of web creation", French: "Les fondamentaux du development web"}}
-                             className={styles.Section} alignment={"left"}
+                             level={2} subtitle={{
+                        English: "The fundamentals of web creation",
+                        French: "Les fondamentaux du development web"
+                    }}
+                             alignment={"left"}
                     >
                         <div
                             className={styles.SectionContainer}>
@@ -43,7 +45,10 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                         </div>
                     </Section>
                     <Section title={{English: "Frameworks on demand", French: "Frameworks à la demande"}}
-                             subtitle={{English: "Each one for a specific use case", French: "Chacun son cas d’utilisation spécifique"}}
+                             level={2} subtitle={{
+                        English: "Each one for a specific use case",
+                        French: "Chacun son cas d’utilisation spécifique"
+                    }}
                              className={styles.Section} alignment={"left"}
                     >
                         <div
@@ -52,7 +57,7 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                                 <ExpertiseCard key={technologie.key} technologie={technologie}/>)}
                         </div>
                     </Section>
-                    <Section title={{English: "Libraries", French: "Libraries"}}
+                    <Section title={{English: "Libraries", French: "Libraries"}} level={2}
                              subtitle={{English: "Allow to create faster", French: "Pour créer plus vite"}}
                              className={styles.Section} alignment={"left"}
                     >
@@ -86,7 +91,7 @@ function ExpertiseCard(props: ExpertiseCardProps) {
             <div className={styles.Header}>
                 <Image src={props.technologie.icon} className={styles.Image}
                        alt={props.technologie.displayName ?? props.technologie.key + "'s icon"} width={50} height={50}/>
-                <h2>{props.technologie.displayName ?? props.technologie.key}</h2>
+                <h4>{props.technologie.displayName ?? props.technologie.key}</h4>
                 <div className={[styles.Tag, GlassyClass.Glassy].join(" ")}><p>{props.technologie.type}</p></div>
             </div>
             <p className={styles.Description}>

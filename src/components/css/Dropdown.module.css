@@ -1,28 +1,17 @@
 .Dropdown {
-    padding: 9px 18px;
+    padding: var(--component-padding);
     border-radius: var(--border-radius);
     background-color: var(--background-primary);
-    border: solid 3px #282829;
-    /**/
+    border: solid 3px var(--secondary);
 }
 
 .Dropdown {
-    font-size: 31px;
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
     font-weight: 800;
 }
 
 .Dropdown option {
-    font-size: 23px;
+    font-size: clamp(1rem, 3.5vw, 1.7rem);
     font-weight: 800;
     font-family: inherit;
-}
-
-@media (max-width: 500px) {
-    .Dropdown {
-        font-size: 6.2vw;
-    }
-
-    .Dropdown option {
-        font-size: 4.6vw;
-    }
 }

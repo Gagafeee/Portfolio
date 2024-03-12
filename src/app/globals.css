@@ -2,13 +2,11 @@
 @import url('~@flaticon/flaticon-uicons/css/brands/all.css');
 
 :root {
-    --max-width: 1100px;
-    --border-radius: 21px;
-    --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+    --border-radius: 28px;
+    --component-padding: 9px 18px;
 
     --primary: #514CEB;
+    --secondary: #282829;
     --background-primary: #111113;
     --text-primary: #FFF;
     --text-secondary: #939393;
@@ -28,9 +26,6 @@ body {
 }
 
 body {
-    /**/
-    /*padding-bottom: 20vh;*/
-    /**/
     min-height: 100svh;
     background-color: var(--background-primary);
 }
@@ -47,40 +42,31 @@ h4, h5, h6, option, i {
     color: var(--text-primary);
 }
 
-p {
-    font-size: 24px;
+p, a {
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
 }
 
 /*Main Title*/
 h1 {
-    font-size: 48px;
+    font-size: clamp(3.5rem, 4vw, 6rem);
     font-weight: 700;
+    line-height: 90%;
 }
 
 h2 {
-    font-size: 35px;
+    font-size: clamp(2.5rem, 3.5vw, 3.5rem);
     font-weight: 500;
 }
 
-@media (max-width: 600px) {
-    h1 {
-        font-size: 8vw;
-    }
-
-    h2 {
-        font-size: 5.3vw;
-    }
-
-    p {
-        font-size: 4vw;
-    }
-}
-
-/*Section description*/
 h3 {
-    font-size: 30px;
+    font-size: clamp(1.5rem, 2vw, 2rem);
     font-weight: 400;
     color: var(--text-secondary);
+}
+
+h4 {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    font-weight: 500;
 }
 
 /****/
@@ -89,18 +75,11 @@ i {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    font-size: 30px;
+    font-size: 1.5rem;
     width: fit-content;
 }
 
-@media (max-width: 600px) {
-    i {
-        font-size: 5vw;
-    }
-}
-
 /****/
-/*noinspection CssUnusedSymbol*/
 .Sphere {
     position: absolute;
     border-radius: 50%;

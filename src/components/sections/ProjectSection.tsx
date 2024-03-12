@@ -23,7 +23,10 @@ export default function ProjectSection(props: ProjectSectionProps) {
             className={[styles.ProjectSection, props.className].join(" ")}
             style={props.style}
             title={{English: "Past Projects", French: "Projets precedents"}}
-            subtitle={{English: "Every achievement brings knowledge", French: "Chaque réalisation apporte des connaissances"}}
+            subtitle={{
+                English: "Every achievement brings knowledge",
+                French: "Chaque réalisation apporte des connaissances"
+            }}
             anchor={"projects"}
         >
             <ProjectCarousel elements={Projects}/>
@@ -66,11 +69,6 @@ function ProjectCarousel(props: { elements: Project[] }) {
         if (!inTransition) setCurrentId(currentId - 1 >= 0 ? currentId - 1 : (props.elements.length - 1))
     };
 
-    //Constrain the description Height with max/min to animate it
-    //Limit the amount of line to 5.
-    const getMax = (lineCount: number) => lineCount > 5 ? 5 : lineCount;
-    const contentLineHeight = getMax(Math.ceil(current.description[currentLanguage].length / 66)) * (24 + (2 * 2));
-
     return (
         <div className={styles.Carousel}>
             <div className={styles.LeftContainer}>
@@ -100,19 +98,17 @@ function ProjectCarousel(props: { elements: Project[] }) {
                 </div>
                 <div className={[styles.Card, GlassyClass.Glassy].join(" ")}>
                     <div className={styles.Header}>
-                        <div className={styles.TitleContainer}>
-                            <Image className={styles.Icon} src={current.icon}
-                                   alt={current.displayName ?? current.key + "'s project icon"} width={80} height={80}/>
-                            <h1>{current.displayName ?? current.key}</h1>
-                        </div>
+                        <Image className={styles.Icon} src={current.icon}
+                               alt={current.displayName ?? current.key + "'s project icon"} width={80} height={80}/>
+                        <h2>{current.displayName ?? current.key}</h2>
                         {current.link && <Button display={"secondary"} className={styles.Button}
                                                  onClick={() => window.open(current.link?.url)}>
                             <p>{current.link.display ?? ("See on " + new URL(current.link.url).hostname)}</p>
                             <i className="fi fi-rr-caret-right"/>
                         </Button>}
                     </div>
-                    <p style={{maxHeight: contentLineHeight + "px", minHeight: contentLineHeight + "px"}}
-                       className={styles.Description}><TranslatableText>{current.description}</TranslatableText></p>
+                    <p /*style={{maxHeight: contentLineHeight + "px", minHeight: contentLineHeight + "px"}}*/
+                        className={styles.Description}><TranslatableText>{current.description}</TranslatableText></p>
                     <div className={styles.Footer}>
                         <div className={styles.Datas}>
                             <div className={[styles.Data].join(" ")}>
@@ -128,7 +124,8 @@ function ProjectCarousel(props: { elements: Project[] }) {
                             {current.technologies.map((tech, i) => {
                                 //Technologie
                                 return (
-                                    <Image className={styles.Image} key={i} src={tech.icon} alt={tech.displayName ?? tech.key} width={50}
+                                    <Image className={styles.Image} key={i} src={tech.icon}
+                                           alt={tech.displayName ?? tech.key} width={50}
                                            height={50}/>
                                 )
                             })}
