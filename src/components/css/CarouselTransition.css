@@ -21,23 +21,3 @@
         transition: left 1000ms ease, transform 500ms ease;
     }
 }
-
-@media (max-width: 1000px ) {
-    .ImageContainer-animation-enter {
-        left: 160%;
-    }
-
-    .ImageContainer-animation-enter-active {
-        left: 0;
-        transition: left 1000ms ease;
-    }
-
-    .ImageContainer-animation-exit {
-        left: 0;
-    }
-
-    .ImageContainer-animation-exit-active {
-        left: 160%;
-        transition: left 1000ms ease;
-    }
-}

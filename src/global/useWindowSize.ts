@@ -1,11 +1,12 @@
 "use client";
-import {useEffect, useLayoutEffect, useState} from "react";
+import {useLayoutEffect, useState} from "react";
 
 export function useWindowSize() {
     //https://github.com/streamich/react-use/blob/ade8d3905f544305515d010737b4ae604cc51024/src/useWindowSize.ts#L6
     const isServer = typeof window === "undefined";
-    const [size, setSize] = useState([Infinity, Infinity]);
-    useEffect(() => {
+    const [size, setSize] = useState([0, 0]);
+
+    useLayoutEffect(() => {
         setSize([window.innerWidth, window.innerHeight])
     }, []);
 

@@ -1,6 +1,6 @@
 "use client";
 import {DefaultProps} from "@/global/global";
-import {createContext, ReactNode, useEffect, useRef} from "react";
+import {createContext, ReactNode, useEffect, useState} from "react";
 import {useWindowSize} from "@/global/useWindowSize";
 
 export interface MovableContextProps extends DefaultProps {
@@ -19,8 +19,9 @@ function error() {
 
 export const MovableContext = createContext<MovableContext>({scrollTo: error, anchorMap: new Map()})
 export default function MovableContainer(props: MovableContextProps) {
-    const anchorMap = useRef<Map<string, number>>(new Map());
+    const [anchorMap, setAnchorMap] = useState<Map<string, number>>(new Map());
     const [, height] = useWindowSize()
+    const gap = Math.floor((height * 8) / 100);
 
     useEffect(() => {
         function constructList() {
@@ -29,26 +30,26 @@ export default function MovableContainer(props: MovableContextProps) {
             props.anchorList.forEach(anchor => {
                 const elem = document.getElementById(anchor)
                 if (elem === null) throw new Error("Element with id '" + anchor + "' cannot be found in document")
-                map.set(anchor, elem.offsetTop);
+                map.set(anchor, elem.offsetTop - gap);
             })
             return map;
         }
 
-        anchorMap.current = constructList()
+        setAnchorMap(constructList());
     }, [height, props.anchorList]);
 
 
     function Select(anchor: string) {
-        const scroll = anchorMap.current.get(anchor);
+        const scroll = anchorMap.get(anchor);
         if (scroll === undefined) throw new Error("Cannot find anchor '" + anchor + "'");
         window.scrollTo({
-            top: (scroll - Math.floor((height * 8) / 100)),
+            top: scroll,
             behavior: "smooth"
         })
     }
 
     return (
-        <MovableContext.Provider value={{scrollTo: Select, anchorMap: anchorMap.current}}>
+        <MovableContext.Provider value={{scrollTo: Select, anchorMap: anchorMap}}>
             {props.children}
         </MovableContext.Provider>
 

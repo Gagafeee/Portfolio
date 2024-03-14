@@ -24,10 +24,12 @@ export default function MainMenu(props: MainMenuProps) {
     const [selected, setSelected] = useState<number>(0);
     const [buttonWidthMap, setButtonWidthMap] = useState<number[]>([]);
 
-    const letterWidth = 26 * 0.5;
-    const gap = Math.floor((width) / 100)
-    const leftMargin = width > mobileBreakpoint ? 18 : 0;
-    const detectMargin = width > mobileBreakpoint ? Math.floor((height * 10) / 100) : Math.floor((height * 8) / 100);
+    const isMobile = width < mobileBreakpoint;
+
+    const letterWidth = !isMobile ? 26 * 0.5 : 16 * 0.5;
+    const gap = !isMobile ? Math.floor((width) / 100) : 0;
+    const leftMargin = !isMobile ? 18 : 0;
+    const detectMargin = (!isMobile && height >= 1000) ? Math.floor((height * 10) / 100) : Math.floor((height * 8) / 100);
 
     useLayoutEffect(() => {
         //calculate Button margin
@@ -42,15 +44,14 @@ export default function MainMenu(props: MainMenuProps) {
         //calculate Dot Position
         let accumulatedPreviousMargin = 0;
         buttonWidthMap.slice(0, selected).map(width => accumulatedPreviousMargin += width + gap);
-        setMargin(leftMargin + accumulatedPreviousMargin + (buttonWidthMap[selected] / 2));
-        //Margin = padding + (every previous length + gap) + (current length / 2)
-
-        //if on mobil scroll the horizontal bar
-        if (width <= mobileBreakpoint) {
-            menuRef.current?.scrollTo({
-                left: accumulatedPreviousMargin - buttonWidthMap[selected - 1],
-                behavior: "smooth"
-            })
+        if (isMobile) {
+            const mobilePadding = Math.floor((width * 2) / 100);
+            const buttonWidth = (width - mobilePadding) / buttonWidthMap.length;
+            setMargin(leftMargin + (buttonWidth * selected) + (buttonWidth / 2));
+            //every button have the same size
+        } else {
+            setMargin(leftMargin + accumulatedPreviousMargin + (buttonWidthMap[selected] / 2));
+            //Margin = padding + (every previous length + gap) + (current length / 2)
         }
     }, [width, selected, props.buttons, currentLanguage, buttonWidthMap, gap, leftMargin]);
 
@@ -73,7 +74,7 @@ export default function MainMenu(props: MainMenuProps) {
 
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
-    }, [props.buttons, height, movableContext.anchorMap, detectMargin]);
+    }, [props.buttons, height, movableContext, detectMargin]);
 
     return (
         <div ref={menuRef} className={[styles.MainMenu, GlassyClass.Glassy, props.className].join(" ")}

@@ -1,5 +1,5 @@
 .ProjectSection {
-    height: calc(100svh - var(--app-gap));
+    min-height: calc(100svh - var(--app-gap));
     position: relative;
     gap: 0;
     overflow: hidden;
@@ -243,6 +243,7 @@
     .ProjectSection .Carousel .LeftContainer {
         flex-direction: column;
         gap: 1vh;
+        --height: fit-content;
     }
 
     .ProjectSection .Carousel .LeftContainer,
@@ -259,7 +260,11 @@
         width: 100%;
     }
 
-    .ProjectSection .Carousel .ImageContainer .Image,
+    .ProjectSection .Carousel .ImageContainer,
+    .ProjectSection .Carousel .ImageContainer .Image {
+        position: relative;
+    }
+
     .ProjectSection .Carousel .ImageContainer .ImageFallback {
         transform: translateY(-50%);
     }
