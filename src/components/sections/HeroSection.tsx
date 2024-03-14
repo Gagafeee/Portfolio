@@ -6,23 +6,19 @@ import Button from "@/components/public/Button";
 import Image from "next/image";
 import logoImage from "/public/static/main_logo-min.png";
 import Dropdown from "@/components/public/Dropdown";
-import {useContext, useEffect, useState} from "react";
+import {useContext} from "react";
 import {LanguageContext} from "@/components/public/LanguageEnvironment";
 import TranslatableText from "@/components/public/TranslatableText";
 import {MovableContext} from "@/components/main/MovableContainer";
-import {useWindowSize} from "@/global/useWindowSize";
+import {getWidth} from "@/global/utils";
 
 export interface HeroSectionProps extends DefaultProps {
 
 }
 
 export default function HeroSection(props: HeroSectionProps) {
-    const [width, height] = useWindowSize()
     const movableContext = useContext(MovableContext);
-    const [isMobile, setIsMobile] = useState(width < 1400);
-    useEffect(() => {
-        setIsMobile(width < 1400);
-    }, [width]);
+    const isMobile = getWidth() < 1400;
     return (
         <div id={"home"} className={[styles.HeroSection, props.className].join(" ")} style={props.style}>
             {isMobile && <LanguageDropdown/>}
