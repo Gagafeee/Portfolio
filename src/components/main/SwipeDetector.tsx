@@ -28,7 +28,7 @@ export default function SwipeDetector(props: SwipeDetectorProps) {
         const isRightSwipe = distance < -minSwipeDistance
         if (isLeftSwipe || isRightSwipe) console.log('swipe', isLeftSwipe ? 'left' : 'right')
         //
-        props.onSwipe(isLeftSwipe ? "left" : "right");
+        if (Math.abs(distance) > 80) props.onSwipe(isLeftSwipe ? "left" : "right");
     }
     return (
         <div className={props.className} style={props.style}

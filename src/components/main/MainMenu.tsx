@@ -53,7 +53,7 @@ export default function MainMenu(props: MainMenuProps) {
             setMargin(leftMargin + accumulatedPreviousMargin + (buttonWidthMap[selected] / 2));
             //Margin = padding + (every previous length + gap) + (current length / 2)
         }
-    }, [width, selected, props.buttons, currentLanguage, buttonWidthMap, gap, leftMargin]);
+    }, [width, selected, props.buttons, currentLanguage, buttonWidthMap, gap, leftMargin, isMobile]);
 
 
     const [margin, setMargin] = useState<number>();

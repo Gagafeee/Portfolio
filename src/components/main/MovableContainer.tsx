@@ -36,7 +36,7 @@ export default function MovableContainer(props: MovableContextProps) {
         }
 
         setAnchorMap(constructList());
-    }, [height, props.anchorList]);
+    }, [height, props.anchorList, gap]);
 
 
     function Select(anchor: string) {
