@@ -75,17 +75,17 @@ function ProjectCarousel(props: { elements: Project[] }) {
             <div className={styles.Carousel}>
                 <div className={styles.LeftContainer}>
                     <div className={styles.Navigator}>
-                        <div aria-disabled={inTransition}
+                        <button aria-disabled={inTransition} aria-label={"Display previous project"}
                              className={[styles.Arrow, GlassyClass.Glassy, styles.Previous].join(" ")}
                              onClick={navigatePrevious}>
                             <i className="fi fi-rr-caret-up"/>
 
-                        </div>
+                        </button>
                         <div className={[styles.ButtonContainer, GlassyClass.Glassy].join(" ")}>
                             {props.elements.slice(0, 4).map((project, i) => {
                                 //Buttons
                                 return (
-                                    <div key={project.key} aria-disabled={inTransition}
+                                    <button key={project.key} aria-disabled={inTransition} aria-label={"Display " + i + " element"}
                                          className={[styles.Button, i === currentId ? styles.Selected : undefined].join(" ")}
                                          onClick={() => {
                                              if (!inTransition) setCurrentId(i);
@@ -93,11 +93,11 @@ function ProjectCarousel(props: { elements: Project[] }) {
                                 )
                             })}
                         </div>
-                        <div aria-disabled={inTransition}
+                        <button aria-disabled={inTransition} name={"Display next element"}
                              className={[styles.Arrow, GlassyClass.Glassy, styles.Next].join(" ")}
                              onClick={navigateNext}>
                             <i className="fi fi-rr-caret-down"/>
-                        </div>
+                        </button>
                     </div>
                     <div className={[styles.Card, GlassyClass.Glassy].join(" ")}>
                         <div className={styles.Header}>

@@ -64,6 +64,7 @@
     height: 13px;
     border-radius: 50%;
     transition: background-color 0.1s ease-in-out;
+    border: none;
 }
 
 .ProjectSection .Carousel .Navigator .ButtonContainer .Button:not(.Selected) {

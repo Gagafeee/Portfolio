@@ -68,7 +68,7 @@ export default function HeroSection(props: HeroSectionProps) {
 function LanguageDropdown() {
     const [currentLanguage, setLanguage] = useContext(LanguageContext);
     return (
-        <Dropdown className={styles.LanguageDropdown} value={currentLanguage}
+        <Dropdown name={"Language select"} className={styles.LanguageDropdown} value={currentLanguage}
                   onChange={(e) => setLanguage(e.target.value as Language)}>
             {Object.values(Languages).map(language => {
                 return {key: language, val: language}
