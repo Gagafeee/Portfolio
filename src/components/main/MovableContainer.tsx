@@ -1,7 +1,8 @@
 "use client";
 import {DefaultProps} from "@/global/global";
 import {createContext, ReactNode, useEffect, useState} from "react";
-import {getHeight, vhToPx} from "@/global/utils";
+import {useWindowSize} from "@/global/useWindowSize";
+import {vhToPx} from "@/global/utils";
 
 export interface MovableContextProps extends DefaultProps {
     anchorList: string[],
@@ -20,6 +21,7 @@ function error() {
 export const MovableContext = createContext<MovableContext>({scrollTo: error, anchorMap: new Map()})
 export default function MovableContainer(props: MovableContextProps) {
     const [anchorMap, setAnchorMap] = useState<Map<string, number>>(new Map());
+    const [, height] = useWindowSize()
     const gap = vhToPx(8);
 
     useEffect(() => {
@@ -35,7 +37,7 @@ export default function MovableContainer(props: MovableContextProps) {
         }
 
         setAnchorMap(constructList());
-    }, [props.anchorList, gap]);
+    }, [height, props.anchorList, gap]);
 
 
     function Select(anchor: string) {

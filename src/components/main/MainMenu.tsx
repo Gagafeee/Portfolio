@@ -6,8 +6,9 @@ import Button from "@/components/public/Button";
 import {useContext, useLayoutEffect, useRef, useState} from "react";
 import TranslatableText, {TranslatableContent} from "@/components/public/TranslatableText";
 import {LanguageContext} from "@/components/public/LanguageEnvironment";
+import {useWindowSize} from "@/global/useWindowSize";
 import {MovableContext} from "@/components/main/MovableContainer";
-import {getHeight, getWidth, vhToPx, vwToPx} from "@/global/utils";
+import {vhToPx, vwToPx} from "@/global/utils";
 
 
 export interface MainMenuProps extends DefaultProps {
@@ -18,17 +19,18 @@ const mobileBreakpoint = 600;
 export default function MainMenu(props: MainMenuProps) {
     const movableContext = useContext(MovableContext);
     const [currentLanguage] = useContext(LanguageContext);
+    const [width, height] = useWindowSize()
     const menuRef = useRef<HTMLDivElement>(null)
 
     const [selected, setSelected] = useState<number>(0);
     const [buttonWidthMap, setButtonWidthMap] = useState<number[]>([]);
 
-    const isMobile = getWidth() < mobileBreakpoint;
+    const isMobile = width < mobileBreakpoint;
 
     const letterWidth = !isMobile ? 26 * 0.5 : 16 * 0.5;
     const gap = !isMobile ? vwToPx(1) : 0;
     const leftMargin = !isMobile ? 18 : 0;
-    const detectMargin = (!isMobile && getHeight() >= 1000) ? vhToPx(10) : vhToPx(8);
+    const detectMargin = (!isMobile && height >= 1000) ? vhToPx(10) : vhToPx(8);
 
     useLayoutEffect(() => {
         //calculate Button margin
@@ -45,14 +47,14 @@ export default function MainMenu(props: MainMenuProps) {
         buttonWidthMap.slice(0, selected).map(width => accumulatedPreviousMargin += width + gap);
         if (isMobile) {
             const mobilePadding = vwToPx(2);
-            const buttonWidth = (getWidth() - mobilePadding) / buttonWidthMap.length;
+            const buttonWidth = (width - mobilePadding) / buttonWidthMap.length;
             setMargin(leftMargin + (buttonWidth * selected) + (buttonWidth / 2));
             //every button have the same size
         } else {
             setMargin(leftMargin + accumulatedPreviousMargin + (buttonWidthMap[selected] / 2));
             //Margin = padding + (every previous length + gap) + (current length / 2)
         }
-    }, [selected, props.buttons, currentLanguage, buttonWidthMap, gap, leftMargin, isMobile]);
+    }, [width, selected, props.buttons, currentLanguage, buttonWidthMap, gap, leftMargin, isMobile]);
 
 
     const [margin, setMargin] = useState<number>();
@@ -73,7 +75,7 @@ export default function MainMenu(props: MainMenuProps) {
 
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
-    }, [props.buttons, movableContext, detectMargin]);
+    }, [props.buttons, height, movableContext, detectMargin]);
 
     return (
         <div ref={menuRef} className={[styles.MainMenu, GlassyClass.Glassy, props.className].join(" ")}
