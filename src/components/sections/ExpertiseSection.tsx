@@ -5,6 +5,7 @@ import Image from "next/image";
 import {Technologies} from "@/global/content";
 import GlassyClass from "@/global/Glassy.module.css";
 import TranslatableText from "@/components/public/TranslatableText";
+import Link from "next/link";
 
 export interface ExpertiseSectionProps extends DefaultProps {
 
@@ -21,12 +22,13 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                 <div className={styles.Showcase}>
                     {[Technologies.react, Technologies.nextjs, Technologies.electronjs].map(techno => {
                         return (
-                            <div className={[styles.Card, GlassyClass.Glassy].join(" ")} key={techno.key}>
+                            <Link href={techno.link} target={"_blank"} className={[styles.Card, GlassyClass.Glassy].join(" ")} key={techno.key}>
+                                <p className={[styles.Popover, GlassyClass.Glassy].join(" ")}>{techno.displayName}</p>
                                 <Image src={techno.icon} className={styles.Image}
                                        alt={techno.displayName ?? techno.key + "icon"}
                                        width={160} height={160}
                                 />
-                            </div>
+                            </Link>
                         )
                     })}
                 </div>
@@ -91,7 +93,10 @@ function ExpertiseCard(props: ExpertiseCardProps) {
             <div className={styles.Header}>
                 <Image src={props.technologie.icon} className={styles.Image}
                        alt={props.technologie.displayName ?? props.technologie.key + "'s icon"} width={50} height={50}/>
-                <h4>{props.technologie.displayName ?? props.technologie.key}</h4>
+                {props.technologie.link ?
+                    <Link href={props.technologie.link} target={"_blank"}>
+                        <h4>{props.technologie.displayName ?? props.technologie.key}</h4></Link>
+                    : <h4> {props.technologie.displayName ?? props.technologie.key} </h4>}
                 <div className={[styles.Tag, GlassyClass.Glassy].join(" ")}><p>{props.technologie.type}</p></div>
             </div>
             <p className={styles.Description}>
@@ -107,7 +112,12 @@ function ExpertiseCard(props: ExpertiseCardProps) {
                 </div>
                 <div className={styles.Data}>
                     <i className="fi fi-rr-cursor"/>
-                    <p>{info.projectCount > 10 ? "10 projects +" : info.projectCount + " projects"}</p>
+                    <p>
+                        <TranslatableText>{{
+                            French: info.projectCount > 10 ? "10 projets +" : info.projectCount + " projets",
+                            English: info.projectCount > 10 ? "10 projects +" : info.projectCount + " projects"
+                        }}</TranslatableText>
+                    </p>
                 </div>
             </div>
         </div>

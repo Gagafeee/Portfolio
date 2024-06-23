@@ -29,7 +29,8 @@ export interface Technologie {
         description: TranslatableContent,
         timeCount: number | TranslatableContent,
         projectCount: number
-    }
+    },
+    link: string
 
 }
 

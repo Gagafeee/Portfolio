@@ -33,7 +33,8 @@ export const Technologies: { [key in Technologies]: Technologie } = {
             },
             timeCount: {English: "5 years +", French: "5 ans +"},
             projectCount: 20
-        }
+        },
+        link: "https://developer.mozilla.org/fr/docs/Web/HTML"
     },
     CSS: {
         key: "CSS", icon: CSSIcon, type: "Language",
@@ -44,7 +45,8 @@ export const Technologies: { [key in Technologies]: Technologie } = {
             },
             timeCount: {English: "5 years +", French: "5 ans +"},
             projectCount: 20
-        }
+        },
+        link: "https://developer.mozilla.org/fr/docs/Web/CSS"
     },
     JS: {
         key: "JS", icon: JSIcon, type: "Language",
@@ -55,7 +57,8 @@ export const Technologies: { [key in Technologies]: Technologie } = {
             },
             timeCount: {English: "5 years +", French: "5 ans +"},
             projectCount: 20
-        }
+        },
+        link: "https://developer.mozilla.org/fr/docs/Web/JavaScript"
     },
     TS: {
         key: "TS", icon: TSIcon, type: "Language",
@@ -66,7 +69,8 @@ export const Technologies: { [key in Technologies]: Technologie } = {
             },
             timeCount: {English: "3 years +", French: "3 ans +"},
             projectCount: 6
-        }
+        },
+        link: "https://www.typescriptlang.org/"
     },
 
     /*Frameworks*/
@@ -77,9 +81,10 @@ export const Technologies: { [key in Technologies]: Technologie } = {
                 English: "React is one of the basics of the next level web creation.",
                 French: "React est l’une des bases de la création web de niveau supérieur."
             },
-            timeCount: 550,
-            projectCount: 3
-        }
+            timeCount: 650,
+            projectCount: 5
+        },
+        link: "https://react.dev/"
     },
     nextjs: {
         key: "nextjs", displayName: "Nextjs", icon: NextIcon, type: "Framework",
@@ -88,9 +93,10 @@ export const Technologies: { [key in Technologies]: Technologie } = {
                 English: "Nextjs is a popular framework to create high-quality websites built on top of React.",
                 French: "Nextjs est un framework populaire pour créer des sites web de haute qualité basée sur React."
             },
-            timeCount: 240,
-            projectCount: 2
-        }
+            timeCount: 340,
+            projectCount: 5
+        },
+        link: "https://nextjs.org/"
     },
     electronjs: {
         key: "electronjs", displayName: "Electronjs", icon: ElectronIcon, type: "Framework",
@@ -101,7 +107,8 @@ export const Technologies: { [key in Technologies]: Technologie } = {
             },
             timeCount: 330,
             projectCount: 3
-        }
+        },
+        link: "https://www.electronjs.org/"
     },
 
     /*Libs*/
@@ -112,9 +119,10 @@ export const Technologies: { [key in Technologies]: Technologie } = {
                 English: "Antdesign is a powerful React UI components library, highly flexible, and contain many components.",
                 French: "Antdesign est une puissante library de composants React d’UI, très flexible et contenant de nombreux composants."
             },
-            timeCount: 550,
-            projectCount: 2
-        }
+            timeCount: 595,
+            projectCount: 3
+        },
+        link: "https://ant.design/"
     },
 } as const;
 
@@ -146,7 +154,8 @@ export const Projects: Project[] = [
         timeCount: 310,
         technologies: [Technologies.react, Technologies.electronjs, Technologies.antdesign, Technologies.TS],
         illustration: BushLauncherIllustration,
-        color: "#1f9950"
+        color: "#1f9950",
+        link: {url: "https://github.com/Gagafeee/BushLauncher", display: "github"}
     }
 ] as const;
 
