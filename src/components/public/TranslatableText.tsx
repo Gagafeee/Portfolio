@@ -1,9 +1,9 @@
 "use client";
 import {Language, Languages} from "@/global/global";
-import {useContext} from "react";
+import React, {useContext} from "react";
 import {LanguageContext} from "@/components/public/LanguageEnvironment";
 
-type Content = string
+type Content = string;
 export type TranslatableContent = { [key in Language]: Content }
 
 export function isTranslatableContent(obj: any): obj is TranslatableContent {

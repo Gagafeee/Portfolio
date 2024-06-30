@@ -6,11 +6,12 @@ import Button from "@/components/public/Button";
 import Image from "next/image";
 import logoImage from "/public/static/main_logo-min.png";
 import Dropdown from "@/components/public/Dropdown";
-import {useContext, useEffect, useState} from "react";
+import {Suspense, useContext, useEffect, useState} from "react";
 import {LanguageContext} from "@/components/public/LanguageEnvironment";
 import TranslatableText from "@/components/public/TranslatableText";
 import {MovableContext} from "@/components/main/MovableContainer";
 import {useWindowSize} from "@/global/useWindowSize";
+import {TypeAnimation} from "react-type-animation";
 
 export interface HeroSectionProps extends DefaultProps {
 
@@ -32,12 +33,7 @@ export default function HeroSection(props: HeroSectionProps) {
                     <h1>
                         <TranslatableText>{{English: "I don't work", French: "Je ne travaille pas"}}</TranslatableText>
                     </h1>
-                    <h1 className={styles.Subtitle}>
-                        <TranslatableText>{{
-                            English: "I create.",
-                            French: "Je crée."
-                        }}</TranslatableText>
-                    </h1>
+                    <Title/>
                 </div>
                 <p className={styles.Text}>
                     <TranslatableText>{{
@@ -74,5 +70,46 @@ function LanguageDropdown() {
                 return {key: language, val: language}
             })}
         </Dropdown>
+    )
+}
+
+
+function Title() {
+    const [currentLanguage, setCurrentLanguage] = useContext(LanguageContext);
+    const [renderChild, setRenderChild] = useState(true)
+    useEffect(() => {
+        setRenderChild(false);
+    }, [currentLanguage]);
+
+    useEffect(() => {
+        setRenderChild(true);
+    }, [renderChild]);
+
+    return (
+        <h1 className={styles.Subtitle}>
+            {
+                renderChild ? <TyperEffect language={currentLanguage}/> : null
+            }
+        </h1>
+    )
+}
+
+function TyperEffect(props: { language: Language }) {
+    return (
+        <TypeAnimation
+            sequence={[
+                props.language === "English" ? "I create." : props.language === "French" ? "Je crée." : "",
+                3000,
+                props.language === "English" ? "I design." : props.language === "French" ? "Je design." : "",
+                3000,
+                props.language === "English" ? "I imagine." : props.language === "French" ? "J'imagine." : "",
+                3000,
+                props.language === "English" ? "I optimize." : props.language === "French" ? "J'optimise." : "",
+                3000,
+            ]}
+            wrapper="span"
+            repeat={Infinity}
+            cursor preRenderFirstString
+        />
     )
 }
