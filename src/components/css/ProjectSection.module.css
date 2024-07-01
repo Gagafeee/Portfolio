@@ -101,10 +101,15 @@
     flex-grow: 1;
 }
 
+.ProjectSection .Carousel .Card .Header .Button p{
+    font-size: clamp(1.6rem, 2vw, 2rem);
+}
+
 .ProjectSection .Carousel .Card .Header .Icon {
     height: auto;
     width: clamp(45px, 5vw, 100px);
     border-radius: clamp(15%, 1.1vw, 20%);
+
 }
 
 .ProjectSection .Carousel .Card .Description {
@@ -112,7 +117,7 @@
     flex-grow: 1;
     max-height: calc((1in / 3) * 5);
     /*5 lines*/
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .ProjectSection .Carousel .Card .Footer {
