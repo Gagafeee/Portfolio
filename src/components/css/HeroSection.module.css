@@ -37,6 +37,7 @@
     background: var(--primary-gradient);
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    line-height: normal;
 }
 
 .HeroSection .Float .Text {
