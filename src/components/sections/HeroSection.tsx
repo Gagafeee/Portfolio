@@ -67,7 +67,7 @@ function LanguageDropdown() {
         <Dropdown name={"Language select"} className={styles.LanguageDropdown} value={currentLanguage}
                   onChange={(e) => setLanguage(e.target.value as Language)}>
             {Object.values(Languages).map(language => {
-                return {key: language, val: language}
+                return {key: language, label: language === "French" ? "Français" : language === "English" ? "English" : null}
             })}
         </Dropdown>
     )
