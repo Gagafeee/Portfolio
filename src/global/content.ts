@@ -155,7 +155,7 @@ export const Projects: Project[] = [
         technologies: [Technologies.react, Technologies.electronjs, Technologies.antdesign, Technologies.TS],
         illustration: BushLauncherIllustration,
         color: "#1f9950",
-        link: {url: "https://github.com/Gagafeee/BushLauncher", display: "github"}
+        link: {url: "https://github.com/Gagafeee/BushLauncher", type: "github"}
     }
 ] as const;
 

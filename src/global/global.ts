@@ -42,7 +42,7 @@ export interface Project {
     technologies: Technologie[],
     dates: string,
     timeCount: number,
-    link?: { display?: string, url: string },
+    link?: { type?: "github", display?: string, url: string },
     illustration: StaticImageData,
     /**
      * It's recommended to put a color HSB with B greater than 50%.

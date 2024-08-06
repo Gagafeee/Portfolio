@@ -6,6 +6,6 @@
   min-height: 100svh;
   max-width: 100svw;
   overflow: hidden;
-  --app-gap: 8svh;
+  --app-gap: 10svh;
   gap: var(--app-gap);
 }

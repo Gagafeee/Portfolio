@@ -76,8 +76,8 @@ function ProjectCarousel(props: { elements: Project[] }) {
                 <div className={styles.LeftContainer}>
                     <div className={styles.Navigator}>
                         <button aria-disabled={inTransition} aria-label={"Display previous project"}
-                             className={[styles.Arrow, GlassyClass.Glassy, styles.Previous].join(" ")}
-                             onClick={navigatePrevious}>
+                                className={[styles.Arrow, GlassyClass.Glassy, styles.Previous].join(" ")}
+                                onClick={navigatePrevious}>
                             <i className="fi fi-rr-caret-up"/>
 
                         </button>
@@ -85,29 +85,35 @@ function ProjectCarousel(props: { elements: Project[] }) {
                             {props.elements.slice(0, 4).map((project, i) => {
                                 //Buttons
                                 return (
-                                    <button key={project.key} aria-disabled={inTransition} aria-label={"Display " + i + " element"}
-                                         className={[styles.Button, i === currentId ? styles.Selected : undefined].join(" ")}
-                                         onClick={() => {
-                                             if (!inTransition) setCurrentId(i);
-                                         }}/>
+                                    <button key={project.key} aria-disabled={inTransition}
+                                            aria-label={"Display " + i + " element"}
+                                            className={[styles.Button, i === currentId ? styles.Selected : undefined].join(" ")}
+                                            onClick={() => {
+                                                if (!inTransition) setCurrentId(i);
+                                            }}/>
                                 )
                             })}
                         </div>
                         <button aria-disabled={inTransition} name={"Display next element"}
-                             className={[styles.Arrow, GlassyClass.Glassy, styles.Next].join(" ")}
-                             onClick={navigateNext}>
+                                className={[styles.Arrow, GlassyClass.Glassy, styles.Next].join(" ")}
+                                onClick={navigateNext}>
                             <i className="fi fi-rr-caret-down"/>
                         </button>
                     </div>
                     <div className={[styles.Card, GlassyClass.Glassy].join(" ")}>
                         <div className={styles.Header}>
-                            <Image className={styles.Icon} src={current.icon}
-                                   alt={current.displayName ?? current.key + "'s project icon"} width={80} height={80}/>
-                            <h2>{current.displayName ?? current.key}</h2>
-                            {current.link && <Button display={"secondary"} className={styles.Button}
+                            <div className={styles.TitleContainer}>
+                                <Image className={styles.Icon} src={current.icon}
+                                       alt={current.displayName ?? current.key + "'s project icon"} width={80}
+                                       height={80}/>
+                                <h2>{current.displayName ?? current.key}</h2>
+                            </div>
+                            {current.link && <Button display={"text"} className={styles.Button}
                                                      onClick={() => window.open(current.link?.url)}>
-                                <p>{current.link.display ?? ("See on " + new URL(current.link.url).hostname)}</p>
-                                <i className="fi fi-rr-caret-right"/>
+                                {current.link.type === "github" ? <></> :
+                                    <p>{current.link.display ?? ("See on " + new URL(current.link.url).hostname)}</p>}
+                                <i title={current.link.display ?? ("See on " + new URL(current.link.url).hostname)}
+                                   className={[current.link.type === "github" ? "fi fi-brands-github" : "fi fi-rr-caret-right", styles.Icon].join(" ")}/>
                             </Button>}
                         </div>
                         <p /*style={{maxHeight: contentLineHeight + "px", minHeight: contentLineHeight + "px"}}*/

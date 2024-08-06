@@ -2,7 +2,6 @@
     min-height: calc(100svh - var(--app-gap));
     position: relative;
     gap: 0;
-    overflow: hidden;
 }
 
 .ProjectSection .Carousel {
@@ -81,7 +80,7 @@
     min-width: 40vw;
     min-height: 25vh;
     border-radius: var(--border-radius);
-    padding: 2vw 1.5vw;
+    padding: clamp(15px, 2vw, 2vw) clamp(15px, 1.5vw, 1.5vw);
     box-sizing: content-box;
     display: flex;
     flex-direction: column;
@@ -93,16 +92,26 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    flex-wrap: wrap;
     gap: 1vw;
 }
 
-.ProjectSection .Carousel .Card .Header h2 {
+.ProjectSection .Carousel .Card .Header .TitleContainer {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+.ProjectSection .Carousel .Card .Header .TitleContainer h2 {
     flex-grow: 1;
 }
 
-.ProjectSection .Carousel .Card .Header .Button p{
+.ProjectSection .Carousel .Card .Header .TitleContainer .Button p {
     font-size: clamp(1.6rem, 2vw, 2rem);
+}
+
+.ProjectSection .Carousel .Card .Header .TitleContainer .Button .Icon {
+    font-size: clamp(1.6rem, 3vw, 3rem);
 }
 
 .ProjectSection .Carousel .Card .Header .Icon {
@@ -245,6 +254,10 @@
 }
 
 @media (max-width: calc(1000px - 1px)) {
+    .ProjectSection {
+        gap: 2vh;
+    }
+
     .ProjectSection .Carousel,
     .ProjectSection .Carousel .LeftContainer {
         flex-direction: column;

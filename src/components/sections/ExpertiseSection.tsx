@@ -22,7 +22,8 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                 <div className={styles.Showcase}>
                     {[Technologies.react, Technologies.nextjs, Technologies.electronjs].map(techno => {
                         return (
-                            <Link href={techno.link} target={"_blank"} className={[styles.Card, GlassyClass.Glassy].join(" ")} key={techno.key}>
+                            <Link href={techno.link} target={"_blank"}
+                                  className={[styles.Card, GlassyClass.Glassy].join(" ")} key={techno.key}>
                                 <p className={[styles.Popover, GlassyClass.Glassy].join(" ")}>{techno.displayName}</p>
                                 <Image src={techno.icon} className={styles.Image}
                                        alt={techno.displayName ?? techno.key + "icon"}
@@ -38,7 +39,7 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                         English: "The fundamentals of web creation",
                         French: "Les fondamentaux du development web"
                     }}
-                             alignment={"left"}
+                             className={styles.Section} alignment={"left"}
                     >
                         <div
                             className={styles.SectionContainer}>

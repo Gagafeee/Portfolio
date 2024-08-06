@@ -22,7 +22,7 @@ export const MovableContext = createContext<MovableContext>({scrollTo: error, an
 export default function MovableContainer(props: MovableContextProps) {
     const [anchorMap, setAnchorMap] = useState<Map<string, number>>(new Map());
     const [, height] = useWindowSize()
-    const gap = vhToPx(8);
+    const gap = vhToPx(10);
 
     useEffect(() => {
         function constructList() {
