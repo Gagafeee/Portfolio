@@ -10,7 +10,9 @@
     --background-primary: #111113;
     --text-primary: #FFF;
     --text-secondary: #939393;
-    --primary-gradient: linear-gradient(45deg, #7D49EC 0%, #514CEB 100%)
+    --primary-gradient: linear-gradient(45deg, #7D49EC 0%, #514CEB 100%);
+
+    --card-padding: clamp(15px, 2vw, 2vw) clamp(13px, 1.5vw, 20px);
 }
 
 * {

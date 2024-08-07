@@ -78,7 +78,7 @@
     min-width: 29vw;
     min-height: 25vh;
     border-radius: var(--border-radius);
-    padding: 3vh clamp(15px, 1.5vw, 20px);
+    padding: var(--card-padding);
     display: flex;
     flex-direction: column;
     gap: 2.5vh;

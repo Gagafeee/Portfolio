@@ -14,7 +14,7 @@
     flex-direction: column;
     min-width: 45vw;
     border-radius: var(--border-radius);
-    padding: 6vh 2vw;
+    padding: var(--card-padding);
     gap: 3vh;
     background-color: rgba(0, 0, 0, 0.05);
 }

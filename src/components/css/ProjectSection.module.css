@@ -80,7 +80,7 @@
     min-width: 40vw;
     min-height: 25vh;
     border-radius: var(--border-radius);
-    padding: clamp(15px, 2vw, 2vw) clamp(15px, 1.5vw, 1.5vw);
+    padding: var(--card-padding);
     box-sizing: content-box;
     display: flex;
     flex-direction: column;
@@ -93,7 +93,6 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1vw;
 }
 
 .ProjectSection .Carousel .Card .Header .TitleContainer {
@@ -117,6 +116,7 @@
 .ProjectSection .Carousel .Card .Header .Icon {
     height: auto;
     width: clamp(45px, 5vw, 100px);
+    font-size: clamp(30px, 3.3vw, 50px);
     border-radius: clamp(15%, 1.1vw, 20%);
 
 }
@@ -289,7 +289,7 @@
     }
 }
 
-@media (max-width: calc(400px - 1px)) {
+@media (max-width: calc(500px - 1px)) {
     .ProjectSection .Carousel .LeftContainer .Card .Footer {
         flex-wrap: wrap;
         row-gap: 1vh;
