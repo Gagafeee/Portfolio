@@ -109,10 +109,6 @@
     font-size: clamp(1.6rem, 2vw, 2rem);
 }
 
-.ProjectSection .Carousel .Card .Header .TitleContainer .Button .Icon {
-    font-size: clamp(1.6rem, 3vw, 3rem);
-}
-
 .ProjectSection .Carousel .Card .Header .Icon {
     height: auto;
     width: clamp(45px, 5vw, 100px);

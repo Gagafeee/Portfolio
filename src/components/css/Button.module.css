@@ -34,6 +34,7 @@
 }
 
 .Button.text {
+    display: inline-flex;
     background: transparent;
 }
 

@@ -109,7 +109,7 @@ function ProjectCarousel(props: { elements: Project[] }) {
                                 <h2>{current.displayName ?? current.key}</h2>
                             </div>
                             {current.link && <Button display={"text"} className={styles.Button}
-                                                     onClick={() => window.open(current.link?.url)}>
+                                                     href={current.link.url}>
                                 {current.link.type === "github" ? <></> :
                                     <p>{current.link.display ?? ("See on " + new URL(current.link.url).hostname)}</p>}
                                 <i title={current.link.display ?? ("See on " + new URL(current.link.url).hostname)}

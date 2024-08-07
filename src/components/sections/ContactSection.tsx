@@ -35,7 +35,7 @@ export default function ContactSection(props: ContactSectionProps) {
                     <Button onClick={() => window.open(ContactData.discordLink)} display={"secondary"}
                             style={{borderColor: "#5865F2"}}>
                         <div className={styles.ButtonContent}>
-                            <p>Discord</p>
+                            <p title={"@Gagafeee"}>Discord</p>
                             <i className="fi fi-brands-discord"/>
                         </div>
                     </Button>

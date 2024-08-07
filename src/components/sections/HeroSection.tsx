@@ -6,7 +6,7 @@ import Button from "@/components/public/Button";
 import Image from "next/image";
 import logoImage from "/public/static/main_logo-min-min.png";
 import Dropdown from "@/components/public/Dropdown";
-import {Suspense, useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {LanguageContext} from "@/components/public/LanguageEnvironment";
 import TranslatableText from "@/components/public/TranslatableText";
 import {MovableContext} from "@/components/main/MovableContainer";
@@ -41,15 +41,20 @@ export default function HeroSection(props: HeroSectionProps) {
                         French: "Développeur front-end passionné depuis 2020"
                     }}</TranslatableText>
                 </p>
-                <Button onClick={() => movableContext.scrollTo("projects")}>
-                    <p>
-                        <TranslatableText>{{
-                            English: "Discover",
-                            French: "Découvrir"
-                        }}</TranslatableText>
-                    </p>
-                    <i className="fi fi-rr-caret-right"/>
-                </Button>
+                <div className={styles.ActionContainer}>
+                    <Button onClick={() => movableContext.scrollTo("projects")}>
+                        <p>
+                            <TranslatableText>{{
+                                English: "Discover",
+                                French: "Découvrir"
+                            }}</TranslatableText>
+                        </p>
+                        <i className="fi fi-rr-caret-right"/>
+                    </Button>
+                    <Button display={"text"} title={"github.com/Gagafeee"} href={"https://github.com/Gagafeee"}>
+                        <i className={["fi fi-brands-github", styles.Icon].join(" ")}/>
+                    </Button>
+                </div>
                 {!isMobile && <LanguageDropdown/>}
             </div>
             <div className={styles.Background}>
@@ -67,7 +72,10 @@ function LanguageDropdown() {
         <Dropdown name={"Language select"} className={styles.LanguageDropdown} value={currentLanguage}
                   onChange={(e) => setLanguage(e.target.value as Language)}>
             {Object.values(Languages).map(language => {
-                return {key: language, label: language === "French" ? "Français" : language === "English" ? "English" : null}
+                return {
+                    key: language,
+                    label: language === "French" ? "Français" : language === "English" ? "English" : null
+                }
             })}
         </Dropdown>
     )

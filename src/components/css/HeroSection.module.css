@@ -41,6 +41,15 @@
     line-height: normal;
 }
 
+.HeroSection .Float .ActionContainer {
+    display: flex;
+    gap: 1vw;
+}
+
+.HeroSection .Float .ActionContainer .Icon {
+    font-size: clamp(30px, 2vw, 50px);
+}
+
 .HeroSection .Float .Text {
     opacity: 90%;
 }
