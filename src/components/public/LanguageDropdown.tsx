@@ -11,7 +11,7 @@ export function LanguageDropdown() {
                   onChange={(e) => setLanguage(e.target.value as Language)}>
             {Object.entries(Languages).map(([key, language]) => ({
                 key: key,
-                label: language
+                label: language.label
             }))}
         </Dropdown>
     )

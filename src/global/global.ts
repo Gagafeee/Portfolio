@@ -14,8 +14,17 @@ export const defaultFont = Rubik({subsets: ["latin"]});
 export const interactiveFont = Archivo({subsets: ["latin"]});
 
 //* Languages *//
-export const Languages = {french: "Français", english: "English"} as const;
-export type Language = keyof typeof Languages;
+interface LanguageDescriptor {
+    label: string,
+    /* Used to set the 'lang' attribut of <html> root. */
+    shortName: string
+}
+
+export type Language = "french" | "english";
+export const Languages: { [key in Language]: LanguageDescriptor } = {
+    french: {label: "Français", shortName: "fr"},
+    english: {label: "English", shortName: "en"}
+} as const;
 
 //* Contents Types *//
 export type TechnologieType = "Language" | "Framework" | "Lib"

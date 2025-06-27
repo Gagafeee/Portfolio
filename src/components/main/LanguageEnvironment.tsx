@@ -1,5 +1,5 @@
 "use client";
-import {Language} from "@/global/global";
+import {Language, Languages} from "@/global/global";
 import {createContext, ReactNode, useEffect, useState} from "react";
 import {throwsContextUnregisteredFunctionError} from "@/global/utils";
 
@@ -14,12 +14,13 @@ export default function LanguageEnvironment({children}: LanguageEnvironmentProps
 
     useEffect(() => {
         const storage = localStorage.getItem('language');
-        if (storage !== null) _setCurrentLanguage(storage as Language)
+        if (storage !== null) setCurrentLanguage(storage as Language)
     }, []);
 
     function setCurrentLanguage(language: Language) {
         //Store selected language in localstorage
         localStorage.setItem("language", language);
+        document.querySelector("html")?.setAttribute("lang", Languages[language].shortName)
         _setCurrentLanguage(language)
     }
 
