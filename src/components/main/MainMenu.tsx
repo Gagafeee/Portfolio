@@ -1,7 +1,6 @@
 "use client";
 import styles from "../css/MainMenu.module.css"
-import {defaultFont, DefaultProps} from "@/global/global";
-import GlassyClass from "@/global/Glassy.module.css";
+import {DefaultProps, Fonts} from "@/global/global";
 import Button from "@/components/public/Button";
 import {useContext, useLayoutEffect, useRef, useState} from "react";
 import TranslatableText, {TranslatableContent} from "@/components/public/TranslatableText";
@@ -9,7 +8,6 @@ import {LanguageContext} from "@/components/main/LanguageEnvironment";
 import {useWindowSize} from "@/global/useWindowSize";
 import {MovableContext} from "@/components/main/MovableContainer";
 import {vhToPx, vwToPx} from "@/global/utils";
-
 
 export interface MainMenuProps extends DefaultProps {
     buttons: { anchor: string, content: TranslatableContent }[]
@@ -79,14 +77,14 @@ export default function MainMenu(props: MainMenuProps) {
     }, [props.buttons, height, movableContext, detectMargin]);
 
     return (
-        <div ref={menuRef} className={[styles.MainMenu, GlassyClass.Glassy, props.className].join(" ")}
+        <div ref={menuRef} className={[styles.MainMenu, "glassy", props.className].join(" ")}
              style={{gap: gap + "px"}}>
             {props.buttons.map((button, i) => {
                 return (
                     <Button key={i} onClick={() => movableContext.scrollTo(button.anchor)} display={"text"}
                             className={[styles.Button, selected === i ? styles.Selected : ""].join(" ")}>
                         <p style={{width: buttonWidthMap[i]}}
-                           className={[styles.Text, defaultFont.className].join(" ")}>
+                           className={[styles.Text, Fonts.default.className].join(" ")}>
                             <TranslatableText>{button.content}</TranslatableText></p>
                     </Button>
                 )

@@ -4,7 +4,6 @@ import {DefaultProps, Project} from "@/global/global";
 import Section from "@/components/main/Section";
 import {Projects} from "@/global/content";
 import {useContext, useEffect, useRef, useState} from "react";
-import GlassyClass from "@/global/Glassy.module.css";
 import Image from "next/image";
 import Button from "@/components/public/Button";
 import {CSSTransition} from "react-transition-group";
@@ -75,12 +74,12 @@ function ProjectCarousel(props: { elements: Project[] }) {
                 <div className={styles.LeftContainer}>
                     <div className={styles.Navigator}>
                         <button aria-disabled={inTransition} aria-label={"Display previous project"}
-                                className={[styles.Arrow, GlassyClass.Glassy, styles.Previous].join(" ")}
+                                className={[styles.Arrow, "glassy", styles.Previous].join(" ")}
                                 onClick={navigatePrevious}>
                             <i className="fi fi-rr-caret-up"/>
 
                         </button>
-                        <div className={[styles.ButtonContainer, GlassyClass.Glassy].join(" ")}>
+                        <div className={[styles.ButtonContainer, "glassy"].join(" ")}>
                             {props.elements.slice(0, 4).map((project, i) => {
                                 //Buttons
                                 return (
@@ -94,12 +93,12 @@ function ProjectCarousel(props: { elements: Project[] }) {
                             })}
                         </div>
                         <button aria-disabled={inTransition} name={"Display next element"}
-                                className={[styles.Arrow, GlassyClass.Glassy, styles.Next].join(" ")}
+                                className={[styles.Arrow, "glassy", styles.Next].join(" ")}
                                 onClick={navigateNext}>
                             <i className="fi fi-rr-caret-down"/>
                         </button>
                     </div>
-                    <div className={[styles.Card, GlassyClass.Glassy].join(" ")}>
+                    <div className={[styles.Card, "glassy"].join(" ")}>
                         <div className={styles.Header}>
                             <div className={styles.TitleContainer}>
                                 <Image className={styles.Icon} src={current.icon}

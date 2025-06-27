@@ -10,8 +10,12 @@ export interface DefaultProps {
 }
 
 //* Font *//
-export const defaultFont = Rubik({subsets: ["latin"]});
-export const interactiveFont = Archivo({subsets: ["latin"]});
+const defaultFont = Rubik({subsets: ["latin"]});
+const interactiveFont = Archivo({subsets: ["latin"]});
+export const Fonts = {
+    default: defaultFont,
+    interactive: interactiveFont
+}
 
 //* Languages *//
 interface LanguageDescriptor {
@@ -19,7 +23,6 @@ interface LanguageDescriptor {
     /* Used to set the 'lang' attribut of <html> root. */
     shortName: string
 }
-
 export type Language = "french" | "english";
 export const Languages: { [key in Language]: LanguageDescriptor } = {
     french: {label: "Français", shortName: "fr"},
@@ -40,7 +43,6 @@ export interface Technologie {
         projectCount: number
     },
     link: string
-
 }
 
 export interface Project {
@@ -53,8 +55,6 @@ export interface Project {
     timeCount: number,
     link?: { type?: "github", display?: string, url: string },
     illustration: StaticImageData,
-    /**
-     * It's recommended to put a color HSB with B greater than 50%.
-     */
+    /** It's recommended to put a color HSB with B greater than 50%. */
     color: string
 }

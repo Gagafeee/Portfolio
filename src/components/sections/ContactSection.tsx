@@ -1,7 +1,6 @@
 "use client";
 import styles from "../css/ContactSection.module.css"
 import {DefaultProps} from "@/global/global";
-import GlassyClass from "@/global/Glassy.module.css";
 import Button from "@/components/public/Button";
 import {ContactData} from "@/global/content";
 import TranslatableText from "@/components/public/TranslatableText";
@@ -14,7 +13,7 @@ export interface ContactSectionProps extends DefaultProps {
 export default function ContactSection(props: ContactSectionProps) {
     return (
         <div id={"contact"} className={[styles.ContactSection, props.className].join(" ")} style={props.style}>
-            <div className={[styles.Floating, GlassyClass.Glassy].join(" ")}>
+            <div className={[styles.Floating, "glassy"].join(" ")}>
                 <div className={styles.Info}>
                     <h1 className={styles.Title}><TranslatableText>{{
                         english: "Contact me",

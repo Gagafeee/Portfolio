@@ -3,7 +3,6 @@ import {DefaultProps, Technologie} from "@/global/global";
 import Section from "@/components/main/Section";
 import Image from "next/image";
 import {Technologies} from "@/global/content";
-import GlassyClass from "@/global/Glassy.module.css";
 import TranslatableText from "@/components/public/TranslatableText";
 import Link from "next/link";
 
@@ -23,8 +22,8 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                     {[Technologies.react, Technologies.nextjs, Technologies.electronjs].map(techno => {
                         return (
                             <Link href={techno.link} target={"_blank"}
-                                  className={[styles.Card, GlassyClass.Glassy].join(" ")} key={techno.key}>
-                                <p className={[styles.Popover, GlassyClass.Glassy].join(" ")}>{techno.displayName}</p>
+                                  className={[styles.Card, "glassy"].join(" ")} key={techno.key}>
+                                <p className={[styles.Popover, "glassy"].join(" ")}>{techno.displayName}</p>
                                 <Image src={techno.icon} className={styles.Image}
                                        alt={techno.displayName ?? techno.key + "icon"}
                                        width={160} height={160}
@@ -90,7 +89,7 @@ interface ExpertiseCardProps extends DefaultProps {
 function ExpertiseCard(props: ExpertiseCardProps) {
     const info = props.technologie.info;
     return (
-        <div className={[styles.ExpertiseCard, GlassyClass.Glassy].join(" ")}>
+        <div className={[styles.ExpertiseCard, "glassy"].join(" ")}>
             <div className={styles.Header}>
                 <Image src={props.technologie.icon} className={styles.Image}
                        alt={props.technologie.displayName ?? props.technologie.key + "'s icon"} width={50} height={50}/>
@@ -98,7 +97,7 @@ function ExpertiseCard(props: ExpertiseCardProps) {
                     <Link href={props.technologie.link} target={"_blank"}>
                         <h4>{props.technologie.displayName ?? props.technologie.key}</h4></Link>
                     : <h4> {props.technologie.displayName ?? props.technologie.key} </h4>}
-                <div className={[styles.Tag, GlassyClass.Glassy].join(" ")}><p>{props.technologie.type}</p></div>
+                <div className={[styles.Tag, "glassy"].join(" ")}><p>{props.technologie.type}</p></div>
             </div>
             <p className={styles.Description}>
                 <TranslatableText>{props.technologie.info.description}</TranslatableText>

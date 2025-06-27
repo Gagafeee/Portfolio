@@ -1,6 +1,5 @@
 "use client";
 import styles from "../css/HeroSection.module.css";
-import GlassyClass from "../../global/Glassy.module.css";
 import {DefaultProps, Language} from "@/global/global";
 import Button from "@/components/public/Button";
 import Image from "next/image";
@@ -28,7 +27,7 @@ export default function HeroSection(props: HeroSectionProps) {
         <div id={"home"} className={[styles.HeroSection, props.className].join(" ")} style={props.style}>
             {isMobile && <LanguageDropdown/>}
             <Image className={styles.Image} src={logoImage} alt={"Main Gagafeee logo"} width={400} height={400}/>
-            <div className={[styles.Float, GlassyClass.Glassy].join(" ")}>
+            <div className={[styles.Float, "glassy"].join(" ")}>
                 <div className={styles.TitleContainer}>
                     <h1>
                         <TranslatableText>{{english: "I don't work", french: "Je ne travaille pas"}}</TranslatableText>
