@@ -14,8 +14,8 @@ export const defaultFont = Rubik({subsets: ["latin"]});
 export const interactiveFont = Archivo({subsets: ["latin"]});
 
 //* Languages *//
-export const Languages = ["French", "English"] as const;
-export type Language = typeof Languages[number];
+export const Languages = {french: "Français", english: "English"} as const;
+export type Language = keyof typeof Languages;
 
 //* Contents Types *//
 export type TechnologieType = "Language" | "Framework" | "Lib"

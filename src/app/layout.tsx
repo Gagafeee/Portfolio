@@ -3,7 +3,7 @@ import "./globals.css";
 import {ReactNode} from "react";
 import {defaultFont} from "@/global/global";
 import MainMenu from "@/components/main/MainMenu";
-import LanguageEnvironment from "@/components/public/LanguageEnvironment";
+import LanguageEnvironment from "@/components/main/LanguageEnvironment";
 import MovableContainer from "@/components/main/MovableContainer";
 
 
@@ -34,10 +34,10 @@ export default function RootLayout({children,}: Readonly<{ children: ReactNode; 
         <LanguageEnvironment>
             <MovableContainer anchorList={["home", "projects", "expertise", "contact"]}>
                 <MainMenu buttons={[
-                    {anchor: "home", content: {English: "Presentation", French: "Présentation"}},
-                    {anchor: "projects", content: {English: "Projects", French: "Projets"}},
-                    {anchor: "expertise", content: {English: "Expertise", French: "Expertise"}},
-                    {anchor: "contact", content: {English: "Contact", French: "Contact"}}
+                    {anchor: "home", content: {english: "Presentation", french: "Présentation"}},
+                    {anchor: "projects", content: {english: "Projects", french: "Projets"}},
+                    {anchor: "expertise", content: {english: "Expertise", french: "Expertise"}},
+                    {anchor: "contact", content: {english: "Contact", french: "Contact"}}
                 ]}/>
                 {children}
             </MovableContainer>

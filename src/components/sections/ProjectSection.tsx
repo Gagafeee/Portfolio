@@ -9,7 +9,7 @@ import Image from "next/image";
 import Button from "@/components/public/Button";
 import {CSSTransition} from "react-transition-group";
 import "../css/CarouselTransition.css"
-import {LanguageContext} from "@/components/public/LanguageEnvironment";
+import {LanguageContext} from "@/components/main/LanguageEnvironment";
 import TranslatableText from "@/components/public/TranslatableText";
 import SwipeDetector from "@/components/main/SwipeDetector";
 
@@ -23,10 +23,10 @@ export default function ProjectSection(props: ProjectSectionProps) {
         <Section
             className={[styles.ProjectSection, props.className].join(" ")}
             style={props.style}
-            title={{English: "Past Projects", French: "Projets precedents"}}
+            title={{english: "Past Projects", french: "Projets precedents"}}
             subtitle={{
-                English: "Every achievement brings knowledge",
-                French: "Chaque réalisation apporte des connaissances"
+                english: "Every achievement brings knowledge",
+                french: "Chaque réalisation apporte des connaissances"
             }}
             anchor={"projects"}
         >
@@ -38,7 +38,6 @@ export default function ProjectSection(props: ProjectSectionProps) {
 function ProjectCarousel(props: { elements: Project[] }) {
     const transitionDuration = 1000;
 
-    const [currentLanguage] = useContext(LanguageContext);
     const [currentId, setCurrentId] = useState<number>(0)
     const [current, setCurrent] = useState<Project>(props.elements[currentId])
     const [inTransition, setInTransition] = useState(false);

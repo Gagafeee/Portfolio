@@ -28,10 +28,10 @@ export const Technologies: { [key in Technologies]: Technologie } = {
         key: "HTML", icon: HTMLIcon, type: "Language",
         info: {
             description: {
-                English: "HTML is the fundamental language to create pages.",
-                French: "HTML est le langage fondamental pour créer des pages."
+                english: "HTML is the fundamental language to create pages.",
+                french: "HTML est le langage fondamental pour créer des pages."
             },
-            timeCount: {English: "5 years +", French: "5 ans +"},
+            timeCount: {english: "5 years +", french: "5 ans +"},
             projectCount: 20
         },
         link: "https://developer.mozilla.org/fr/docs/Web/HTML"
@@ -40,10 +40,10 @@ export const Technologies: { [key in Technologies]: Technologie } = {
         key: "CSS", icon: CSSIcon, type: "Language",
         info: {
             description: {
-                English: "CSS is the most common way to add style to website.",
-                French: "CSS est la technologie la plus courante pour ajouter un style à un site web."
+                english: "CSS is the most common way to add style to website.",
+                french: "CSS est la technologie la plus courante pour ajouter un style à un site web."
             },
-            timeCount: {English: "5 years +", French: "5 ans +"},
+            timeCount: {english: "5 years +", french: "5 ans +"},
             projectCount: 20
         },
         link: "https://developer.mozilla.org/fr/docs/Web/CSS"
@@ -52,10 +52,10 @@ export const Technologies: { [key in Technologies]: Technologie } = {
         key: "JS", icon: JSIcon, type: "Language",
         info: {
             description: {
-                English: "",
-                French: ""
+                english: "",
+                french: ""
             },
-            timeCount: {English: "5 years +", French: "5 ans +"},
+            timeCount: {english: "5 years +", french: "5 ans +"},
             projectCount: 20
         },
         link: "https://developer.mozilla.org/fr/docs/Web/JavaScript"
@@ -64,10 +64,10 @@ export const Technologies: { [key in Technologies]: Technologie } = {
         key: "TS", icon: TSIcon, type: "Language",
         info: {
             description: {
-                English: "TS is the solution for bringing a website to life, this is an evolved version of JS.",
-                French: "TS est la solution pour donner vie à un site web, c’est une version avancée de JS."
+                english: "TS is the solution for bringing a website to life, this is an evolved version of JS.",
+                french: "TS est la solution pour donner vie à un site web, c’est une version avancée de JS."
             },
-            timeCount: {English: "3 years +", French: "3 ans +"},
+            timeCount: {english: "3 years +", french: "3 ans +"},
             projectCount: 6
         },
         link: "https://www.typescriptlang.org/"
@@ -78,8 +78,8 @@ export const Technologies: { [key in Technologies]: Technologie } = {
         key: "react", displayName: "React", icon: ReactIcon, type: "Framework",
         info: {
             description: {
-                English: "React is one of the basics of the next level web creation.",
-                French: "React est l’une des bases de la création web de niveau supérieur."
+                english: "React is one of the basics of the next level web creation.",
+                french: "React est l’une des bases de la création web de niveau supérieur."
             },
             timeCount: 650,
             projectCount: 5
@@ -90,8 +90,8 @@ export const Technologies: { [key in Technologies]: Technologie } = {
         key: "nextjs", displayName: "Nextjs", icon: NextIcon, type: "Framework",
         info: {
             description: {
-                English: "Nextjs is a popular framework to create high-quality websites built on top of React.",
-                French: "Nextjs est un framework populaire pour créer des sites web de haute qualité basée sur React."
+                english: "Nextjs is a popular framework to create high-quality websites built on top of React.",
+                french: "Nextjs est un framework populaire pour créer des sites web de haute qualité basée sur React."
             },
             timeCount: 340,
             projectCount: 5
@@ -102,8 +102,8 @@ export const Technologies: { [key in Technologies]: Technologie } = {
         key: "electronjs", displayName: "Electronjs", icon: ElectronIcon, type: "Framework",
         info: {
             description: {
-                English: "Electronjs is a popular framework to create application from web content.",
-                French: "Electronjs est un framework populaire qui permet de créer des applications PC à partir de contenu web."
+                english: "Electronjs is a popular framework to create application from web content.",
+                french: "Electronjs est un framework populaire qui permet de créer des applications PC à partir de contenu web."
             },
             timeCount: 330,
             projectCount: 3
@@ -116,8 +116,8 @@ export const Technologies: { [key in Technologies]: Technologie } = {
         key: "antdesign", displayName: "Antdesign", icon: AntdesignIcon, type: "Lib",
         info: {
             description: {
-                English: "Antdesign is a powerful React UI components library, highly flexible, and contain many components.",
-                French: "Antdesign est une puissante library de composants React d’UI, très flexible et contenant de nombreux composants."
+                english: "Antdesign is a powerful React UI components library, highly flexible, and contain many components.",
+                french: "Antdesign est une puissante library de composants React d’UI, très flexible et contenant de nombreux composants."
             },
             timeCount: 595,
             projectCount: 3
@@ -132,8 +132,8 @@ export const Projects: Project[] = [
         key: "royalmedia",
         displayName: "Royal Media",
         description: {
-            English: "A web project that combines elegance and efficiency, a website for a new media dedicated to cryptos and Web 3.",
-            French: "Un projet web qui combine élegance et efficacité, c’est un site web pour un nouveau média dans le domaine des cryptos et du Web 3."
+            english: "A web project that combines elegance and efficiency, a website for a new media dedicated to cryptos and Web 3.",
+            french: "Un projet web qui combine élegance et efficacité, c’est un site web pour un nouveau média dans le domaine des cryptos et du Web 3."
         },
         icon: RoyalMediaIcon,
         dates: "2023/2024",
@@ -146,8 +146,8 @@ export const Projects: Project[] = [
         key: "bushlauncher",
         displayName: "BushLauncher",
         description: {
-            English: "BushLauncher is a flexible Minecraft Launcher designed to simplify installation of the Minecraft game and its prerequisites, but also of mods, texture packs, etc.",
-            French: "BushLauncher est un lanceur Minecraft flexible conçu pour simplifier l’installation du jeu Minecraft et de ses prérequis, mais aussi des mods, des packs de textures, etc."
+            english: "BushLauncher is a flexible Minecraft Launcher designed to simplify installation of the Minecraft game and its prerequisites, but also of mods, texture packs, etc.",
+            french: "BushLauncher est un lanceur Minecraft flexible conçu pour simplifier l’installation du jeu Minecraft et de ses prérequis, mais aussi des mods, des packs de textures, etc."
         },
         icon: BushLauncherIcon,
         dates: "2022/2023",

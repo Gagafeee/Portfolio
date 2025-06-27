@@ -5,7 +5,7 @@ import GlassyClass from "@/global/Glassy.module.css";
 import Button from "@/components/public/Button";
 import {useContext, useLayoutEffect, useRef, useState} from "react";
 import TranslatableText, {TranslatableContent} from "@/components/public/TranslatableText";
-import {LanguageContext} from "@/components/public/LanguageEnvironment";
+import {LanguageContext} from "@/components/main/LanguageEnvironment";
 import {useWindowSize} from "@/global/useWindowSize";
 import {MovableContext} from "@/components/main/MovableContainer";
 import {vhToPx, vwToPx} from "@/global/utils";
@@ -36,7 +36,8 @@ export default function MainMenu(props: MainMenuProps) {
         //calculate Button margin
         let newSizeMap: number[] = [];
         props.buttons.forEach(btn => {
-            newSizeMap.push(btn.content[currentLanguage].length * letterWidth);
+            const label = btn.content[currentLanguage];
+            newSizeMap.push(label.length * letterWidth);
         });
         setButtonWidthMap(newSizeMap);
     }, [props.buttons, currentLanguage, letterWidth]);
@@ -49,7 +50,7 @@ export default function MainMenu(props: MainMenuProps) {
             const mobilePadding = vwToPx(2);
             const buttonWidth = (width - mobilePadding) / buttonWidthMap.length;
             setMargin(leftMargin + (buttonWidth * selected) + (buttonWidth / 2));
-            //every button have the same size
+            //every button has the same size
         } else {
             setMargin(leftMargin + accumulatedPreviousMargin + (buttonWidthMap[selected] / 2));
             //Margin = padding + (every previous length + gap) + (current length / 2)

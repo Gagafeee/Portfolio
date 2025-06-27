@@ -17,8 +17,8 @@ export default function ContactSection(props: ContactSectionProps) {
             <div className={[styles.Floating, GlassyClass.Glassy].join(" ")}>
                 <div className={styles.Info}>
                     <h1 className={styles.Title}><TranslatableText>{{
-                        English: "Contact me",
-                        French: "Me contacter"
+                        english: "Contact me",
+                        french: "Me contacter"
                     }}</TranslatableText></h1>
                     <div className={styles.Location}>
                         <i className="fi fi-rr-earth-americas"/>

@@ -7,3 +7,7 @@ export function vwToPx(value: number): number {
 export function vhToPx(value: number): number {
     return !isServer ? Math.floor((window.innerHeight * value) / 100) : 0;
 }
+
+export function throwsContextUnregisteredFunctionError() {
+    throw new Error("The function from context is not registered.")
+}

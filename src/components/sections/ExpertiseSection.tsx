@@ -14,8 +14,8 @@ export interface ExpertiseSectionProps extends DefaultProps {
 export default function ExpertiseSection(props: ExpertiseSectionProps) {
     return (
         <Section
-            title={{English: "Turn ideas into reality", French: "Transformer les idées en réalité"}}
-            subtitle={{English: "Using the right tool", French: "Avec les bons outils"}}
+            title={{english: "Turn ideas into reality", french: "Transformer les idées en réalité"}}
+            subtitle={{english: "Using the right tool", french: "Avec les bons outils"}}
             anchor={"expertise"}
         >
             <div className={[styles.ExpertiseSection, props.className].join(" ")} style={props.style}>
@@ -34,10 +34,10 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                     })}
                 </div>
                 <div className={styles.Container}>
-                    <Section title={{English: "The roots of everything", French: "Les racines de tout"}}
+                    <Section title={{english: "The roots of everything", french: "Les racines de tout"}}
                              level={2} subtitle={{
-                        English: "The fundamentals of web creation",
-                        French: "Les fondamentaux du development web"
+                        english: "The fundamentals of web creation",
+                        french: "Les fondamentaux du development web"
                     }}
                              className={styles.Section} alignment={"left"}
                     >
@@ -47,10 +47,10 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                                 <ExpertiseCard key={technologie.key} technologie={technologie}/>)}
                         </div>
                     </Section>
-                    <Section title={{English: "Frameworks on demand", French: "Frameworks à la demande"}}
+                    <Section title={{english: "Frameworks on demand", french: "Frameworks à la demande"}}
                              level={2} subtitle={{
-                        English: "Each one for a specific use case",
-                        French: "Chacun son cas d’utilisation spécifique"
+                        english: "Each one for a specific use case",
+                        french: "Chacun son cas d’utilisation spécifique"
                     }}
                              className={styles.Section} alignment={"left"}
                     >
@@ -60,8 +60,8 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
                                 <ExpertiseCard key={technologie.key} technologie={technologie}/>)}
                         </div>
                     </Section>
-                    <Section title={{English: "Libraries", French: "Libraries"}} level={2}
-                             subtitle={{English: "Allow to create faster", French: "Pour créer plus vite"}}
+                    <Section title={{english: "Libraries", french: "Libraries"}} level={2}
+                             subtitle={{english: "Allow to create faster", french: "Pour créer plus vite"}}
                              className={styles.Section} alignment={"left"}
                     >
                         <div
@@ -115,8 +115,8 @@ function ExpertiseCard(props: ExpertiseCardProps) {
                     <i className="fi fi-rr-cursor"/>
                     <p>
                         <TranslatableText>{{
-                            French: info.projectCount > 10 ? "10 projets +" : info.projectCount + " projets",
-                            English: info.projectCount > 10 ? "10 projects +" : info.projectCount + " projects"
+                            french: info.projectCount > 10 ? "10 projets +" : info.projectCount + " projets",
+                            english: info.projectCount > 10 ? "10 projects +" : info.projectCount + " projects"
                         }}</TranslatableText>
                     </p>
                 </div>

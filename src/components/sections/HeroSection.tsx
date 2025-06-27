@@ -1,17 +1,17 @@
 "use client";
 import styles from "../css/HeroSection.module.css";
 import GlassyClass from "../../global/Glassy.module.css";
-import {DefaultProps, Language, Languages} from "@/global/global";
+import {DefaultProps, Language} from "@/global/global";
 import Button from "@/components/public/Button";
 import Image from "next/image";
 import logoImage from "/public/static/main_logo-min-min.png";
-import Dropdown from "@/components/public/Dropdown";
 import {useContext, useEffect, useState} from "react";
-import {LanguageContext} from "@/components/public/LanguageEnvironment";
+import {LanguageContext} from "@/components/main/LanguageEnvironment";
 import TranslatableText from "@/components/public/TranslatableText";
 import {MovableContext} from "@/components/main/MovableContainer";
 import {useWindowSize} from "@/global/useWindowSize";
 import {TypeAnimation} from "react-type-animation";
+import {LanguageDropdown} from "@/components/public/LanguageDropdown";
 
 export interface HeroSectionProps extends DefaultProps {
 
@@ -31,22 +31,22 @@ export default function HeroSection(props: HeroSectionProps) {
             <div className={[styles.Float, GlassyClass.Glassy].join(" ")}>
                 <div className={styles.TitleContainer}>
                     <h1>
-                        <TranslatableText>{{English: "I don't work", French: "Je ne travaille pas"}}</TranslatableText>
+                        <TranslatableText>{{english: "I don't work", french: "Je ne travaille pas"}}</TranslatableText>
                     </h1>
                     <Title/>
                 </div>
                 <p className={styles.Text}>
                     <TranslatableText>{{
-                        English: "Passionate front-end developer since 2020",
-                        French: "Développeur front-end passionné depuis 2020"
+                        english: "Passionate front-end developer since 2020",
+                        french: "Développeur front-end passionné depuis 2020"
                     }}</TranslatableText>
                 </p>
                 <div className={styles.ActionContainer}>
                     <Button onClick={() => movableContext.scrollTo("projects")}>
                         <p>
                             <TranslatableText>{{
-                                English: "Discover",
-                                French: "Découvrir"
+                                english: "Discover",
+                                french: "Découvrir"
                             }}</TranslatableText>
                         </p>
                         <i className="fi fi-rr-caret-right"/>
@@ -63,21 +63,6 @@ export default function HeroSection(props: HeroSectionProps) {
                 <div className={styles.Light}></div>
             </div>
         </div>
-    )
-}
-
-function LanguageDropdown() {
-    const [currentLanguage, setLanguage] = useContext(LanguageContext);
-    return (
-        <Dropdown name={"Language select"} className={styles.LanguageDropdown} value={currentLanguage}
-                  onChange={(e) => setLanguage(e.target.value as Language)}>
-            {Object.values(Languages).map(language => {
-                return {
-                    key: language,
-                    label: language === "French" ? "Français" : language === "English" ? "English" : null
-                }
-            })}
-        </Dropdown>
     )
 }
 
@@ -102,18 +87,14 @@ function Title() {
     )
 }
 
-function TyperEffect(props: { language: Language }) {
+function TyperEffect({language}: { language: Language }) {
     return (
         <TypeAnimation
             sequence={[
-                props.language === "English" ? "I create." : props.language === "French" ? "Je crée." : "",
-                3000,
-                props.language === "English" ? "I design." : props.language === "French" ? "Je design." : "",
-                3000,
-                props.language === "English" ? "I imagine." : props.language === "French" ? "J'imagine." : "",
-                3000,
-                props.language === "English" ? "I optimize." : props.language === "French" ? "J'optimise." : "",
-                3000,
+                language == "english" ? "I create." : language === "french" ? "Je crée." : "", 3000,
+                language == "english" ? "I design." : language === "french" ? "Je design." : "", 3000,
+                language == "english" ? "I imagine." : language === "french" ? "J'imagine." : "", 3000,
+                language == "english" ? "I optimize." : language === "french" ? "J'optimise." : "", 3000,
             ]}
             wrapper="span"
             repeat={Infinity}
