@@ -4,10 +4,9 @@ import {DefaultProps, Fonts} from "@/global/global";
 import Button from "@/components/public/Button";
 import {useContext, useLayoutEffect, useRef, useState} from "react";
 import TranslatableText, {TranslatableContent} from "@/components/public/TranslatableText";
-import {LanguageContext} from "@/components/main/LanguageEnvironment";
-import {useWindowSize} from "@/global/useWindowSize";
 import {MovableContext} from "@/components/main/MovableContainer";
-import {vhToPx, vwToPx} from "@/global/utils";
+import {useWindowSize} from "@/global/useWindowSize";
+import {vhToPx} from "@/global/utils";
 
 export interface MainMenuProps extends DefaultProps {
     buttons: { anchor: string, content: TranslatableContent }[]
@@ -16,50 +15,30 @@ export interface MainMenuProps extends DefaultProps {
 const mobileBreakpoint = 600;
 export default function MainMenu(props: MainMenuProps) {
     const movableContext = useContext(MovableContext);
-    const [currentLanguage] = useContext(LanguageContext);
-    const [width, height] = useWindowSize()
-    const menuRef = useRef<HTMLDivElement>(null)
-
-    const [selected, setSelected] = useState<number>(0);
-    const [buttonWidthMap, setButtonWidthMap] = useState<number[]>([]);
+    const menuRef = useRef<HTMLDivElement>(null);
+    const [width, height] = useWindowSize();
+    const [selectedIndex, setSelectedIndex] = useState<number>(0);
+    const [dotHorizontalMargin, setDotHorizontalMargin] = useState<number>(0);
 
     const isMobile = width < mobileBreakpoint;
-
-    const letterWidth = !isMobile ? 26 * 0.5 : 16 * 0.5;
-    const gap = !isMobile ? vwToPx(1) : 0;
-    const leftMargin = !isMobile ? 18 : 0;
     const detectMargin = (!isMobile && height >= 1000) ? vhToPx(10) : vhToPx(8);
 
     useLayoutEffect(() => {
-        //calculate Button margin
-        let newSizeMap: number[] = [];
-        props.buttons.forEach(btn => {
-            const label = btn.content[currentLanguage];
-            newSizeMap.push(label.length * letterWidth);
-        });
-        setButtonWidthMap(newSizeMap);
-    }, [props.buttons, currentLanguage, letterWidth]);
-
-    useLayoutEffect(() => {
-        //calculate Dot Position
-        let accumulatedPreviousMargin = 0;
-        buttonWidthMap.slice(0, selected).map(width => accumulatedPreviousMargin += width + gap);
-        if (isMobile) {
-            const mobilePadding = vwToPx(2);
-            const buttonWidth = (width - mobilePadding) / buttonWidthMap.length;
-            setMargin(leftMargin + (buttonWidth * selected) + (buttonWidth / 2));
-            //every button has the same size
-        } else {
-            setMargin(leftMargin + accumulatedPreviousMargin + (buttonWidthMap[selected] / 2));
-            //Margin = padding + (every previous length + gap) + (current length / 2)
+        if (!menuRef.current) return;
+        //Compute dot horizontal margin
+        const buttons = Array.from(menuRef.current.getElementsByClassName(styles.Button));
+        if (selectedIndex < 0 || selectedIndex > buttons.length) {
+            throw new Error("The button to select is out of range.")
         }
-    }, [width, selected, props.buttons, currentLanguage, buttonWidthMap, gap, leftMargin, isMobile]);
-
-
-    const [margin, setMargin] = useState<number>();
+        const button = buttons[selectedIndex] as HTMLElement;
+        const buttonRect = button.getBoundingClientRect();
+        const menuRect = menuRef.current.getBoundingClientRect();
+        const position = buttonRect.left - menuRect.left + buttonRect.width / 2;
+        setDotHorizontalMargin(position);
+    }, [selectedIndex, width]);
 
     useLayoutEffect(() => {
-        //scroll setup on component rendered
+        //Update dot from scrolling
         function onScroll() {
             const currentScroll = window.scrollY;
             let currentElementId: number = -1;
@@ -68,8 +47,8 @@ export default function MainMenu(props: MainMenuProps) {
                     currentElementId = props.buttons.findIndex((e) => e.anchor === anchor);
                 }
             })
-            if (currentElementId === -1) throw new Error("scroll out of scope, current: " + currentScroll);
-            setSelected(currentElementId)
+            if (currentElementId == -1) throw new Error("scroll out of scope, current: " + currentScroll);
+            setSelectedIndex(currentElementId);
         }
 
         window.addEventListener("scroll", onScroll);
@@ -77,20 +56,24 @@ export default function MainMenu(props: MainMenuProps) {
     }, [props.buttons, height, movableContext, detectMargin]);
 
     return (
-        <div ref={menuRef} className={[styles.MainMenu, "glassy", props.className].join(" ")}
-             style={{gap: gap + "px"}}>
-            {props.buttons.map((button, i) => {
-                return (
-                    <Button key={i} onClick={() => movableContext.scrollTo(button.anchor)} display={"text"}
-                            className={[styles.Button, selected === i ? styles.Selected : ""].join(" ")}>
-                        <p style={{width: buttonWidthMap[i]}}
-                           className={[styles.Text, Fonts.default.className].join(" ")}>
-                            <TranslatableText>{button.content}</TranslatableText></p>
-                    </Button>
-                )
-            })}
-            <div style={{left: margin !== undefined && !isNaN(margin) ? margin : undefined}}
-                 className={styles.Dot}></div>
+        <div ref={menuRef} className={[styles.MainMenu, "glassy", props.className].join(" ")}>
+            {props.buttons.map((button, i) => (
+                <Button
+                    key={i}
+                    onClick={() => movableContext.scrollTo(button.anchor)}
+                    display={"text"}
+                    className={[styles.Button, selectedIndex == i ? styles.Selected : ""].join(" ")}
+                >
+                    <p className={[styles.Text, Fonts.default.className].join(" ")}>
+                        <TranslatableText>{button.content}</TranslatableText>
+                    </p>
+                </Button>
+            ))}
+            <div className={styles.Dot}
+                 style={{
+                     transform: `translateX(${dotHorizontalMargin}px)`,
+                     display: (dotHorizontalMargin == 0 ? "none" : undefined)
+                 }}/>
         </div>
     )
 }
