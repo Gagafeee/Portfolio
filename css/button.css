@@ -3,6 +3,7 @@
     background-color: var(--background-primary);
     padding: 9px 18px;
     border-radius: 28px;
+    font-family: Archivo, serif;
     font-size: 1.75rem;
     font-weight: 800;
     border: solid 3px var(--secondary);
