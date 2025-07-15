@@ -1,0 +1,43 @@
+@import url("./css/glassy.css");
+@import url("./css/button.css");
+
+:root {
+    --border-radius: 28px;
+    --component-padding: 9px 18px;
+    --card-padding: clamp(15px, 2vw, 2vw) clamp(13px, 1.5vw, 20px);
+
+    --primary: #514CEB;
+    --secondary: #282829;
+    --background-primary: #111113;
+    --text-primary: #FFF;
+    --text-secondary: #939393;
+    --primary-gradient: linear-gradient(45deg, #7D49EC 0%, #514CEB 100%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100svh;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+
+    font-size: 1.5rem;
+    font-family: "Rubik", arial, ui-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Flaticon configuration */
+i {
+    display: inline-flex;
+    font-size: 1.5rem;
+}
