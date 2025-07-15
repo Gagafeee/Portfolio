@@ -18,16 +18,23 @@
     background-color: rgba(0,0,0,.05);
 }
 
-#hero .container .title_container {
+#hero .container .headline {
     margin-bottom: 10px;
 }
 
-#hero .container .title {
-    font-size: 6rem;
+#hero .container .headline .title_container {
+    min-height: 7.1rem;
+    display: flex;
+    align-items: center;
+    font-size: 5.5rem;
     background: var(--primary-gradient) no-repeat center text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+#hero .container .title {
+    font-size: 6rem;
     white-space: nowrap;
 }
 
