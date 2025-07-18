@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/background.css">
     <link rel="stylesheet" href="./css/hero_section.css">
+    <link rel="stylesheet" href="./css/work_section.css">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,10 +60,175 @@
         </svg>
     </section>
     <section id="work">
-        <h1>Mon travail</h1>
+        <div class="title">
+            <h1>Mon travail</h1>
+            <p>Chacune de ces réalisations m'a permis de m'entrainer et d'acquérir du savoir et de l'expérience.</p>
+        </div>
+        <div class="container">
+            <svg class="sidebar glassy">
+                <circle r="10" cx="50%" cy="350"></circle>
+                <circle r="10" cx="50%" cy="1050"></circle>
+            </svg>
+            <ol class="content">
+                <li>
+                    <div class="card glassy">
+                        <header>
+                            <img src="./assets/static/projects/royalmedia/icon.png" width="50" height="50"
+                                 alt="Icon du projet Royalmedia">
+                            <h2>Royalmedia</h2>
+                        </header>
+                        <div class="description">
+                            <p>Création de A à Z d'un site web pour un nouveau média numérique specialisé dans les
+                                cryptomonnaies. <a class="extend_button">Voir plus</a></p>
+                            <p>
+                                L'objectif était de créer un site web d'informations, le site devait contenir (entre
+                                autre),</p>
+                            <ul>
+                                <li>Un système d'articles avec des tags et des catégories,</li>
+                                <li>Des "flash news" en temps réel,</li>
+                                <li>Un panel de gestion pour une future équipe de rédaction</li>
+                            </ul>
+                            <p>
+                                J'ai été le principal développeur sur ce projet, avec la précieuse aide de <a class="user_card" href="https://github.com/4Mathleu" target="_blank">@Mathieu</a>.</p>
+                            <h3> Mes missions : </h3>
+                            <ul>
+                                <li>Retravailler et intégrer la maquette
+                                    <a class="techno_card" href="https://www.figma.com/fr-fr/" target="_blank">
+                                        <img src="./assets/static/technologies/figma.svg" height="23"
+                                             alt="Icon du logiciel Figma">
+                                        Figma
+                                    </a>
+                                    à l'aide du designer <a class="user_card" href="https://github.com/4Mathleu" target="_blank">@Mathieu</a>.
+                                </li>
+                                <li>Choisir les technologies et mettre en place le projet.</li>
+                                <li>Intégrer le <b>frontend</b>.</li>
+                                <li>Intégrer le <b>backend</b> notamment une <a
+                                        href="https://fr.wikipedia.org/wiki/Representational_state_transfer"
+                                        target="_blank">API
+                                    REST</a>.
+                                </li>
+                                <li>Optimiser le chargement notamment avec l'implémentation du <a
+                                        href="https://developer.mozilla.org/en-US/docs/Glossary/SSR"
+                                        target="_blank">SSR</a>, de
+                                    chargements
+                                    asynchrones et de <a href="https://ant.design/components/skeleton" target="_blank">squelettes
+                                        placeholders</a>.
+                                </li>
+                                <li>Mettre en place un <b>système de comptes utilisateurs</b> avec des permissions et un
+                                    système de connexions externes (Discord, Google, Tiktok).
+                                </li>
+                                <li>Concevoir et développer une <b>console de gestion</b> pour les administrateurs et
+                                    une future équipe de rédaction.
+                                </li>
+                            </ul>
+                            <h3>Défis majeurs et apprentissages :</h3>
+                            <ul>
+                                <li>C'est grace à ce projet que j'ai pu découvrir les frameworks modernes (notamment
+                                    <a class="techno_card" href="https://nextjs.org" target="_blank">
+                                        <img src="./assets/static/technologies/nextjs.png" height="25"
+                                             alt="Icon du framework Next.js">
+                                        Next.js
+                                    </a>), le <a
+                                            href="https://developer.mozilla.org/en-US/docs/Glossary/SSR"
+                                            target="_blank">SSR</a>,
+                                    et <a class="techno_card" href="https://nodejs.org/fr" target="_blank">
+                                        <img src="./assets/static/technologies/nodejs.svg" height="25"
+                                             alt="Icon du framework NodeJs">
+                                        NodeJs
+                                    </a>.
+                                </li>
+                                <li>J'ai dû également me renseigner sur la gestion des Cookies, des outils d'analyses de
+                                    trafics, et du <a
+                                            href="https://www.economie.gouv.fr/entreprises/reglement-general-protection-donnees-rgpd"
+                                            target="_blank">RGPD</a>.
+                                </li>
+                                <li>L'optimisation du site a été un processus particulièrement complexe pour moi, il a
+                                    fallu réfléchir à la solution la plus appropriée pour chaque partie du site.
+                                </li>
+                                <li>C'est aussi avec ce projet que j'ai mis pour la première fois les mains dans le
+                                    backend, découverte de la gestion de bases de données, des
+                                    connexions et la structure <a
+                                            href="https://fr.wikipedia.org/wiki/Representational_state_transfer"
+                                            target="_blank">REST</a>.
+                                </li>
+                            </ul>
+                            <h3>La stack :</h3>
+                            <ul>
+                                <li>Bundler :
+                                    <a class="techno_card" href="https://nextjs.org" target="_blank">
+                                        <img src="./assets/static/technologies/nextjs.png" height="25"
+                                             alt="Icon du framework Next.js">
+                                        Next.js
+                                    </a>
+                                </li>
+                                <li>Backend :
+                                    <a class="techno_card" href="https://nodejs.org/fr" target="_blank">
+                                        <img src="./assets/static/technologies/nodejs.svg" height="25"
+                                             alt="Icon du framework NodeJs">
+                                        NodeJs
+                                    </a>,
+                                    <a href="https://mariadb.org/" target="_blank"> MariaDB </a>
+                                </li>
+                                <li>Frontend :
+                                    <a class="techno_card" href="https://react.com" target="_blank">
+                                        <img src="./assets/static/technologies/react.png" height="25"
+                                             alt="Icon du framework React">
+                                        React
+                                    </a>,
+                                    <a class="techno_card" href="https://ant.design" target="_blank">
+                                        <img src="./assets/static/technologies/antdesign.png" height="25"
+                                             alt="Icon de la librairie Ant design">
+                                        Ant design
+                                    </a>
+                                </li>
+                                <li>Autre :
+                                    <a class="techno_card" href="https://github.com" target="_blank">
+                                        <img src="./assets/static/technologies/github.svg" height="25"
+                                             alt="Icon du site Github">
+                                        Github
+                                    </a>,
+                                    <a class="techno_card" href="https://www.figma.com/fr-fr/" target="_blank">
+                                        <img src="./assets/static/technologies/figma.svg" height="23"
+                                             alt="Icon du logiciel Figma">
+                                        Figma
+                                    </a>,
+                                    <a href="https://developers.google.com/analytics?hl=fr" target="_blank">
+                                        Google Analytics
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <footer>
+                            <div class="info_container">
+                                <div class="time">
+                                    <i class="fi fi-rr-clock-five"></i>
+                                    <p>240h</p>
+                                </div>
+                                <div class="date">
+                                    <i class="fi fi-rr-calendar"></i>
+                                    <p>2024</p>
+                                </div>
+                            </div>
+                            <div class="tech_container">
+                                <a href="https://nextjs.org" target="_blank">
+                                    <img src="./assets/static/technologies/nextjs.png" alt="Logo du framework Next.Js"
+                                         width="40" height="40"/></a>
+                                <a href="https://ant.design" target="_blank">
+                                    <img src="./assets/static/technologies/antdesign.png"
+                                         alt="Logo de la librairie Ant Design" width="40" height="40"/></a>
+                                <a href="https://typescriptlang.org" target="_blank">
+                                    <img src="./assets/static/technologies/TS.png" alt="Logo du language Typescript"
+                                         width="40" height="40"/></a>
+                            </div>
+                        </footer>
+                    </div>
+                    <img class="illustration" src="./assets/static/projects/royalmedia/illustration-min.png" alt="">
+                </li>
+            </ol>
+            <script src="./scripts/project_dropdown.js"></script>
+        </div>
     </section>
     <section id="contact">
-        <h1>Contact</h1>
     </section>
 </main>
 <svg>

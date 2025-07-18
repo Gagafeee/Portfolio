@@ -1,4 +1,4 @@
-header {
+body > header {
     position: fixed;
     bottom: 2svh;
     left: 50%;
@@ -8,11 +8,11 @@ header {
     z-index: 10;
 }
 
-header nav {
+body > header nav {
     display: flex;
     gap: 11px;
 }
 
-header nav a {
+body > header nav a {
     white-space: nowrap;
 }

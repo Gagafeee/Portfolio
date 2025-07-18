@@ -1,0 +1,137 @@
+@import "cards.css";
+
+#work .container {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    padding: 40px 3svw;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+#work .container .sidebar {
+    width: 30px;
+    border-radius: 15px;
+    align-self: stretch;
+}
+
+#work .container .sidebar circle {
+    fill: hsla(0, 0%, 20%, 0.5);
+    stroke: hsla(0, 0%, 100%, 0.2);
+    stroke-width: 0.1;
+}
+
+#work .container .sidebar circle.active {
+    fill: var(--text-primary);
+    stroke-width: 0;
+}
+
+#work .container .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#work .container .content > li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+#work .container .content > li.inverted {
+    flex-direction: row-reverse;
+}
+
+#work .container .content > li .card {
+    width: 40%;
+    border-radius: 28px;
+    padding: 15px 17px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+#work .container .content > li .card .description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#work .container .content > li .card .description > * {
+    animation: open 0.3s ease;
+}
+
+@keyframes open {
+    0%{
+        transform: translateX(5px);
+        opacity: 0;
+    }
+}
+
+#work .container .content > li .card .description p:first-child a {
+    cursor: pointer;
+}
+
+#work .container .content > li:not(.extended) .card .description > *:not(:first-child) {
+    display: none;
+}
+
+#work .container .content > li .card .description li {
+    margin-left: 1.5rem;
+}
+
+#work .container .content > li .card .description a:not(.techno_card):not(.user_card) {
+    color: hsl(210, 100%, 68%);
+    transition: font-weight 0.25s ease;
+}
+
+#work .container .content > li .card .description a:hover {
+    font-weight: 500;
+}
+
+#work .container .content > li .card header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+}
+
+#work .container .content > li .card footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-secondary);
+}
+
+#work .container .content > li .card footer > * {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#work .container .content > li .card footer .info_container > * {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#work .container .content > li .illustration {
+    width: 40%;
+    object-position: top;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(.18,.89,.32,1.28);
+}
+
+#work .container .content > li:not(.extended) .illustration {
+    max-height: 700px;
+    transform: rotate(-10deg);
+}
+
+#work .container .content > li:not(.extended).inverted .illustration {
+    transform: rotate(10deg);
+}

@@ -25,7 +25,6 @@
 #hero .container .headline .title_container {
     min-height: 7.1rem;
     display: flex;
-    align-items: center;
     font-size: 5.5rem;
     background: var(--primary-gradient) no-repeat center text;
     -webkit-background-clip: text;
@@ -36,6 +35,8 @@
 #hero .container .title {
     font-size: 6rem;
     white-space: nowrap;
+    /* Overwrite default section title style */
+    width: unset;
 }
 
 #hero .container .subtitle {

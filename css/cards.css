@@ -1,0 +1,20 @@
+.techno_card {
+    display: inline-flex;
+    gap: 0.3rem;
+    border-radius: 15px;
+    padding: 4px;
+    margin: -4px;
+    transition: all 0.25s ease;
+    transform: translateY(1px);
+}
+
+.techno_card:hover {
+    padding: 4px 6px 4px 10px;
+    background-color: hsla(0, 0%, 60%, 0.3);
+    font-weight: 600;
+}
+
+.user_card {
+    color: #79797e;
+    transition: all 0.25s ease;
+}
