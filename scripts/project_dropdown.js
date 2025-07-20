@@ -16,7 +16,6 @@ class ProjectDropdownController {
         if (pointIndicator == null)
             throw new Error("[Project Dropdown Controller]: Cannot resolve the corresponding indicator in sidebar.");
         this.indicator = pointIndicator;
-        //Register event button
         const extendButton = this.element.querySelector(extendButtonLocator);
         if (extendButton == null) {
             console.error("Element: ", this.element);
@@ -26,6 +25,10 @@ class ProjectDropdownController {
             projectList[this.index].invertState();
         });
         this.extendButton = extendButton;
+        const url = document.URL;
+        const projectIdentifier = url.split(/#(project_\S*)$/)[1];
+        if (projectIdentifier && projectIdentifier == this.element.id)
+            this.extend();
     }
     invertState() {
         if (this.isExtended())
@@ -46,6 +49,10 @@ class ProjectDropdownController {
     isExtended() {
         return this.element.className.includes("extended");
     }
+}
+function copyCurrentURL() {
+    setTimeout(() => navigator.clipboard.writeText(document.URL)
+        .catch(err => console.error("Cannot copy the current URL to the user's clipboard:", err)), 100);
 }
 const projectList = [];
 for (const projectElement of projectContainer.children) {

@@ -31,6 +31,11 @@ class ProjectDropdownController {
             projectList[this.index].invertState()
         })
         this.extendButton = extendButton;
+
+        //Auto extends if the page has loaded with the corresponding anchor.
+        const url = document.URL;
+        const projectIdentifier = url.split(/#(project_\S*)$/)[1];
+        if (projectIdentifier && projectIdentifier == this.element.id) this.extend();
     }
 
     public invertState() {
@@ -53,6 +58,13 @@ class ProjectDropdownController {
     isExtended(): boolean {
         return this.element.className.includes("extended");
     }
+}
+
+function copyCurrentURL() {
+    setTimeout(() =>
+            navigator.clipboard.writeText(document.URL)
+                .catch(err => console.error("Cannot copy the current URL to the user's clipboard:", err))
+        , 100)
 }
 
 

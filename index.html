@@ -70,27 +70,37 @@
                 <circle r="10" cx="50%" cy="1050"></circle>
             </svg>
             <ol class="content">
-                <li>
+                <li id="project_royalmedia">
                     <div class="card glassy">
                         <header>
-                            <img src="./assets/static/projects/royalmedia/icon.png" width="50" height="50"
-                                 alt="Icon du projet Royalmedia">
-                            <h2>Royalmedia</h2>
+                            <div>
+                                <img src="./assets/static/projects/royalmedia/icon.png" width="50" height="50"
+                                     alt="Icon du projet Royalmedia">
+                                <h2>Royalmedia</h2>
+                            </div>
+                            <div class="links-container">
+                                <a href="#project_royalmedia" onclick="copyCurrentURL()">
+                                    <i class="fi fi-rr-link"></i>
+                                </a>
+                            </div>
                         </header>
                         <div class="description">
-                            <p>Création de A à Z d'un site web pour un nouveau média numérique specialisé dans les
+                            <p>Création de A à Z d'un site web pour un nouveau média spécialisé dans les
                                 cryptomonnaies. <a class="extend_button">Voir plus</a></p>
                             <p>
                                 L'objectif était de créer un site web d'informations, le site devait contenir (entre
-                                autre),</p>
+                                autres),</p>
                             <ul>
                                 <li>Un système d'articles avec des tags et des catégories,</li>
                                 <li>Des "flash news" en temps réel,</li>
+                                <li>Un système de compte et de connexion,</li>
                                 <li>Un panel de gestion pour une future équipe de rédaction</li>
                             </ul>
                             <p>
-                                J'ai été le principal développeur sur ce projet, avec la précieuse aide de <a class="user_card" href="https://github.com/4Mathleu" target="_blank">@Mathieu</a>.</p>
-                            <h3> Mes missions : </h3>
+                                J'ai été le principal développeur sur ce projet, avec la précieuse aide de <a
+                                    class="user_card" href="https://github.com/4Mathleu" target="_blank">@Mathieu</a>.
+                            </p>
+                            <h3>Mes missions : </h3>
                             <ul>
                                 <li>Retravailler et intégrer la maquette
                                     <a class="techno_card" href="https://www.figma.com/fr-fr/" target="_blank">
@@ -98,16 +108,17 @@
                                              alt="Icon du logiciel Figma">
                                         Figma
                                     </a>
-                                    à l'aide du designer <a class="user_card" href="https://github.com/4Mathleu" target="_blank">@Mathieu</a>.
+                                    à l'aide du designer <a class="user_card" href="https://github.com/4Mathleu"
+                                                            target="_blank">@Mathieu</a>.
                                 </li>
                                 <li>Choisir les technologies et mettre en place le projet.</li>
                                 <li>Intégrer le <b>frontend</b>.</li>
-                                <li>Intégrer le <b>backend</b> notamment une <a
+                                <li>Intégrer le <b>backend</b>, notamment une <a
                                         href="https://fr.wikipedia.org/wiki/Representational_state_transfer"
                                         target="_blank">API
                                     REST</a>.
                                 </li>
-                                <li>Optimiser le chargement notamment avec l'implémentation du <a
+                                <li>Optimiser le chargement, notamment avec l'implémentation du <a
                                         href="https://developer.mozilla.org/en-US/docs/Glossary/SSR"
                                         target="_blank">SSR</a>, de
                                     chargements
@@ -115,7 +126,7 @@
                                         placeholders</a>.
                                 </li>
                                 <li>Mettre en place un <b>système de comptes utilisateurs</b> avec des permissions et un
-                                    système de connexions externes (Discord, Google, Tiktok).
+                                    système de connexions externes (Discord, Google, TikTok).
                                 </li>
                                 <li>Concevoir et développer une <b>console de gestion</b> pour les administrateurs et
                                     une future équipe de rédaction.
@@ -123,7 +134,7 @@
                             </ul>
                             <h3>Défis majeurs et apprentissages :</h3>
                             <ul>
-                                <li>C'est grace à ce projet que j'ai pu découvrir les frameworks modernes (notamment
+                                <li>C'est grâce à ce projet que j'ai pu découvrir les frameworks modernes (notamment
                                     <a class="techno_card" href="https://nextjs.org" target="_blank">
                                         <img src="./assets/static/technologies/nextjs.png" height="25"
                                              alt="Icon du framework Next.js">
@@ -222,7 +233,8 @@
                             </div>
                         </footer>
                     </div>
-                    <img class="illustration" src="./assets/static/projects/royalmedia/illustration-min.png" alt="">
+                    <img class="illustration" src="./assets/static/projects/royalmedia/illustration-min.png"
+                         alt="Illustration du projet Royalmedia, représentant la page principale du site du Royalmedia">
                 </li>
             </ol>
             <script src="./scripts/project_dropdown.js"></script>

@@ -19,11 +19,16 @@
     fill: hsla(0, 0%, 20%, 0.5);
     stroke: hsla(0, 0%, 100%, 0.2);
     stroke-width: 0.1;
+    transition: all 0.25s ease;
 }
 
 #work .container .sidebar circle.active {
     fill: var(--text-primary);
     stroke-width: 0;
+}
+
+#work .container .sidebar:has(circle.active) circle:not(.active) {
+    opacity: 0;
 }
 
 #work .container .content {
@@ -48,7 +53,7 @@
 #work .container .content > li .card {
     width: 40%;
     border-radius: 28px;
-    padding: 15px 17px;
+    padding: 15px 20px 4px 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -96,8 +101,18 @@
 #work .container .content > li .card header {
     display: flex;
     width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#work .container .content > li .card header > div {
+    display: flex;
     align-items: center;
     gap: 10px;
+}
+
+#work .container .content > li .card .share_button {
+    cursor: pointer;
 }
 
 #work .container .content > li .card footer {
@@ -129,9 +144,9 @@
 
 #work .container .content > li:not(.extended) .illustration {
     max-height: 700px;
-    transform: rotate(-10deg);
+    transform: rotate(-7.5deg);
 }
 
 #work .container .content > li:not(.extended).inverted .illustration {
-    transform: rotate(10deg);
+    transform: rotate(7.5deg);
 }

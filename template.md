@@ -1,29 +1,43 @@
 ## Project template
 ```HTML
-<li>
+<li id="project_$PROJECT$">
     <div class="card glassy">
         <header>
-            <img src="./assets/static/projects/PROJECT/icon.png" width="50" height="50" alt="Icon du Royalmedia">
-            <h2>PROJECT</h2>
+            <div>
+                <img src="./assets/static/projects/$project$/icon.png" width="50" height="50"
+                     alt="Icon du projet $PROJECT$">
+                <h2>$PROJECT$</h2>
+            </div>
+            <div class="links-container">
+                <a href="#project_$project$" onclick="copyCurrentURL()">
+                    <i class="fi fi-rr-link"></i>
+                </a>
+            </div>
         </header>
-        <p>Lorem ipsum dolor sit amet</p>
+        <div class="description">
+            <p>Lorem ipsum dolor sit amet <a class="extend_button">Voir plus</a></p>
+            <h3>Title : </h3>
+        </div>
         <footer>
             <div class="info_container">
                 <div class="time">
                     <i class="fi fi-rr-clock-five"></i>
-                    <p>TIME</p>
+                    <p>TIMEh</p>
                 </div>
                 <div class="date">
                     <i class="fi fi-rr-calendar"></i>
-                    <p>DATE</p>
+                    <p>YEAR</p>
                 </div>
             </div>
             <div class="tech_container">
-            
+                <a href="https://typescriptlang.org" target="_blank">
+                    <img src="./assets/static/technologies/TS.png" alt="Logo du language Typescript"
+                         width="40" height="40"/></a>
             </div>
         </footer>
     </div>
-    <img class="illustration" src="./assets/static/projects/PROJECT/illustration-min.png" alt="">
+    <img class="illustration" src="./assets/static/projects/$project$/illustration-min.png"
+         alt="Illustration du projet $PROJECT$">
 </li>
 ```
 
