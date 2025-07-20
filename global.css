@@ -58,6 +58,7 @@ main section .title {
 
 main section .title h1 {
     font-size: 5rem;
+    white-space: nowrap;
 }
 
 main section .title p {
@@ -65,4 +66,14 @@ main section .title p {
     color: var(--text-secondary);
     max-width: 60%;
     text-align: center;
+}
+
+@media (max-width: 700px) {
+    main section .title h1 {
+        font-size: 4rem;
+    }
+    main section .title p {
+        font-size: 1.5rem;
+        max-width: unset;
+    }
 }

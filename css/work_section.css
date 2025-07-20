@@ -59,6 +59,9 @@
     gap: 10px;
 }
 
+#work .container .content > li .card .extend_button {
+    white-space: nowrap;
+}
 
 #work .container .content > li .card .description {
     display: flex;
@@ -71,7 +74,7 @@
 }
 
 @keyframes open {
-    0%{
+    0% {
         transform: translateX(5px);
         opacity: 0;
     }
@@ -139,7 +142,7 @@
     object-position: top;
     object-fit: cover;
     border-radius: 20px;
-    transition: all 0.3s cubic-bezier(.18,.89,.32,1.28);
+    transition: all 0.3s cubic-bezier(.18, .89, .32, 1.28);
 }
 
 #work .container .content > li:not(.extended) .illustration {
@@ -149,4 +152,38 @@
 
 #work .container .content > li:not(.extended).inverted .illustration {
     transform: rotate(7.5deg);
+}
+
+@media (max-width: 1500px) {
+    #work .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #work .container .sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 1300px) {
+    #work .container .content > li {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    #work .container .content > li .card {
+        width: 80%;
+    }
+
+    #work .container .content > li .illustration {
+        width: 80%;
+        transform: unset !important;
+        max-height: 1000px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    #work .container .content > li .illustration {
+        width: 95%;
+    }
 }
