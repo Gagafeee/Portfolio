@@ -1,5 +1,5 @@
 "use client";
-import styles from "../css/ContactSection.module.css"
+import styles from "../../components/css/ContactSection.module.css"
 import {DefaultProps} from "@/global/global";
 import Button from "@/components/public/Button";
 import {ContactData} from "@/global/content";

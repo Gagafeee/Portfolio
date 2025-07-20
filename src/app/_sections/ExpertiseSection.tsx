@@ -1,4 +1,4 @@
-import styles from "../css/ExpertiseSection.module.css"
+import styles from "../../components/css/ExpertiseSection.module.css"
 import {DefaultProps, Technologie} from "@/global/global";
 import Section from "@/components/main/Section";
 import Image from "next/image";

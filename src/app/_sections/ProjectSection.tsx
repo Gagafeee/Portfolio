@@ -1,5 +1,5 @@
 "use client";
-import styles from "../css/ProjectSection.module.css"
+import styles from "../../components/css/ProjectSection.module.css"
 import {DefaultProps, Project} from "@/global/global";
 import Section from "@/components/main/Section";
 import {Projects} from "@/global/content";
@@ -7,7 +7,7 @@ import {useContext, useEffect, useRef, useState} from "react";
 import Image from "next/image";
 import Button from "@/components/public/Button";
 import {CSSTransition} from "react-transition-group";
-import "../css/CarouselTransition.css"
+import "../../components/css/CarouselTransition.css"
 import {LanguageContext} from "@/components/main/LanguageEnvironment";
 import TranslatableText from "@/components/public/TranslatableText";
 import SwipeDetector from "@/components/main/SwipeDetector";

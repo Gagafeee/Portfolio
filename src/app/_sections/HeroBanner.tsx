@@ -1,6 +1,6 @@
 "use client";
-import styles from "../css/HeroSection.module.css";
-import {DefaultProps, Language} from "@/global/global";
+import styles from "../../components/css/HeroSection.module.css";
+import {Language} from "@/global/global";
 import Button from "@/components/public/Button";
 import Image from "next/image";
 import logoImage from "/public/static/main_logo-min-min.png";
@@ -12,24 +12,20 @@ import {useWindowSize} from "@/global/useWindowSize";
 import {TypeAnimation} from "react-type-animation";
 import {LanguageDropdown} from "@/components/public/LanguageDropdown";
 
-export interface HeroSectionProps extends DefaultProps {
-
-}
-
-export default function HeroSection(props: HeroSectionProps) {
-    const [width, height] = useWindowSize()
+export default function HeroBanner() {
     const movableContext = useContext(MovableContext);
+    const [width] = useWindowSize()
     const [isMobile, setIsMobile] = useState(width < 1400);
     useEffect(() => {
         setIsMobile(width < 1400);
     }, [width]);
     return (
-        <div id={"home"} className={[styles.HeroSection, props.className].join(" ")} style={props.style}>
+        <div id={"home"} className={styles.HeroSection}>
             {isMobile && <LanguageDropdown/>}
-            <Image className={styles.Image} src={logoImage} alt={"Main Gagafeee logo"} width={400} height={400}/>
+            <Image className={styles.Image} src={logoImage} alt={"Main Gagafeee's logo"} width={400} height={400}/>
             <div className={[styles.Float, "glassy"].join(" ")}>
                 <div className={styles.TitleContainer}>
-                    <h1>
+                    <h1 className={styles.Subtitle}>
                         <TranslatableText>{{english: "I don't work", french: "Je ne travaille pas"}}</TranslatableText>
                     </h1>
                     <Title/>
@@ -78,7 +74,7 @@ function Title() {
     }, [renderChild]);
 
     return (
-        <h1 className={styles.Subtitle}>
+        <h1 className={styles.Title}>
             {
                 renderChild ? <TyperEffect language={currentLanguage}/> : null
             }

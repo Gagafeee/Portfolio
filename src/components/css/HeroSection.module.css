@@ -27,18 +27,24 @@
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.HeroSection .Float .TitleContainer h1 {
-    font-size: clamp(3.5rem, 10vw, 6rem);
-    letter-spacing: -3.5px;
-    font-weight: 500;
-}
-
-.HeroSection .Float .TitleContainer .Subtitle {
+.HeroSection .Float .TitleContainer .Title {
+    font-size: clamp(3.5rem, 7vw, 6rem);
     font-weight: 600;
+    letter-spacing: -3px;
     background: var(--primary-gradient) no-repeat center text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: normal;
+}
+
+.HeroSection .Float .TitleContainer .Subtitle {
+    background: #333333;
+    background: linear-gradient(90deg,rgba(201, 201, 201, 1) 0%, rgba(232, 232, 232, 1) 45%, rgba(232, 232, 232, 1) 55%, rgba(201, 201, 201, 1) 100%) no-repeat center text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(2.7rem, 7vw, 5rem);
+    letter-spacing: -2.5px;
+    font-weight: 500;
 }
 
 .HeroSection .Float .ActionContainer {
