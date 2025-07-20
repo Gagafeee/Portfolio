@@ -28,7 +28,7 @@ class ProjectDropdownController {
             throw new Error("[Project Dropdown Controller]: Cannot resolve the extend-button in the project element.")
         }
         extendButton.addEventListener("click", () => {
-            projectList[this.index].invertState()
+            projectControllerList[this.index].invertState()
         })
         this.extendButton = extendButton;
 
@@ -44,6 +44,7 @@ class ProjectDropdownController {
     }
 
     public extend() {
+        this.closeOthers()
         this.element.classList.add("extended");
         this.extendButton.innerHTML = "Voir moins";
         this.indicator.classList.add("active");
@@ -58,6 +59,12 @@ class ProjectDropdownController {
     isExtended(): boolean {
         return this.element.className.includes("extended");
     }
+
+    closeOthers() {
+        projectControllerList.forEach(controller => {
+            if (controller.index != this.index) controller.collapse()
+        })
+    }
 }
 
 function copyCurrentURL() {
@@ -68,9 +75,9 @@ function copyCurrentURL() {
 }
 
 
-const projectList: ProjectDropdownController[] = [];
+const projectControllerList: ProjectDropdownController[] = [];
 for (const projectElement of projectContainer.children) {
-    projectList.push(new ProjectDropdownController(projectElement, projectList.length));
+    projectControllerList.push(new ProjectDropdownController(projectElement, projectControllerList.length));
 }
 
-console.info("Project dropdown initialized. Registered " + projectList.length + " projects.")
+console.info("Project dropdown initialized. Registered " + projectControllerList.length + " projects.")
