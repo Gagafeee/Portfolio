@@ -38,6 +38,10 @@
     </div>
     <img class="illustration" src="./assets/static/projects/$project$/illustration-min.png"
          alt="Illustration du projet $PROJECT$">
+    <svg class="background" viewBox="0 0 100 100" preserveAspectRatio="xMidYMin slice">
+        <circle class="light" cx="78" cy="35" r="25" style="fill: #fff; opacity: 0.6"/>
+        <circle class="sphere" cx="78" cy="35" r="25"/>
+    </svg>
 </li>
 ```
 

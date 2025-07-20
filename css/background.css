@@ -9,6 +9,11 @@ main section {
     width: 100%;
     height: 100%;
     z-index: -1;
+    overflow: visible;
+}
+
+.background, .background > * {
+    transition: all 0.5s ease;
 }
 
 .background .sphere {

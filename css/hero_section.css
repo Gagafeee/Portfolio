@@ -97,3 +97,7 @@
 #hero .container .action_container .link_container i {
     font-size: 2.25rem;
 }
+
+#hero .background {
+    overflow: hidden;
+}
