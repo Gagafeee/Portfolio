@@ -60,6 +60,16 @@ TS
 ```HTML
 <a href="https://typescriptlang.org" target="_blank"><img src="./assets/static/technologies/TS.png" alt="Logo du language Typescript" width="40" height="40"/></a>
 ```
+Electron
+```HTML
+<a href="https://www.electronjs.org/fr/" target="_blank"><img src="./assets/static/technologies/electronjs.png" width="40" height="40" alt="Icon du framework Electron"></a>
+```
+React
+```HTML
+<a href="https://react.com" target="_blank"><img src="./assets/static/technologies/react.png" alt="Logo du framework React" width="40" height="40"/></a>
+```
+
+
 ## Techno card
 Figma
 ```HTML
@@ -96,10 +106,27 @@ Github
     Github
 </a>
 ```
+Antdesign
 ```HTML
 <a class="techno_card" href="https://ant.design" target="_blank">
     <img src="./assets/static/technologies/antdesign.png" height="25"
          alt="Icon de la librairie Ant design">
     Ant design
+</a>
+```
+Electron
+```HTML
+<a class="techno_card" href="https://www.electronjs.org/fr/" target="_blank">
+    <img src="./assets/static/technologies/electronjs.png" height="25"
+         alt="Icon du framework Electron">
+    Electron
+</a>
+```
+Typescript
+```HTML
+<a class="techno_card" href="https://www.typescriptlang.org/" target="_blank">
+    <img src="./assets/static/technologies/TS.png" height="25"
+         alt="Icon du language Typescript">
+    Typescript
 </a>
 ```

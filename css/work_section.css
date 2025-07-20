@@ -62,6 +62,7 @@
 
 #work .container .content > li .card .extend_button {
     white-space: nowrap;
+    user-select: none;
 }
 
 #work .container .content > li .card .description {
@@ -170,6 +171,10 @@
     #work .container .content > li {
         flex-direction: column;
         gap: 40px;
+    }
+
+    #work .container .content > li.inverted {
+        flex-direction: column;
     }
 
     #work .container .content > li .card {
