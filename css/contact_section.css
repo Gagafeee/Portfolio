@@ -17,13 +17,6 @@
     font-size: 2.2rem;
 }
 
-
-#contact .card .button_container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 #contact .card .timezone {
     color: var(--text-secondary);
     display: flex;
@@ -35,6 +28,13 @@
     font-size: 2.2rem;
 }
 
+#contact .card .button_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 #contact .card a {
     display: flex;
     align-items: center;
@@ -44,4 +44,22 @@
 
 #contact .card a i {
     font-size: 2rem;
+}
+
+
+@media (max-width: 1500px) {
+    #contact {
+        justify-content: center;
+    }
+
+    #contact .card {
+        margin-left: unset;
+        min-width: 70%;
+    }
+}
+
+@media (max-width: 600px) {
+    #contact .card {
+        font-size: clamp(0.5rem, 2vw + 1rem, 3.5rem);
+    }
 }

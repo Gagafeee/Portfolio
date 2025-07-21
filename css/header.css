@@ -16,3 +16,17 @@ body > header nav {
 body > header nav a {
     white-space: nowrap;
 }
+
+@media (max-width: 500px) {
+    body > header {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        bottom: 0;
+        left: 0;
+        font-size: clamp(1rem, 6vw,1.7rem);
+        transform: unset;
+        padding: 10px 0;
+        border-radius: 0;
+    }
+}

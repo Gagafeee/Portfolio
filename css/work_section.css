@@ -105,6 +105,8 @@
 
 #work .container .content > li .card header {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -122,6 +124,8 @@
 
 #work .container .content > li .card footer {
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
     align-items: center;
     justify-content: space-between;
     color: var(--text-secondary);
@@ -168,6 +172,10 @@
 }
 
 @media (max-width: 1300px) {
+    #work .container .content {
+        gap: 300px;
+    }
+
     #work .container .content > li {
         flex-direction: column;
         gap: 40px;

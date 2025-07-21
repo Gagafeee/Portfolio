@@ -1,9 +1,11 @@
 body > footer {
     background: var(--background-primary);
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 body > footer > div {
@@ -13,4 +15,16 @@ body > footer > div {
     color: var(--text-secondary);
     font-weight: 300;
     font-size: 1.2rem;
+}
+
+@media (max-width: 1200px) {
+    body > footer {
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 500px) {
+    body > footer {
+        padding-bottom: 60px;
+    }
 }
