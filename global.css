@@ -4,12 +4,9 @@
 :root {
     scroll-behavior: smooth;
 
-    --border-radius: 28px;
-    --component-padding: 9px 18px;
-    --card-padding: clamp(15px, 2vw, 2vw) clamp(13px, 1.5vw, 20px);
-
-    --primary: #514CEB;
-    --secondary: #282829;
+    --card-border-radius: 28px;
+    --color-primary: #514CEB;
+    --color-secondary: #282829;
     --background-primary: #111113;
     --text-primary: #FFF;
     --text-secondary: #939393;

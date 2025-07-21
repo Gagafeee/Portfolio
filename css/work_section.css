@@ -54,7 +54,7 @@
 #work .container .content > li .card {
     width: 40%;
     border-radius: 28px;
-    padding: 15px 20px 4px 20px;
+    padding: 20px 25px 10px 25px;
     display: flex;
     flex-direction: column;
     gap: 10px;

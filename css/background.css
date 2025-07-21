@@ -17,7 +17,7 @@ main section {
 }
 
 .background .sphere {
-    fill: hsla(0, 0%, 100%, .01);
+    fill: rgba(87,87,87,.05);
     stroke: hsla(0, 0%, 100%, .2);
     stroke-width: 0.1;
     filter: url(#glow);

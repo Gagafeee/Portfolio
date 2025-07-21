@@ -9,20 +9,20 @@
     padding-bottom: 10px;
 }
 
-#hero .container {
+#hero .card {
     width: 40svw;
     margin-right: 25px;
     height: fit-content;
-    border-radius: 35px;
+    border-radius: var(--card-border-radius);
     padding: 40px 35px;
     background-color: rgba(0, 0, 0, .05);
 }
 
-#hero .container .headline {
+#hero .card .headline {
     margin-bottom: 10px;
 }
 
-#hero .container .headline .title_container {
+#hero .card .headline .title_container {
     min-height: 7.1rem;
     display: flex;
     font-size: 5.5rem;
@@ -32,7 +32,7 @@
     background-clip: text;
 }
 
-#hero .container .title {
+#hero .card .title {
     font-size: 6rem;
     white-space: nowrap;
     /* Overwrite default section title style */
@@ -40,7 +40,7 @@
     margin: unset;
 }
 
-#hero .container .subtitle {
+#hero .card .subtitle {
     font-size: 3.5rem;
     line-height: 3rem;
     color: #d4d4d4;
@@ -57,16 +57,16 @@
         height: clamp(310px, 95vw, 400px);
     }
 
-    #hero .container {
+    #hero .card {
         width: 90svw;
         margin: unset;
     }
 
-    #hero .container .title {
+    #hero .card .title {
         font-size: clamp(4rem, 13vw + 1rem, 6rem);
     }
 
-    #hero .container .subtitle {
+    #hero .card .subtitle {
         font-size: clamp(2.5rem, 7vw + 1rem, 3.5rem);
     }
 }
@@ -77,12 +77,12 @@
         height: 200px;
     }
 
-    #hero .container .title {
+    #hero .card .title {
         font-size: 5rem;
     }
 }
 
-#hero .container .action_container {
+#hero .card .action_container {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -90,12 +90,12 @@
     margin-top: 15px;
 }
 
-#hero .container .action_container .link_container {
+#hero .card .action_container .link_container {
     display: flex;
     gap: 13px;
 }
 
-#hero .container .action_container .link_container i {
+#hero .card .action_container .link_container i {
     font-size: 2.25rem;
 }
 

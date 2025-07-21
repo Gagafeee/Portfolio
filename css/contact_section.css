@@ -9,7 +9,7 @@
     min-width: 30%;
     height: fit-content;
     padding: 15px 25px;
-    border-radius: 24px;
+    border-radius: var(--card-border-radius);
     display: flex;
     flex-direction: column;
     gap: 25px;
