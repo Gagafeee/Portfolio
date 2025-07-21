@@ -37,6 +37,7 @@
     white-space: nowrap;
     /* Overwrite default section title style */
     width: unset;
+    margin: unset;
 }
 
 #hero .container .subtitle {
