@@ -1,0 +1,16 @@
+body > footer {
+    background: var(--background-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+body > footer > div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    font-size: 1.2rem;
+}
