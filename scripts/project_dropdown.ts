@@ -56,11 +56,11 @@ class ProjectDropdownController {
         this.indicator.classList.remove("active");
     }
 
-    isExtended(): boolean {
+    private isExtended(): boolean {
         return this.element.className.includes("extended");
     }
 
-    closeOthers() {
+    private closeOthers() {
         projectControllerList.forEach(controller => {
             if (controller.index != this.index) controller.collapse()
         })
