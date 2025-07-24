@@ -36,15 +36,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 500px;
+    gap: 400px;
 }
 
 #work .container .content > li {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 100px;
+    padding: 100px 0;
 }
 
 #work .container .content > li.inverted {
@@ -58,6 +60,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    transition: all 0.25s ease;
 }
 
 #work .container .content > li .card .extend_button {

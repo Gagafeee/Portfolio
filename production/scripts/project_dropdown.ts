@@ -27,8 +27,13 @@ class ProjectDropdownController {
             console.error("Element: ", this.element);
             throw new Error("[Project Dropdown Controller]: Cannot resolve the extend-button in the project element.")
         }
-        extendButton.addEventListener("click", () => {
+        const action = () => {
             projectControllerList[this.index].invertState()
+        }
+        extendButton.addEventListener("click", action)
+        extendButton.addEventListener("keydown", (event: Event) => {
+            const code = (event as KeyboardEvent).code;
+            if (code == "Enter" || code == "NumpadEnter") action()
         })
         this.extendButton = extendButton;
 
@@ -40,7 +45,10 @@ class ProjectDropdownController {
 
     public invertState() {
         if (this.isExtended()) this.collapse()
-        else this.extend();
+        else {
+            this.extend();
+            this.scrollToElement();
+        }
     }
 
     public extend() {
@@ -54,6 +62,10 @@ class ProjectDropdownController {
         this.element.classList.remove("extended")
         this.extendButton.innerHTML = "Voir plus";
         this.indicator.classList.remove("active");
+    }
+
+    public scrollToElement() {
+        this.element.scrollIntoView()
     }
 
     private isExtended(): boolean {

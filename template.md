@@ -1,6 +1,6 @@
 ## Project template
 ```HTML
-<li id="project_$PROJECT$">
+<li id="project_$project$">
     <div class="card glassy">
         <header>
             <div>
@@ -31,7 +31,7 @@
             </div>
             <div class="tech_container">
                 <a href="https://typescriptlang.org" target="_blank">
-                    <img src="./assets/static/technologies/TS.png" alt="Logo du language Typescript"
+                    <img src="./assets/static/technologies/TS.png" alt="Logo du langage Typescript"
                          width="40" height="40"/></a>
             </div>
         </footer>
@@ -58,7 +58,7 @@ Antd
 ```
 TS
 ```HTML
-<a href="https://typescriptlang.org" target="_blank"><img src="./assets/static/technologies/TS.png" alt="Logo du language Typescript" width="40" height="40"/></a>
+<a href="https://typescriptlang.org" target="_blank"><img src="./assets/static/technologies/TS.png" alt="Logo du langage Typescript" width="40" height="40"/></a>
 ```
 Electron
 ```HTML
@@ -67,6 +67,18 @@ Electron
 React
 ```HTML
 <a href="https://react.com" target="_blank"><img src="./assets/static/technologies/react.png" alt="Logo du framework React" width="40" height="40"/></a>
+```
+HTML
+```HTML
+<a href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank"><img src="./assets/static/technologies/HTML.png" alt="Logo du langage HTML" width="40" height="40"/></a>
+```
+CSS
+```HTML
+<a href="https://developer.mozilla.org/fr/docs/Web/CSS" target="_blank"><img src="./assets/static/technologies/CSS.png" alt="Logo du langage CSS" width="40" height="40"/></a>
+```
+JS
+```HTML
+<a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="_blank"><img src="./assets/static/technologies/JS.png" alt="Logo du langage Javascript" width="40" height="40"/></a>
 ```
 
 
@@ -126,7 +138,7 @@ Typescript
 ```HTML
 <a class="techno_card" href="https://www.typescriptlang.org/" target="_blank">
     <img src="./assets/static/technologies/TS.png" height="25"
-         alt="Icon du language Typescript">
+         alt="Icon du langage Typescript">
     Typescript
 </a>
 ```
