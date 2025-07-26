@@ -1,0 +1,36 @@
+.button {
+    position: relative;
+    background-color: var(--background-primary);
+    padding: 9px 18px;
+    border-radius: 28px;
+    font-family: Archivo, serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    border: solid 3px var(--color-secondary);
+    transition: background-color 0.25s ease;
+}
+
+.button:hover {
+    background-color: #1a1a1a;
+}
+
+.button.primary {
+    border: transparent;
+}
+
+.button.primary:hover {
+    background-color: transparent;
+}
+
+.button.primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: calc(3px * -1);
+    border-radius: inherit;
+    background: var(--primary-gradient);
+}

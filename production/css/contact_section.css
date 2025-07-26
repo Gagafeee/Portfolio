@@ -1,0 +1,65 @@
+#contact {
+    display: flex;
+    align-items: center;
+    height: 100svh;
+    margin-top: 20rem;
+}
+
+#contact .card {
+    min-width: 30%;
+    height: fit-content;
+    padding: 15px 25px;
+    border-radius: var(--card-border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-left: 10%;
+    font-size: 2.2rem;
+}
+
+#contact .card .timezone {
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#contact .card .timezone i {
+    font-size: 2.2rem;
+}
+
+#contact .card .button_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#contact .card a {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 2.3rem;
+}
+
+#contact .card a i {
+    font-size: 2rem;
+}
+
+
+@media (max-width: 1500px) {
+    #contact {
+        justify-content: center;
+    }
+
+    #contact .card {
+        margin-left: unset;
+        min-width: 70%;
+    }
+}
+
+@media (max-width: 600px) {
+    #contact .card {
+        font-size: clamp(0.5rem, 2vw + 1rem, 3.5rem);
+    }
+}
