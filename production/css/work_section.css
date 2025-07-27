@@ -200,6 +200,7 @@
 }
 
 @media (max-width: 600px) {
+    #work .container .content > li .card,
     #work .container .content > li .illustration {
         width: 95%;
     }
