@@ -51,11 +51,12 @@
     #hero {
         flex-direction: column;
         justify-content: unset;
+        padding-top: 20px;
     }
 
     #hero #main_logo {
-        width: clamp(310px, 95vw, 400px);
-        height: clamp(310px, 95vw, 400px);
+        width: clamp(250px, 80vw, 400px);
+        height: clamp(250px, 80vw, 400px);
     }
 
     #hero .card {
@@ -87,10 +88,10 @@
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 900px) {
     #hero .card {
         padding: 25px 25px;
-        width: 90%;
+        width: 95%;
     }
 }
 
