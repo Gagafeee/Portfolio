@@ -27,13 +27,13 @@ class ProjectDropdownController {
         extendButton.addEventListener("click", action);
         extendButton.addEventListener("keydown", (event) => {
             const code = event.code;
-            if (code == "Enter" || code == "NumpadEnter")
+            if (code === "Enter" || code === "NumpadEnter")
                 action();
         });
         this.extendButton = extendButton;
         const url = document.URL;
         const projectIdentifier = url.split(/#(project_\S*)$/)[1];
-        if (projectIdentifier && projectIdentifier == this.element.id)
+        if (projectIdentifier && projectIdentifier === this.element.id)
             this.extend();
     }
     invertState() {
@@ -63,7 +63,7 @@ class ProjectDropdownController {
     }
     closeOthers() {
         projectControllerList.forEach(controller => {
-            if (controller.index != this.index)
+            if (controller.index !== this.index)
                 controller.collapse();
         });
     }

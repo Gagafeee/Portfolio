@@ -33,14 +33,14 @@ class ProjectDropdownController {
         extendButton.addEventListener("click", action)
         extendButton.addEventListener("keydown", (event: Event) => {
             const code = (event as KeyboardEvent).code;
-            if (code == "Enter" || code == "NumpadEnter") action()
+            if (code === "Enter" || code === "NumpadEnter") action()
         })
         this.extendButton = extendButton;
 
         //Auto extends if the page has loaded with the corresponding anchor.
         const url = document.URL;
         const projectIdentifier = url.split(/#(project_\S*)$/)[1];
-        if (projectIdentifier && projectIdentifier == this.element.id) this.extend();
+        if (projectIdentifier && projectIdentifier === this.element.id) this.extend();
     }
 
     public invertState() {
@@ -74,7 +74,7 @@ class ProjectDropdownController {
 
     private closeOthers() {
         projectControllerList.forEach(controller => {
-            if (controller.index != this.index) controller.collapse()
+            if (controller.index !== this.index) controller.collapse()
         })
     }
 }

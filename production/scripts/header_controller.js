@@ -16,7 +16,7 @@ class IndicatorController {
             throw new Error("Cannot initialize header indicator controller: Cannot find the indicator element. Locator: " + indicatorContainerLocator + ".");
         this.indicatorElement = indicatorContainerElement;
         const buttons = Array.from(this.container.querySelectorAll("a"));
-        if (buttons.length == 0)
+        if (buttons.length === 0)
             console.warn("Warning: No buttons elements are registered in the menu.");
         this.buttons = buttons;
         if (document.documentElement.getBoundingClientRect().width < 500) {
@@ -75,5 +75,5 @@ class AnchorController {
 }
 const menuIndicatorController = new IndicatorController(headerElement);
 const sections = Array.from(document.querySelectorAll("main > section"));
-const anchorController = new AnchorController(sections);
+new AnchorController(sections);
 console.info("Header controller script initialized.");
