@@ -142,3 +142,31 @@ Typescript
     Typescript
 </a>
 ```
+HTML
+```HTML
+<a class="techno_card" href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank">
+    <img src="./assets/static/technologies/HTML.png" height="25" alt="Icon du langage HTML">
+    HTML
+</a>
+```
+CSS
+```HTML
+<a class="techno_card" href="https://developer.mozilla.org/fr/docs/Web/CSS" target="_blank">
+    <img src="./assets/static/technologies/CSS.png" height="25" alt="Icon du langage CSS">
+    CSS
+</a>
+```
+JS
+```HTML
+<a class="techno_card" href="https://developer.mozilla.org/fr/docs/Web/JS" target="_blank">
+    <img src="./assets/static/technologies/JS.png" height="25" alt="Icon du langage JS">
+    JS
+</a>
+```
+Firebase
+```HTML
+<a class="techno_card" href="https://firebase.google.com/" target="_blank">
+    <img src="./assets/static/technologies/firebase.png" height="25" alt="Icon de la plateforme Firebase">
+    Firebase
+</a>
+```
