@@ -80,6 +80,14 @@ JS
 ```HTML
 <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="_blank"><img src="./assets/static/technologies/JS.png" alt="Logo du langage Javascript" width="40" height="40"/></a>
 ```
+Unity
+```HTML
+<a href="https://unity.com/fr" target="_blank"><img src="./assets/static/technologies/unity.svg" alt="Logo du logiciel Unity" width="40" height="40"/></a>
+```
+C#
+```HTML
+<a href="https://dotnet.microsoft.com/fr-fr/languages/csharp" target="_blank"><img src="./assets/static/technologies/csharp.svg" alt="Logo du langage Csharp" width="40" height="40"/></a>
+```
 
 
 ## Techno card
@@ -168,5 +176,19 @@ Firebase
 <a class="techno_card" href="https://firebase.google.com/" target="_blank">
     <img src="./assets/static/technologies/firebase.png" height="25" alt="Icon de la plateforme Firebase">
     Firebase
+</a>
+```
+Unity
+```HTML
+<a class="techno_card" href="https://unity.com/fr" target="_blank">
+    <img src="./assets/static/technologies/unity.svg" height="23" alt="Icon du logiciel Unity">
+    Unity
+</a>
+```
+C#
+```HTML
+<a class="techno_card" href="https://dotnet.microsoft.com/fr-fr/languages/csharp" target="_blank">
+    <img src="./assets/static/technologies/csharp.svg" height="23" alt="Icon du langage Csharp">
+    CSharp
 </a>
 ```
