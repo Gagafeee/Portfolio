@@ -89,6 +89,18 @@ C#
 <a href="https://dotnet.microsoft.com/fr-fr/languages/csharp" target="_blank"><img src="./assets/static/technologies/csharp.svg" alt="Logo du langage Csharp" width="40" height="40"/></a>
 ```
 
+Python
+
+```HTML
+<a href="https://www.python.org/" target="_blank"><img src="./assets/static/technologies/python.svg" alt="Logo du langage Python" width="40" height="40"/></a>
+```
+
+PyGame
+
+```HTML
+<a href="https://github.com/pygame/pygame" target="_blank"><img src="./assets/static/technologies/pygame.png" alt="Logo de la librairie PyGame" width="40" height="40"/></a>
+```
+
 
 ## Techno card
 Figma
@@ -190,5 +202,22 @@ C#
 <a class="techno_card" href="https://dotnet.microsoft.com/fr-fr/languages/csharp" target="_blank">
     <img src="./assets/static/technologies/csharp.svg" height="23" alt="Icon du langage Csharp">
     CSharp
+</a>
+```
+
+Python
+```HTML
+<a class="techno_card" href="https://www.python.org/" target="_blank">
+    <img src="./assets/static/technologies/python.svg" height="23" alt="Icon du langage Python">
+    Python
+</a>
+```
+
+PyGame
+
+```HTML
+<a class="techno_card" href="https://github.com/pygame/pygame" target="_blank">
+    <img src="./assets/static/technologies/pygame.png" height="23" alt="Icon de la librairie PyGame">
+    PyGame
 </a>
 ```

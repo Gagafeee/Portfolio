@@ -115,6 +115,10 @@
     align-items: center;
 }
 
+#work .container .content > li .card header img {
+    object-fit: contain;
+}
+
 #work .container .content > li .card header > div {
     display: flex;
     align-items: center;
