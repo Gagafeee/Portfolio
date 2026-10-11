@@ -188,22 +188,20 @@
 
 #work .container .content > li .illustration_container {
     width: 40%;
-    object-position: top;
-    object-fit: cover;
 }
 
 #work .container .content > li .illustration_container .illustration {
     width: 100%;
     border-radius: 20px;
     transition: all 0.4s cubic-bezier(.18, .89, .32, 1.28);
-}
-
-#work .container .content > li:not(.extended) .illustration_container {
-    max-height: 700px;
+    object-position: top;
+    object-fit: cover;
 }
 
 #work .container .content > li:not(.extended) .illustration_container .illustration.cover {
     transform: rotate(-4deg);
+    max-height: 700px;
+    overflow: hidden;
 }
 
 #work .container .content > li:not(.extended) .illustration_container .illustration:not(.cover) {
@@ -233,6 +231,7 @@
 
     #work .container .content > li {
         flex-direction: column;
+        align-items: center !important;
         gap: 40px;
     }
 
@@ -246,6 +245,9 @@
 
     #work .container .content > li .illustration_container {
         width: 80%;
+    }
+
+    #work .container .content > li .illustration_container .illustration.cover {
         transform: unset !important;
         max-height: 1000px !important;
     }
