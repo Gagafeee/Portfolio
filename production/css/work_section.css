@@ -201,12 +201,12 @@
 #work .container .content > li:not(.extended) .illustration_container .illustration.cover {
     transform: rotate(-4deg);
     max-height: 700px;
-    overflow: hidden;
 }
 
 #work .container .content > li:not(.extended) .illustration_container .illustration:not(.cover) {
     opacity: 0;
     height: 0;
+    display: none;
 }
 
 #work .container .content > li:not(.extended):nth-child(odd) .illustration_container .illustration.cover {
