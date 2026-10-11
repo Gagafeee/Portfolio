@@ -143,7 +143,9 @@
     align-items: center;
     gap: 10px;
 }
-
+#work .container .content > li .card footer .info_container {
+    gap: 15px;
+}
 #work .container .content > li .card footer .info_container > * {
     display: flex;
     align-items: center;
