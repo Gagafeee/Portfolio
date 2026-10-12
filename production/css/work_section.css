@@ -78,21 +78,21 @@
     gap: 10px;
 }
 
-#work .container .content > li .card .description .extendable {
+#work .container .content > li .card .description .expandable {
     overflow: hidden;
     height: calc-size(auto, size);
     transition: height 0.3s ease;
 }
 
-#work .container .content > li:not(.extended) .card .description .extendable {
+#work .container .content > li:not(.extended) .card .description .expandable {
     height: 0;
 }
 
-#work .container .content > li:not(.extended) .card .description .extendable > * {
+#work .container .content > li:not(.extended) .card .description .expandable > * {
     display: none;
 }
 
-#work .container .content > li .card .description .extendable > * {
+#work .container .content > li .card .description .expandable > * {
     animation: open 0.3s ease;
 }
 
