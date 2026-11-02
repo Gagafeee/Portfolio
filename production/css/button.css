@@ -35,3 +35,7 @@
     border-radius: inherit;
     background: var(--primary-gradient);
 }
+
+.button i {
+    vertical-align: center;
+}
