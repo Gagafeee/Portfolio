@@ -49,7 +49,7 @@
     padding: 100px 0;
 }
 
-#work .container .content > li.extended {
+#work .container .content > li.expanded {
     align-items: flex-start;
 }
 
@@ -67,7 +67,7 @@
     transition: all 0.25s ease;
 }
 
-#work .container .content > li .card .extend_button {
+#work .container .content > li .card .expand_button {
     white-space: nowrap;
     user-select: none;
 }
@@ -84,11 +84,11 @@
     transition: height 0.3s ease;
 }
 
-#work .container .content > li:not(.extended) .card .description .expandable {
+#work .container .content > li:not(.expanded) .card .description .expandable {
     height: 0;
 }
 
-#work .container .content > li:not(.extended) .card .description .expandable > * {
+#work .container .content > li:not(.expanded) .card .description .expandable > * {
     display: none;
 }
 
@@ -136,7 +136,18 @@
 #work .container .content > li .card header > div {
     display: flex;
     align-items: center;
-    gap: 10px;
+    column-gap: 10px;
+    row-gap: 0;
+}
+
+#work .container .content > li .card header > div.vertical {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#work .container .content > li .card header > div.vertical .description {
+    color: var(--text-secondary);
 }
 
 #work .container .content > li .card .share_button {
@@ -198,18 +209,18 @@
     object-fit: cover;
 }
 
-#work .container .content > li:not(.extended) .illustration_container .illustration.cover {
+#work .container .content > li:not(.expanded) .illustration_container .illustration.cover {
     transform: rotate(-4deg);
     max-height: 700px;
 }
 
-#work .container .content > li:not(.extended) .illustration_container .illustration:not(.cover) {
+#work .container .content > li:not(.expanded) .illustration_container .illustration:not(.cover) {
     opacity: 0;
     height: 0;
     display: none;
 }
 
-#work .container .content > li:not(.extended):nth-child(odd) .illustration_container .illustration.cover {
+#work .container .content > li:not(.expanded):nth-child(odd) .illustration_container .illustration.cover {
     transform: rotate(4deg);
 }
 

@@ -17,7 +17,7 @@
             </div>
         </header>
         <div class="description">
-            <p>Lorem ipsum dolor sit amet <a class="extend_button">Voir plus</a></p>
+            <p>Lorem ipsum dolor sit amet <a class="expand_button">Voir plus</a></p>
             <div class="expandable">
                 <h3>Title : </h3>
             </div>

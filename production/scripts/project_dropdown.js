@@ -1,5 +1,5 @@
 "use strict";
-const extendButtonLocator = ".card .extend_button";
+const expandButtonLocator = ".card .expand_button";
 const projectContainerLocator = "#work ol";
 const projectContainer = document.querySelector(projectContainerLocator);
 if (projectContainer == null)
@@ -16,50 +16,50 @@ class ProjectDropdownController {
         if (pointIndicator == null)
             throw new Error("[Project Dropdown Controller]: Cannot resolve the corresponding indicator in sidebar.");
         this.indicator = pointIndicator;
-        const extendButton = this.element.querySelector(extendButtonLocator);
-        if (extendButton == null) {
+        const expandButton = this.element.querySelector(expandButtonLocator);
+        if (expandButton == null) {
             console.error("Element: ", this.element);
-            throw new Error("[Project Dropdown Controller]: Cannot resolve the extend-button in the project element.");
+            throw new Error("[Project Dropdown Controller]: Cannot resolve the expand-button in the project element.");
         }
         const action = () => {
             projectControllerList[this.index].invertState();
         };
-        extendButton.addEventListener("click", action);
-        extendButton.addEventListener("keydown", (event) => {
+        expandButton.addEventListener("click", action);
+        expandButton.addEventListener("keydown", (event) => {
             const code = event.code;
             if (code === "Enter" || code === "NumpadEnter")
                 action();
         });
-        this.extendButton = extendButton;
+        this.expandButton = expandButton;
         const url = document.URL;
         const projectIdentifier = url.split(/#(project_\S*)$/)[1];
         if (projectIdentifier && projectIdentifier === this.element.id)
-            this.extend();
+            this.expand();
     }
     invertState() {
-        if (this.isExtended())
+        if (this.isExpanded())
             this.collapse();
         else {
-            this.extend();
+            this.expand();
             this.scrollToElement();
         }
     }
-    extend() {
+    expand() {
         this.closeOthers();
-        this.element.classList.add("extended");
-        this.extendButton.innerHTML = "Voir moins";
+        this.element.classList.add("expanded");
+        this.expandButton.innerHTML = "Voir moins";
         this.indicator.classList.add("active");
     }
     collapse() {
-        this.element.classList.remove("extended");
-        this.extendButton.innerHTML = "Voir plus";
+        this.element.classList.remove("expanded");
+        this.expandButton.innerHTML = "Voir plus";
         this.indicator.classList.remove("active");
     }
     scrollToElement() {
         this.element.scrollIntoView();
     }
-    isExtended() {
-        return this.element.className.includes("extended");
+    isExpanded() {
+        return this.element.className.includes("expanded");
     }
     closeOthers() {
         projectControllerList.forEach(controller => {

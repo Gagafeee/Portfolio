@@ -1,4 +1,4 @@
-const extendButtonLocator = ".card .extend_button";
+const expandButtonLocator = ".card .expand_button";
 
 const projectContainerLocator = "#work ol";
 const projectContainer = document.querySelector(projectContainerLocator);
@@ -11,7 +11,7 @@ class ProjectDropdownController {
     element!: Element;
     indicator!: Element;
     index!: number;
-    extendButton!: Element;
+    expandButton!: Element;
 
     constructor(element: Element, index: number) {
         this.element = element;
@@ -22,45 +22,45 @@ class ProjectDropdownController {
         this.indicator = pointIndicator;
 
         //Register event button
-        const extendButton = this.element.querySelector(extendButtonLocator);
-        if (extendButton == null) {
+        const expandButton = this.element.querySelector(expandButtonLocator);
+        if (expandButton == null) {
             console.error("Element: ", this.element);
-            throw new Error("[Project Dropdown Controller]: Cannot resolve the extend-button in the project element.")
+            throw new Error("[Project Dropdown Controller]: Cannot resolve the expand-button in the project element.")
         }
         const action = () => {
             projectControllerList[this.index].invertState()
         }
-        extendButton.addEventListener("click", action)
-        extendButton.addEventListener("keydown", (event: Event) => {
+        expandButton.addEventListener("click", action)
+        expandButton.addEventListener("keydown", (event: Event) => {
             const code = (event as KeyboardEvent).code;
             if (code === "Enter" || code === "NumpadEnter") action()
         })
-        this.extendButton = extendButton;
+        this.expandButton = expandButton;
 
-        //Auto extends if the page has loaded with the corresponding anchor.
+        //Auto expands if the page has loaded with the corresponding anchor.
         const url = document.URL;
         const projectIdentifier = url.split(/#(project_\S*)$/)[1];
-        if (projectIdentifier && projectIdentifier === this.element.id) this.extend();
+        if (projectIdentifier && projectIdentifier === this.element.id) this.expand();
     }
 
     public invertState() {
-        if (this.isExtended()) this.collapse()
+        if (this.isExpanded()) this.collapse()
         else {
-            this.extend();
+            this.expand();
             this.scrollToElement();
         }
     }
 
-    public extend() {
+    public expand() {
         this.closeOthers()
-        this.element.classList.add("extended");
-        this.extendButton.innerHTML = "Voir moins";
+        this.element.classList.add("expanded");
+        this.expandButton.innerHTML = "Voir moins";
         this.indicator.classList.add("active");
     }
 
     public collapse() {
-        this.element.classList.remove("extended")
-        this.extendButton.innerHTML = "Voir plus";
+        this.element.classList.remove("expanded")
+        this.expandButton.innerHTML = "Voir plus";
         this.indicator.classList.remove("active");
     }
 
@@ -68,8 +68,8 @@ class ProjectDropdownController {
         this.element.scrollIntoView()
     }
 
-    private isExtended(): boolean {
-        return this.element.className.includes("extended");
+    private isExpanded(): boolean {
+        return this.element.className.includes("expanded");
     }
 
     private closeOthers() {
